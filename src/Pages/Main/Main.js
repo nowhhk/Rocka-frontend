@@ -1,11 +1,15 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import Nav from "../../../Component/Nav/Nav";
 
 class Main extends Component {
-    render() {
-      return (
-        <div>안녕</div>
-      );
-    }
+  render() {
+    return (
+      <>
+        하이
+        <Nav />
+      </>
+    );
   }
+}
 
 export default Main;
