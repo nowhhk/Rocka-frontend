@@ -1,0 +1,21 @@
+@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+$leastFontSize: 16px;
+$secondSmallestFontSize: 18px;
+$littleSmaller: 20px;
+$defalutFontSize: 24px;
+$littleBigFontSize: 28px;
+$middleFontSize: 32px;
+$middleBigFontSize: 40px;
+$biggerFontSize: 76px;
+
+$thinweight: 300;
+$regularweight: 400;
+$middleweight: 500;
+$blodweight: 700;
+
+body { 
+    font-family: 'Montserrat', 'NanumBarunGothic', sans-serif; 
+    font-size: $leastFontSize;
+}

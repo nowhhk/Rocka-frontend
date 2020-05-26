@@ -1,0 +1,68 @@
+@import '../../Styles/common.scss';
+// $littleSmaller: 20px;
+// $middleBigFontSize: 32px;
+// $blodweight: 700;
+
+.SignIn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    .SignInBox{
+        width: 50%;
+       h1{
+           font-size: $middleBigFontSize;
+           font-weight: $blodweight;
+       } 
+       .SignInText{
+            font-size: $littleSmaller;
+            margin: 2rem 0rem 4rem 0rem;
+            line-height: 1.4rem;
+       }
+       table{
+        width: 100%;
+           tbody{
+               tr{
+                   th{
+                       text-align: left;
+                   }
+                   td{
+                       input{
+                           width: 100%;
+                           padding-bottom: 1rem;
+                           border: 0;
+                           border-bottom: 1px solid #ccc;
+                           margin-bottom: 3rem;
+                           //font-size수정
+                       }
+                   }
+               }
+           }
+
+       }
+       .SignInBtn{
+            width: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            span{
+                color: white;
+                font-weight: $blodweight;
+            }
+       }
+       .SignInEtc{
+           display: flex;
+           justify-content: space-between;
+           margin: 1.3rem 0rem;
+           .searchAccount{
+               .searchID{
+                   margin-right: 1.3rem;
+               }
+           }
+       }
+    }
+}
+
