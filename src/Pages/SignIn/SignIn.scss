@@ -1,7 +1,4 @@
 @import '../../Styles/common.scss';
-// $littleSmaller: 20px;
-// $middleBigFontSize: 32px;
-// $blodweight: 700;
 
 .SignIn{
     display: flex;
@@ -10,9 +7,10 @@
     justify-content: center;
     height: 100vh;
     .SignInBox{
-        width: 50%;
+        width: 37%;
+        max-width: 530px;
        h1{
-           font-size: $middleBigFontSize;
+           font-size: $littleBigFontSize;
            font-weight: $blodweight;
        } 
        .SignInText{
@@ -26,6 +24,7 @@
                tr{
                    th{
                        text-align: left;
+                       width: 20%;
                    }
                    td{
                        input{
