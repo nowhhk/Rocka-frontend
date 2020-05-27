@@ -11,37 +11,42 @@ class Item extends Component {
     };
   }
 
-  // handleOver = (e) => {
-  //   this.setState({ mouseOver: true });
-  // };
+  handleOver = () => {
+    this.setState({ mouseOver: true }, () => console.log(this.state));
+  };
 
-  // handleOut = (e) => {
-  //   this.setState({ mouseOver: false }, () => console.log(this.state));
-  // };
+  handleOut = () => {
+    this.setState({ mouseOver: false }, () => console.log(this.state));
+  };
 
   render() {
-    return (
-      <li>
-        <div
-          className="front"
-          onMouseOver={this.handleOver}
-          onMouseOut={this.handleOut}
-        >
-          <img src={`${this.props.img[0]}`} alt="" />
-        </div>
+    const { mouseOver } = this.state;
+    const { name, desc, color, img, price } = this.props;
 
-        <div className="back">
-          <img src={`${this.props.img[1]}`} alt="" />
-          <div className="item">
+    return (
+      <div
+        className="item"
+        onMouseOver={this.handleOver}
+        onMouseOut={this.handleOut}
+      >
+        {mouseOver ? (
+          <div className="back">
+            <img src={`${img[1]}`} alt="" />
             <div className="item-info">
-              <p>{this.props.name}</p>
-              <p> {this.props.desc}</p>
-              <p>{this.props.color}</p>
+              <div className="item-desc">
+                <p>{name}</p>
+                <p> {desc}</p>
+                <p>{color}</p>
+              </div>
+              <div className="item-price">{price}</div>
             </div>
-            <div className="item-price">{this.props.price}</div>
           </div>
-        </div>
-      </li>
+        ) : (
+          <div className="front">
+            <img src={`${img[0]}`} alt="" />
+          </div>
+        )}
+      </div>
     );
   }
 }
