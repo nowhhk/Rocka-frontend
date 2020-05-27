@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "category": "LIP",
+      "name": "워터리 쉬어 립스틱",
+      "price": 18000,
+      "desc": "촉촉하게 빛나는 #물빛입술",
+      "color": ["빨", "주"],
+      "img": [
+        "https://laka.co.kr/web/product/medium/20200405/ae6730448aa6702be6503b190988845d.png",
+        "https://laka.co.kr/web/product/small/20200405/fbad5df6ed4b7f72c54411947ca8d5b7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "EYE",
+      "name": "저스트 아이팔레트",
+      "price": 10000,
+      "desc": "심플하지만 완벽한 하모니",
+      "color": ["파", "주", "노", "초"],
+      "img": [
+        "https://laka.co.kr/web/product/medium/20200405/87a0afc37c41b1237278a1428cd66cd2.png",
+        "https://laka.co.kr/web/product/small/20200405/3ee2a57f69e37580808ab8a37113dc08.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "EYE",
+      "name": "저스트 아이섀도우",
+      "price": 10000,
+      "desc": "심플하지만 완벽한 하모니",
+      "color": ["빨", "주", "초"],
+      "img": [
+        "https://laka.co.kr/web/product/medium/20200405/d491bc79f4c7d57baaabe9a17957fe1c.png",
+        "https://laka.co.kr/web/product/medium/20200405/e99b9cb9765681eb2c7a9896a59daaa6.png"
+      ]
+    }
+  ]
+}
