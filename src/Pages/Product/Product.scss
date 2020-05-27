@@ -1,0 +1,28 @@
+.product-page {
+  padding: 2.5em;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+
+    .nav_container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sort_container ul {
+      display: flex;
+    }
+  }
+}
+
+.nav_container > .nav:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav_container > .nav > ul {
+  opacity: 0;
+  visibility: hidden;
+}
