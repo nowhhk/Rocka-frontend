@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./Pages/Main/Main";
 import SignUp from "./Pages/SignUp/SignUp";
-import SignIn from "../Pages/SignIn/SignIn";
+import SignIn from "./Pages/SignIn/SignIn";
 import Product from "./Pages/Product/Product";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 // import Store from "../Pages/Store/Store"
