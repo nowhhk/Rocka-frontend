@@ -1,0 +1,16 @@
+// .front {
+//   position: relative;
+//   opacity: 1;
+// }
+
+// .back {
+//   position: absolute;
+//   top: 0px;
+//   opacity: 0;
+//   transition: all 0.3s ease-in-out;
+// }
+
+// .front:hover ~ .back {
+//   z-index: 1;
+//   opacity: 1;
+// }

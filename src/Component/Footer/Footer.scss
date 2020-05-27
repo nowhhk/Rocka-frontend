@@ -1,0 +1,50 @@
+.footer {
+  width: 100%;
+  background-color: #000000;
+  padding: 2.5em;
+  color: white;
+
+  .row {
+    padding: 50px 40px;
+
+    .logo {
+      margin-bottom: 160px;
+    }
+    .box-container {
+      display: flex;
+      .box {
+        display: flex;
+        flex-direction: column;
+        margin-left: 60%;
+
+        .link {
+          display: flex;
+          flex-direction: column;
+          font-size: 120px;
+          text-decoration: none;
+          margin-bottom: 80px;
+        }
+        .social {
+          ul {
+            display: flex;
+            justify-content: space-between;
+            p {
+              padding: 0 0 20px;
+            }
+            li {
+              padding: 0 0 7px;
+            }
+            ul {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
+  }
+  .row-bottom {
+    display: flex;
+    padding: 50px 40px;
+  }
+}
