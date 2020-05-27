@@ -1,0 +1,158 @@
+@import "../../Styles/common.scss";
+
+.SignUp{
+    padding: 0rem 2.5rem;
+    h1{
+      font-size: $middleFontSize;
+      font-weight: $blodweight;
+    }
+    .SignUpAgree{
+        input{
+        }
+        .allAgree{
+            font-size: $littleSmaller;
+            font-weight: $blodweight;
+        }
+    }
+    section{
+        .termsOfService{
+            .termsOfServiceTop{
+                display: flex;
+                justify-content: space-between;
+                margin: 3.5rem 0rem 2rem;
+                .termsOfServiceTitle{
+                   .termsOfServiceText{
+                    font-size: $secondSmallestFontSize;
+                    font-weight: $blodweight;
+                   }
+                }
+            }
+            .termsOfServiceScrollBox{
+                width: 100%;
+                background-color: #F7F7F7;
+                height: 14.38rem;
+            }
+        }
+    }
+    .certification{
+        margin: 4rem 0rem;
+        h3{
+            font-size: $secondSmallestFontSize;
+            font-weight: $blodweight;
+            margin-bottom: 1.5rem;
+        }
+        .certificationText{
+            font-size: .85rem;
+        }
+        .certificationBox{
+            margin-top: 3rem;
+            padding: 1.3rem;
+            width: 30%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-weight: $blodweight;
+            font-size: $secondSmallestFontSize;
+        }
+    }
+    .loginInfo{
+        table{
+            width: 100%;
+            margin-top: 3rem;
+            tbody{
+                tr{
+                    th{
+                        text-align: left;
+                        width: 15%;
+                    }
+                    td{
+                        input{
+                            display: block;
+                            width: 100%;
+                            padding-bottom: 1rem;
+                            border: 0;
+                            border-bottom: 1px solid #ccc;
+                            margin-bottom: 3rem;
+                        }
+                        .pwArticle{}
+                    }
+                }
+                
+            }
+        }
+    }
+    .userInfo{
+        table{
+            width: 100%;
+            margin-top: 3rem;
+            tbody{
+                tr{
+                    th{
+                        text-align: left;
+                        width: 15%;
+                    }
+                    td{
+                        .userInfoInputBox{
+                            display: block;
+                            width: 100%;
+                            padding-bottom: 1rem;
+                            border: 0;
+                            border-bottom: 1px solid #ccc;
+                            margin-bottom: 3rem;
+                        }
+                        ul{
+                            .addressList{
+                                position: relative;
+                                div{
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                }
+                            }
+                        }
+                    }
+                    .userInfoContact{
+                        display: flex;
+                        justify-content: space-between;
+                        select{
+                            display: block;
+                            width: 100%;
+                            padding-bottom: 1rem;
+                            border: 0;
+                            border-bottom: 1px solid #ccc;
+                            margin-bottom: 3rem;
+                        }
+                    }
+                    .genderBox{
+                        ul{
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    .SignUpBtn{
+        margin-top: 3rem;
+        padding: 1.3rem;
+        width: 30%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-weight: $blodweight;
+        font-size: $secondSmallestFontSize;
+    }
+}
+
+//공통적인 것
+.borderBottem{
+    font-size: $defalutFontSize;
+    font-weight: $blodweight;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid black;
+}
+.termsOfServiceDot{
+    font-size: $secondSmallestFontSize;
+    font-weight: $blodweight;
+}

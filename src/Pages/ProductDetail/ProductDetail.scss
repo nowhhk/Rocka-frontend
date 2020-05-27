@@ -1,0 +1,31 @@
+@import "../../Styles/common.scss";
+
+.ProductDetail{
+    main{
+        .mainLeft{
+            .mainLeftTitle{
+                h1{
+                    font-size: $defalutFontSize;
+                }
+                span{}
+                .price{}
+            }
+            .mainLeftColor{
+                .deliveryDay{}
+                .deliveryPrice{}
+            }
+            .mainLeftsaveOption{}
+            .mainLeftTotal{
+                span{}
+                .price{}
+            }
+            .mainLeftPurchase{
+                .basket{}
+                .purchase{}
+            }
+        }
+        .mainCenter{
+
+        }
+    }
+}
