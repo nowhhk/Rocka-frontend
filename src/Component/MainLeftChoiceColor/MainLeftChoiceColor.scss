@@ -1,0 +1,15 @@
+.MainLeftChoiceColor{
+    width: 65%;
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        li{ 
+            margin-right: .5rem;
+            .colorchart{
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+            }
+        }
+    }
+}
