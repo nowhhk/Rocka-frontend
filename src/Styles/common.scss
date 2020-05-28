@@ -19,3 +19,12 @@ body {
     font-family: 'Montserrat', 'NanumBarunGothic', sans-serif; 
     font-size: $leastFontSize;
 }
+
+input:focus{
+    outline: 0;
+}
+
+
+select:focus{
+    outline: 0;
+}
