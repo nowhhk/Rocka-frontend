@@ -16,8 +16,20 @@ class ProductList extends Component {
         />
       );
     });
-    console.log(this.props.data);
-    return <div>{map}</div>;
+    // console.log(this.props.data);
+    return (
+      <ul
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+          minWidth: "1280px",
+          marginTop: "1em",
+        }}
+      >
+        {map}
+      </ul>
+    );
   }
 }
 
