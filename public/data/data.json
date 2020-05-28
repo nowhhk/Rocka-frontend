@@ -33,7 +33,19 @@
       "color": ["빨", "주", "초"],
       "img": [
         "https://laka.co.kr/web/product/medium/20200405/d491bc79f4c7d57baaabe9a17957fe1c.png",
-        "https://laka.co.kr/web/product/medium/20200405/e99b9cb9765681eb2c7a9896a59daaa6.png"
+        "https://laka.co.kr/web/product/small/20200405/b2912511f6b5e13df3fb045635c1c99d.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "EYE",
+      "name": "저스트 아이섀도우",
+      "price": 10000,
+      "desc": "심플하지만 완벽한 하모니",
+      "color": ["빨", "주", "초"],
+      "img": [
+        "https://laka.co.kr/web/product/medium/20200405/d491bc79f4c7d57baaabe9a17957fe1c.png",
+        "https://laka.co.kr/web/product/small/20200405/b2912511f6b5e13df3fb045635c1c99d.jpg"
       ]
     }
   ]

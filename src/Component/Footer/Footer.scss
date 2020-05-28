@@ -1,8 +1,10 @@
 .footer {
+  min-width: 1280px;
   width: 100%;
   background-color: #000000;
   padding: 2.5em;
   color: white;
+  z-index: 2;
 
   .row {
     padding: 50px 40px;
@@ -15,7 +17,7 @@
       .box {
         display: flex;
         flex-direction: column;
-        margin-left: 60%;
+        margin-left: 50%;
 
         .link {
           display: flex;

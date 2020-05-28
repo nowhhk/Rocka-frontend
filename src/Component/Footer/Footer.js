@@ -12,7 +12,7 @@ class Footer extends Component {
             <div className="box">
               <div className="link">
                 <p>PRODUCT</p>
-                <p>SRORY</p>
+                <p>STORY</p>
                 <p>STORE</p>
               </div>
               <div className="social">
