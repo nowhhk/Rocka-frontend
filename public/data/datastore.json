@@ -1,0 +1,31 @@
+{
+  "stores": [
+    {
+      "no": 1,
+      "type": "올리브영",
+      "name": "강남우성점",
+      "tel": "02-101-1011",
+      "address": "서울특별시 강남구 강남대로",
+      "weekday": "08:00~22:30",
+      "map": "https://map.kakao.com/?map_type=TYPE_MAP&itemId=13033019"
+    },
+    {
+      "no": 2,
+      "type": "올리브영",
+      "name": "대구점",
+      "tel": "051-101-1011",
+      "address": "대구시 강남구 강남대로",
+      "weekday": "08:00~22:30",
+      "map": "https://map.kakao.com/?map_type=TYPE_MAP&itemId=13033019"
+    },
+    {
+      "no": 3,
+      "type": "올리브영",
+      "name": "인천점",
+      "tel": "032-101-1011",
+      "address": "인천시 강남구 강남대로",
+      "weekday": "08:00~22:30",
+      "map": "https://map.kakao.com/?map_type=TYPE_MAP&itemId=13033019"
+    }
+  ]
+}
