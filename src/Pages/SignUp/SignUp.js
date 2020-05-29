@@ -15,17 +15,43 @@ class SignUp extends Component {
       contactTwo: "",
       contactThree: "",
       contactArr: [],
+      idMessage: false,
+      pwMessage: false,
+      genders: [
+        { id: 1, value: "남성", isChecked: false },
+        { id: 2, value: "여성", isChecked: false },
+      ]
     }
   }
 
-  handleInput = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  pwCorrect = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    // if (this.state.pwConformLength === this.state.pwLength && this.state.pw !== this.state.pwConform) {
+    //   console.log("해결")
+    //   this.setState({
+    //     pwMessage: true
+    //   })
+    // }
+    if (this.state.pw !== e.target.value) {
+      this.setState({ pwMessage: true })
+    } else this.setState({ pwMessage: false })
   }
 
-  optionChanged = (e) => {
+  handleInput = (e) => {
     this.setState({
-      optionVal: e.target.value
+      [e.target.name]: e.target.value,
     });
+  }
+
+  idInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    if (this.state.id.length > 5) {
+      this.setState({
+        idMessage: true,
+      })
+    }
   }
 
   phoenNumber = (e) => {
@@ -47,7 +73,43 @@ class SignUp extends Component {
     return
   };
 
+
+
+  // genderCheck = (e) => {
+  //   console.log("이벤트")
+  //   if (this.state.selectedGender === this.state.selectedGenderFe) {
+  //     this.setState({
+  //       selectedGender: true
+  //     })
+  //   } else if (this.state.selectedGender === true) {
+  //     this.setState({
+  //       selectedGenderFe: true,
+  //       selectedGender: false
+  //     })
+  //   } else if (this.state.selectedGenderFe === true) {
+  //     this.setState({
+  //       selectedGender: true,
+  //       selectedGenderFe: false,
+  //     })
+  //   }
+  // }
+
+  genderCheck = (e) => {
+    // console.log("이벤트")
+    let genders = this.state.genders
+    genders.forEach(gender => {
+      if (gender.value === e.target.value) {
+        gender.isChecked = e.target.checked
+        // console.log("check 확인", e.target.value)
+      }
+    })
+    this.setState({
+      genders: genders
+    })
+  }
+
   render() {
+    const { idMessage, pwMessage } = this.state
     return (
       <div className="SignUp">
         <h1>회원가입</h1>
@@ -167,8 +229,8 @@ class SignUp extends Component {
               <tr>
                 <th>아이디<span className="termsOfServiceDot">•</span></th>
                 <td>
-                  <input type="text" name="id" onChange={this.handleInput} />
-                  <span class="warningMessage">는 사용 가능한 아이디입니다.</span>
+                  <input type="text" name="id" onChange={this.idInput} />
+                  <span class="warningMessage" style={{ display: idMessage ? 'block' : 'none' }}>{this.state.id}는 사용 가능한 아이디입니다.</span>
                 </td>
               </tr>
               <tr>
@@ -185,8 +247,8 @@ class SignUp extends Component {
               <tr>
                 <th>비밀번호 확인<span className="termsOfServiceDot">•</span></th>
                 <td>
-                  <input type="text" name="pwConform" onChange={this.handleInput} />
-                  <span className="warningMessage">비밀번호가 일치하지 않습니다.</span>
+                  <input type="text" name="pwConform" onChange={this.pwCorrect} />
+                  <span className="warningMessage" style={{ display: pwMessage ? 'block' : 'none' }}>비밀번호가 일치하지 않습니다.</span>
                 </td>
               </tr>
             </tbody>
@@ -217,7 +279,7 @@ class SignUp extends Component {
                   </select>
                   <span className="contactLine">-</span><input type="text" className="userInfoInputBox" name="contactTwo" onChange={this.handleInput} /><span className="contactLine">-</span><input type="text" className="userInfoInputBox" name="contactThree" onChange={this.handleInput} />
                 </td>
-                <div class="warningMessage">휴대폰 번호를 입력하세요.</div>
+                <div class="warningMessage" hide={idMessage} style={{ display: idMessage ? 'block' : 'none' }}>휴대폰 번호를 입력하세요.</div>
               </tr>
               <tr>
                 <th>주소</th>
@@ -233,8 +295,17 @@ class SignUp extends Component {
                 <th>젠더<span className="termsOfServiceDot">•</span></th>
                 <td class="genderBox">
                   <ul>
-                    <li><input type="checkbox" />남성</li>
-                    <li><input type="checkbox" />여성</li>
+                    {/* <li><input type="checkbox" onChange={this.genderCheck} checked={this.state.selectedGender} />남성</li>
+                    <li><input type="checkbox" onChange={this.genderCheck} checked={this.state.selectedGenderFe} />여성</li> */}
+                    {
+                      this.state.genders.map((gender) => {
+                        return (
+                          <li>
+                            <input type="checkbox" onChange={this.genderCheck} checked={gender.isChecked} value={gender.value} key={gender.id} {...gender} />
+                            {gender.value}
+                          </li>)
+                      })
+                    }
                   </ul>
                   <span className="signUpGender">• 라카는 브랜드가 나아가고 있는 현재를 더욱 잘 이해하기 위해 회원님들의 젠더 정보를 확인하고 있습니다.</span>
                 </td>

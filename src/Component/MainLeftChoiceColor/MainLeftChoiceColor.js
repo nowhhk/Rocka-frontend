@@ -6,18 +6,24 @@ class MainLeftChoiceColor extends Component {
         super(props);
 
         this.state = ({
-            Color: this.props.productColor
+            Color: this.props.productColor,
+            hello: this.props.cup
         })
     }
 
     render() {
-        console.log(this.state.Color)
+        // console.log("props", this.props.cup);
+        // console.log(this.state.Color)
+        const { cup } = this.props;
         const colorArr = this.state.Color.map((m, idx) => {
             return <li className="colorchart" key={idx}>{m}</li>
         });
 
         return (
-            <div className="MainLeftChoiceColor">
+            <div
+                className="MainLeftChoiceColor"
+                style={{ display: cup ? 'block' : 'none' }}>
+                {/* style={{this.state.hello f? {{display: 'block'}} : {{display: 'none'}}}} */}
                 <ul>
                     {colorArr}
                 </ul>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MainLeftChoiceColor from "../MainLeftChoiceColor/MainLeftChoiceColor"
+import ProductDetailWish from "../ProductDetailWish/ProductDetailWish"
 import "./ProductDetailTop.scss"
-
 
 class ProductDetailTop extends Component {
     constructor() {
@@ -19,6 +19,7 @@ class ProductDetailTop extends Component {
                 "마우스",
                 "키보드"
             ],
+            hi: false,
         };
     }
 
@@ -29,16 +30,24 @@ class ProductDetailTop extends Component {
             .then(response => this.setState({ data: response.data }))
     }
 
+    clickCircle = () => {
+        console.log("클릭 이벤트 정상작동")
+        this.setState({
+            hi: true
+        })
+    }
+
     render() {
+        const { data, color, hi } = this.state;
         console.log("state", this.state.data)
         return (
             <div className="ProductDetail">
                 <main>
                     <div className="mainLeft">
                         <div className="mainLeftTitle">
-                            <h1>{this.state.data[0] && this.state.data[0].productName}</h1>
-                            <span>{this.state.data[0] && this.state.data[0].info}</span>
-                            <span className="price">KRW {this.state.data[0] && this.state.data[0].price}</span>
+                            <h1>{data[0] && data[0].productName}</h1>
+                            <span>{data[0] && data[0].info}</span>
+                            <span className="price">KRW {data[0] && data[0].price}</span>
                         </div>
                         <div className="delivery">
                             <div className="deliveryDay">
@@ -51,7 +60,7 @@ class ProductDetailTop extends Component {
                             </div>
                         </div>
                         <div className="mainLeftsaveOption">
-                            <div className="clickCircle">
+                            <div className="clickCircle" onClick={this.clickCircle}>
                                 <div className="clickColor">
                                     <div className="plusColor">
                                         <span>COLOR</span>
@@ -59,8 +68,9 @@ class ProductDetailTop extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <MainLeftChoiceColor className="mainLeftOption" productColor={this.state.color} />
+                            <MainLeftChoiceColor productColor={color} cup={hi} />
                         </div>
+                        <ProductDetailWish productColor={color} />
                         <div className="mainLeftTotal">
                             <span>TOTAL</span>
                             <span className="price">KRW 18,000</span>
