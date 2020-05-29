@@ -15,8 +15,20 @@ class Nav extends Component {
             >
               PRODUCT
             </span>
-            <span>STORY</span>
-            <span>STORE</span>
+            <span
+              onClick={(e) => {
+                this.props.history.push("/store");
+              }}
+            >
+              STORY
+            </span>
+            <span
+              onClick={(e) => {
+                this.props.history.push("/store");
+              }}
+            >
+              STORE
+            </span>
           </div>
           <h1 className="logo">
             <span
