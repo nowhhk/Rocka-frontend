@@ -13,11 +13,10 @@
     .SignUpAgree{
         .allAgreeCheckbox{
             margin-top: 2em;
+            display: flex;
             .allAgree{
                 font-size: $littleSmaller;
-                font-weight: $blodweight;
-                margin-top: 1em;
-            }
+                font-weight: $blodweight;            }
         }
     }
     section{
@@ -228,6 +227,54 @@ input{
     margin-top: .4rem;
 }
 
-.checkbox{
-    margin-right: .5em;
+.checkbox-label{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .checkbox{
+        margin-right: 1.2em;
+        opacity: 0;
+        //요소는 보이지 않지면 이벤트 리스너를 작동하기 위해 none보다 opaci
+    }
+    .checkbox-custom{
+        margin-right: 1em;
+        position: absolute;
+        top: -3px;
+        left: 0;
+        width: 27px;
+        height: 27px;
+        border-radius: 100%;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+    // .checkbox-custom::after{
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 27px;
+    //     height: 27px;
+    //     border-radius: 100%;
+    //     background-color: black;
+    //     border: 2px solid black;
+    //     -webkit-transform: rotate(45deg) scale(1);
+    //     -ms-transform: rotate(45deg) scale(1);
+    //     transform: rotate(45deg) scale(1);
+    // }
+    [type=checkbox]:checked + span:before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: 27px;
+        height: 27px;
+        border-radius: 100%;
+        color: white;
+        background: black;
+        text-align: center;
+        display: inline-block;
+        vertical-align: text-top;
+    }
 }
+
+
