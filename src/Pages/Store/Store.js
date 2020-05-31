@@ -10,6 +10,7 @@ class Store extends Component {
     super();
     this.state = {
       stores: [],
+      name: ""
     };
   }
 
@@ -17,6 +18,12 @@ class Store extends Component {
     fetch("/data/datastore.json")
       .then((res) => res.json())
       .then((res) => this.setState({ stores: res.stores }));
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   render() {
@@ -28,8 +35,10 @@ class Store extends Component {
             src="https://laka.co.kr/laka_skin/images/pc/store_visual.jpg"
             alt=""
           />
-          <Search stores={this.state.stores} />
-          <StoreList stores={this.state.stores} />
+          <div className="storeBox">
+            <Search stores={this.state.stores} onChange={this.handleChange} />
+            <StoreList stores={this.state.stores} name={this.state.name} />
+          </div>
         </div>
         <Footer />
       </div>
