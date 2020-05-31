@@ -5,7 +5,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
 import Product from "./Pages/Product/Product";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
-// import Store from "../Pages/Store/Store"
+import Store from "./Pages/Store/Store"
 // import MyPage from "../Pages/MyPage/MyPage"
 import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart"
 
@@ -19,8 +19,8 @@ class Routes extends Component {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/product" component={Product} />
           <Route exact path="/ProductDetail" component={ProductDetail} />
-          {/* <Route exact path="/store" component={Store} />
-          <Route exact path="/mypage" component={MyPage} /> */}
+          <Route exact path="/store" component={Store} />
+          {/* <Route exact path="/mypage" component={MyPage} /> */}
           <Route exact path="/cart" component={ShoppingCart} />
         </Switch>
       </Router>
