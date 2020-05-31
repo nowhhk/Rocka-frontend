@@ -12,11 +12,11 @@ class Item extends Component {
   }
 
   handleOver = () => {
-    this.setState({ mouseOver: true }, () => console.log(this.state));
+    this.setState({ mouseOver: true });
   };
 
   handleOut = () => {
-    this.setState({ mouseOver: false }, () => console.log(this.state));
+    this.setState({ mouseOver: false });
   };
 
   render() {
@@ -32,7 +32,7 @@ class Item extends Component {
         >
           {mouseOver ? (
             <div className="back">
-              <img src={`${img[1]}`} alt="" />
+              <img className="product-img" src={`${img[1]}`} alt="" />
               <div className="item-info">
                 <div className="item-desc">
                   <p className="title">{name}</p>
