@@ -1,10 +1,42 @@
+@import "../../Styles/common.scss";
+
+.items {
+  margin-bottom: 2em;
+  width: 32%;
+}
 .item {
-  width: 40%;
+  position: relative;
+  width: 100%;
 
   img {
     width: 100%;
   }
-
-  .item-info {
+  .front {
+    img {
+      background-color: #e4e4e4;
+    }
+  }
+  .back {
+    .item-info {
+      background-color: white;
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      padding: 0.5em 0 0.2em 0;
+      display: flex;
+      justify-content: space-between;
+      // align-content: flex-start;
+      p {
+        margin-top: 0.5em;
+      }
+      .title {
+        font-size: $defalutFontSize;
+        font-weight: $blodweight;
+      }
+      .price {
+        font-size: $defalutFontSize;
+        font-weight: $middleweight;
+      }
+    }
   }
 }

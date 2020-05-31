@@ -5,7 +5,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
 import Product from "./Pages/Product/Product";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
-import Store from "./Pages/Store/Store"
+import Store from "./Pages/Store/Store";
 // import MyPage from "../Pages/MyPage/MyPage"
 import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart"
 

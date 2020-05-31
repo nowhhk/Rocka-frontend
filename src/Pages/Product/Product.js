@@ -4,13 +4,14 @@ import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
 import ProductList from "./ProductList";
 import "./Product.scss";
+import Category from "./Category";
 
 class Product extends Component {
   constructor() {
     super();
     this.state = {
       data: [],
-      category: "",
+      clickedCategory: "",
     };
   }
 
@@ -24,42 +25,23 @@ class Product extends Component {
       );
   }
 
+  handleClicked = (category) => {
+    console.log("category는 : ", category);
+    this.setState({ clickedCategory: category });
+  };
+
   render() {
+    const filtering = this.state.data.filter((item) =>
+      item.category.match(this.state.clickedCategory)
+    );
+
     return (
-      <div>
+      <div className="wrapper">
         <Nav />
         <div className="product-page">
           <div className="top">
             <div className="nav_container">
-              <div className="nav">
-                ALL
-                <ul>
-                  <li>
-                    ALL <span className="count"> 19 </span>
-                  </li>
-                  <li>
-                    FACE <span className="count"> 19 </span>
-                  </li>
-                  <li>
-                    LIP <span className="count"> 19 </span>
-                  </li>
-                  <li>
-                    EYE <span className="count"> 19 </span>
-                  </li>
-                  <li>
-                    CHEEK <span className="count"> 19 </span>
-                  </li>
-                  <li>
-                    PALLETE <span className="count"> 19 </span>
-                  </li>
-                  <li>
-                    SPECIAL EDITION <span className="count"> 19 </span>
-                  </li>
-                  <li>
-                    TOOL <span className="count"> 19 </span>
-                  </li>
-                </ul>
-              </div>
+              <Category handleChange={this.handleClicked} />
             </div>
 
             <div className="sort_container">
@@ -70,9 +52,9 @@ class Product extends Component {
             </div>
           </div>
 
-          <ul className="product">
-            <ProductList data={this.state.data} />
-          </ul>
+          <div className="product">
+            <ProductList data={filtering} />
+          </div>
         </div>
         <Footer />
       </div>

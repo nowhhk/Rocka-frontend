@@ -12,7 +12,7 @@ class Footer extends Component {
             <div className="box">
               <div className="link">
                 <p>PRODUCT</p>
-                <p>SRORY</p>
+                <p>STORY</p>
                 <p>STORE</p>
               </div>
               <div className="social">
@@ -48,7 +48,7 @@ class Footer extends Component {
             <p>hello@laka.co.kr</p>
           </div>
           <div className="box">
-            <p>(주)라카코스메틱스</p>
+            <p className="brand">(주)라카코스메틱스</p>
             <p>(05338) 서울특별시 강동구 진황도로 59-1 공간빌딩 6층, 7층</p>
             <p>
               {" "}
@@ -60,7 +60,7 @@ class Footer extends Component {
               {" "}
               고객상담실 : 1588-8143 (평일 10:30~17:00　OFF-TIME 12:00~14:00)
             </p>
-            <p>COPYRIGHT 2018 LAKA. ALL RIGHTS RESERVED</p>
+            <p className="copy">COPYRIGHT 2018 LAKA. ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </footer>

@@ -1,0 +1,27 @@
+@keyframes rolling {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -960px;
+  }
+  100% {
+    margin-top: -1920px;
+  }
+}
+.container {
+  margin-top: 8em;
+
+  .swipe-img {
+    display: inline-block;
+    vertical-align: top;
+    height: 960px;
+    overflow: hidden;
+    color: white;
+    ul {
+      animation-name: rolling;
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
