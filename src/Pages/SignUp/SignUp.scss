@@ -262,7 +262,7 @@ input{
     //     transform: rotate(45deg) scale(1);
     // }
     [type=checkbox]:checked + span:before {
-        content: '';
+        content: '\2713';
         position: absolute;
         top: -2px;
         left: -2px;
@@ -274,6 +274,8 @@ input{
         text-align: center;
         display: inline-block;
         vertical-align: text-top;
+        font-size: $defalutFontSize;
+        line-height: 1.2em;
     }
 }
 
