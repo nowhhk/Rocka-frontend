@@ -5,9 +5,9 @@ class ProductDetailWish extends Component {
     constructor(props) {
         super(props);
 
-        this.state = ({
-            Color: this.props.productColor
-        })
+        this.state = {
+            Color: this.props.productColor,
+        }
     }
 
     colorClick = (e) => {
