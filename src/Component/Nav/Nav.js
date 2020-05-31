@@ -55,7 +55,12 @@ class Nav extends Component {
               JOIN
             </span>
             <span>MY</span>
-            <span>CART</span>
+
+            <span onClick={() => {
+              this.props.history.push("/cart");
+            }}>CART
+            </span>
+
           </div>
         </header>
       </>

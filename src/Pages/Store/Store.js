@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Nav from "../../Component/Nav/Nav";
+import Search from "./Search"
 import Footer from "../../Component/Footer/Footer";
 import StoreList from "./StoreList.js";
 
@@ -27,7 +28,7 @@ class Store extends Component {
             src="https://laka.co.kr/laka_skin/images/pc/store_visual.jpg"
             alt=""
           />
-          {/* <Search /> 검색창 만들부분 */}
+          <Search stores={this.state.stores} />
           <StoreList stores={this.state.stores} />
         </div>
         <Footer />
