@@ -3,10 +3,12 @@
     {
       "id": 1,
       "category": "LIP",
-      "name": "워터리 쉬어 립스틱",
+      "name": "워터리 쉬어 립스틱 제일많이팔린거",
       "price": 18000,
       "desc": "촉촉하게 빛나는 #물빛입술",
       "color": ["빨", "주"],
+      "launchdate": "2020-05-01",
+      "ordered": 100,
       "img": [
         "https://laka.co.kr/web/product/medium/20200405/ae6730448aa6702be6503b190988845d.png",
         "https://laka.co.kr/web/product/small/20200405/fbad5df6ed4b7f72c54411947ca8d5b7.jpg"
@@ -15,10 +17,12 @@
     {
       "id": 2,
       "category": "EYE",
-      "name": "저스트 아이팔레트",
+      "name": "저스트 아이팔레트 제일신상",
       "price": 10000,
       "desc": "심플하지만 완벽한 하모니",
       "color": ["파", "주", "노", "초"],
+      "launchdate": "2020-06-01",
+      "ordered": 30,
       "img": [
         "https://laka.co.kr/web/product/medium/20200405/87a0afc37c41b1237278a1428cd66cd2.png",
         "https://laka.co.kr/web/product/small/20200405/3ee2a57f69e37580808ab8a37113dc08.jpg"
@@ -31,6 +35,8 @@
       "price": 10000,
       "desc": "심플하지만 완벽한 하모니",
       "color": ["빨", "주", "초"],
+      "launchdate": "2020-05-02",
+      "ordered": 50,
       "img": [
         "https://laka.co.kr/web/product/medium/20200405/d491bc79f4c7d57baaabe9a17957fe1c.png",
         "https://laka.co.kr/web/product/small/20200405/b2912511f6b5e13df3fb045635c1c99d.jpg"
@@ -39,10 +45,12 @@
     {
       "id": 4,
       "category": "EYE",
-      "name": "저스트 아이섀도우",
+      "name": "저스트 아이섀도우 아이디4",
       "price": 10000,
       "desc": "심플하지만 완벽한 하모니",
       "color": ["빨", "주", "초"],
+      "launchdate": "2020-03-01",
+      "ordered": 60,
       "img": [
         "https://laka.co.kr/web/product/medium/20200405/d491bc79f4c7d57baaabe9a17957fe1c.png",
         "https://laka.co.kr/web/product/small/20200405/b2912511f6b5e13df3fb045635c1c99d.jpg"
