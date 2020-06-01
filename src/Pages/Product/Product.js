@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
 import ProductList from "./ProductList";
+import Sort from "./Sort";
 import "./Product.scss";
 import Category from "./Category";
 
@@ -11,7 +12,8 @@ class Product extends Component {
     super();
     this.state = {
       data: [],
-      clickedCategory: "",
+      // clickedCategory: "",
+      sort: "",
     };
   }
 
@@ -23,6 +25,7 @@ class Product extends Component {
           data: res.data,
         })
       );
+    // .then((res) => console.log(res));
   }
 
   handleClicked = (category) => {
@@ -30,10 +33,35 @@ class Product extends Component {
     this.setState({ clickedCategory: category });
   };
 
+  handleSort = (prop) => {
+    this.setState({ sort: prop });
+  };
+
   render() {
-    const filtering = this.state.data.filter((item) =>
-      item.category.match(this.state.clickedCategory)
-    );
+    // const filtering = this.state.data.filter((item) =>
+    //   item.category.match(this.state.clickedCategory)
+    // );
+    console.log(this.state);
+
+    const notSorted = [...this.state.data.sort((a, b) => a.id - b.id)];
+
+    const newSorted = [
+      ...this.state.data.sort((a, b) =>
+        b.launchdate.localeCompare(a.launchdate)
+      ),
+    ];
+    const bestSorted = [
+      ...this.state.data.sort((a, b) => b.ordered - a.ordered),
+    ];
+
+    let list;
+    if (this.state.sort === "new") {
+      list = <ProductList products={newSorted} />;
+    } else if (this.state.sort === "best") {
+      list = <ProductList products={bestSorted} />;
+    } else {
+      list = <ProductList products={notSorted} />;
+    }
 
     return (
       <div className="wrapper">
@@ -43,18 +71,13 @@ class Product extends Component {
             <div className="nav_container">
               <Category handleChange={this.handleClicked} />
             </div>
-
-            <div className="sort_container">
-              <ul>
-                <li>신상품</li>
-                <li>인기상품</li>
-              </ul>
-            </div>
+            <Sort
+              handleNewSort={this.handleSort}
+              handleBestSort={this.handleSort}
+            />
           </div>
 
-          <div className="product">
-            <ProductList data={filtering} />
-          </div>
+          <div className="product">{list}</div>
         </div>
         <Footer />
       </div>

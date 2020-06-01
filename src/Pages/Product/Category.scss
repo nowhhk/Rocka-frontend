@@ -6,7 +6,7 @@
 
   .nav {
     .category {
-      font-size: $middleBigFontSize;
+      font-size: 50px;
       font-weight: $blodweight;
       cursor: pointer;
       margin-bottom: 0.3em;
@@ -41,9 +41,14 @@
     }
   }
 }
-
 .sort_container ul {
   display: flex;
+  li {
+    cursor: pointer;
+    font-size: $littleSmaller;
+    font-weight: $thinweight;
+    margin-left: 1em;
+  }
 }
 
 .nav_container > .nav:hover .list {

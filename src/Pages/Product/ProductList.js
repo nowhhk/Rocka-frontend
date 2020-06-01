@@ -3,7 +3,7 @@ import Item from "./Item";
 
 class ProductList extends Component {
   render() {
-    const map = this.props.data.map((item) => {
+    const map = this.props.products.map((item) => {
       return (
         <Item
           key={item.id}

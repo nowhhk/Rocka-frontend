@@ -6,8 +6,7 @@ class ProductDetailWish extends Component {
         super(props);
 
         this.state = {
-            Color: this.props.productColor,
-            count: 3,
+            Color: this.props.productColor
         }
     }
 

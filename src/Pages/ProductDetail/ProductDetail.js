@@ -150,7 +150,7 @@ class ProductDetail extends Component {
                     </div>
                 </div>
                 <Footer />
-            </div>
+            </div >
         );
     }
 }
