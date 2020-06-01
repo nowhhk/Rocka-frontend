@@ -1,9 +1,9 @@
 @import "../../Styles/common.scss";
 
 .productWish{
-    min-width: 360px;
-    max-width: 360px;
-    height: 110px;
+    min-width: 400px;
+    max-width: 400px;
+    height: 200px;
     overflow-y: auto;
     //박스를 넘지않으면, 스크롤바가 없고 박스를 넘으면, 스크롤바가 생김.
     .wishList{
@@ -24,12 +24,12 @@
         .wishListRight{
             display: flex;
             .wishListAmount{
-                    font-size: 14px;
+                    font-size: $leastFontSize;
                     font-weight: $blodweight;
                 button{
                     border: none;
                     background-color: white;
-                    font-size: $leastFontSize;
+                    font-size: $secondSmallestFontSize;
                     font-weight: $blodweight;
                 }
                 button:focus{

@@ -1,0 +1,83 @@
+@import "../../Styles/common.scss";
+
+.ShoppingCart{
+    width: 100%;
+    padding: 10em;
+    max-width: 1500px;
+    margin: 0 auto;
+    .allSelector{
+        display: flex;
+        align-items: center;
+        label{
+            margin-bottom: 2em;
+            margin-right: 1.5em;
+            font-size: $secondSmallestFontSize;
+        }
+        .deleteSelection{
+            padding: .7em .7em;
+            border: 1px solid black;
+            margin-bottom: 2em;
+        }
+    }
+    .ShoppingCartBottombox{
+        margin-top: 3em;
+        display: flex;
+        justify-content: space-between;
+        .freeDelivery{
+            font-size: $leastFontSize;
+            font-weight: $thinweight;
+        }
+        .statement{
+            width: 340px;
+            height: 350px;
+            .price{
+                border-bottom: 1px solid black;
+                .priceBox{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 2em;
+                    .priceText{
+                        font-size: $secondSmallestFontSize;
+                    }
+                    .priceProduct{
+                        font-size: $littleSmaller;
+                        font-weight: $middleweight;
+                    }
+                }
+            }
+            .total{
+                margin: 4em 0em 2em;
+                display: flex;
+                justify-content: space-between;
+                .priceText{
+                    font-size: $secondSmallestFontSize;
+                    font-weight: $middleweight;
+                }
+                .priceProductBig{
+                    font-size: $littleBigFontSize;
+                    font-weight: $middleweight;
+                }    
+            }
+
+            .orderButton{
+                width: 100%;
+              .allOrderButton{
+                  background-color: black;
+                  font-size: $littleSmaller;
+                  color: white;
+                  padding: 1.3em;
+                  text-align: center;
+                  margin-bottom: .3em;
+                  font-weight: $middleweight;
+              }
+              .orderSelectedProducts{
+                  border: 1px solid black;
+                  font-size: $littleSmaller;
+                  padding: 1.3em;
+                  text-align: center;
+                  font-weight: $middleweight;
+              }
+            }
+        }
+    }
+}
