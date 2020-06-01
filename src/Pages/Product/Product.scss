@@ -16,6 +16,13 @@
   }
 
   .nav_container > .nav:hover ul {
+    display: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  .nav_container > .nav:hover ul {
     display: block;
     opacity: 1;
     visibility: visible;

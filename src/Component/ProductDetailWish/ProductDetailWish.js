@@ -5,13 +5,29 @@ class ProductDetailWish extends Component {
     constructor(props) {
         super(props);
 
-        this.state = ({
-            Color: this.props.productColor
-        })
+        this.state = {
+            Color: this.props.productColor,
+            count: 3,
+        }
     }
 
-    colorClick = (e) => {
+    minusButton = () => {
+        if (this.state.count === 1) {
+            alert("최소 주문수량은 1개 입니다.")
+        }
+        else if (this.state.count > 1) {
+            this.setState({
+                count: this.state.count - 1
+            })
+        }
+    }
 
+    plusButton = () => {
+        if (this.state.count >= 1) {
+            this.setState({
+                count: this.state.count + 1
+            })
+        }
     }
 
     render() {
@@ -26,9 +42,9 @@ class ProductDetailWish extends Component {
                         </div>
                         <div className="wishListRight">
                             <div className="wishListAmount">
-                                <button type="button"> - </button>
-                                <span>수량</span>
-                                <button type="button"> + </button>
+                                <button type="button" onClick={this.minusButton}> - </button>
+                                <span>{this.state.count}</span>
+                                <button type="button" onClick={this.plusButton}> + </button>
                             </div>
                             <div className="wishListDelete">
                                 X

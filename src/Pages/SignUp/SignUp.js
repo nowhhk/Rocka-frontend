@@ -24,6 +24,14 @@ class SignUp extends Component {
     }
   }
 
+  emailInclude = (e) => {
+    if (this.state.email.includes('@')) {
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
+  }
+
   pwCorrect = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -108,6 +116,12 @@ class SignUp extends Component {
     })
   }
 
+  correct = () => {
+    if (!this.state.pw.match(/^[A-Za-z]\w{7,14}$/)) {
+
+    }
+  }
+
   render() {
     const { idMessage, pwMessage } = this.state
     return (
@@ -116,8 +130,11 @@ class SignUp extends Component {
         <div className="SignUpAgree">
           <h3 className="borderBottem">약관동의 및 인증</h3>
           <div className="allAgreeCheckbox">
-            <input type="checkbox" />
-            <span className="allAgree checkbox">약관에 모두 동의합니다.</span>
+            <label class="checkbox-label">
+              <input type="checkbox" className="checkbox" />
+              <span className="checkbox-custom"></span>
+            </label>
+            <span className="allAgree">약관에 모두 동의합니다.</span>
           </div>
         </div>
         <section>
@@ -127,10 +144,11 @@ class SignUp extends Component {
                 <span className="termsOfServiceText">라카 이용약관 동의 (필수)</span>
                 <span className="termsOfServiceDot">•</span>
               </div>
-              <div>
+              <label class="checkbox-label">
                 <input type="checkbox" className="checkbox" />
+                <span className="checkbox-custom"></span>
                    동의함
-                </div>
+              </label>
             </div>
             <div className="termsOfServiceScrollBox">
               제1조 (목적)<br />
@@ -160,10 +178,11 @@ class SignUp extends Component {
                 <span className="termsOfServiceText">라카 개인정보 수집 및 이용 동의 (필수)</span>
                 <span className="termsOfServiceDot">•</span>
               </div>
-              <div>
+              <label class="checkbox-label">
                 <input type="checkbox" className="checkbox" />
+                <span className="checkbox-custom"></span>
                    동의함
-                </div>
+              </label>
             </div>
             <div className="termsOfServiceScrollBox">
               1. 개인정보 수집목적 및 이용목적<br></br>
@@ -206,10 +225,11 @@ class SignUp extends Component {
               <div className="termsOfServiceTitle">
                 <span className="termsOfServiceText">라카 쇼핑정보 수신 동의 (선택)</span>
               </div>
-              <div>
+              <label class="checkbox-label">
                 <input type="checkbox" className="checkbox" />
+                <span className="checkbox-custom"></span>
                    동의함
-                </div>
+              </label>
             </div>
             <div className="termsOfServiceScrollBox">
               할인쿠폰 및 혜택, 이벤트, 신상품 소식 등 쇼핑몰에서 제공하는 유익한 쇼핑정보를 SMS나 이메일로 받아보실 수 있습니다.<br />
@@ -248,7 +268,7 @@ class SignUp extends Component {
                 <th>비밀번호 확인<span className="termsOfServiceDot">•</span></th>
                 <td>
                   <input type="text" name="pwConform" onChange={this.pwCorrect} />
-                  <span className="warningMessage" style={{ display: pwMessage ? 'block' : 'none' }}>비밀번호가 일치하지 않습니다.</span>
+                  <span className="warningMessage" style={{ display: pwMessage ? 'block' : 'none' }} onChange={this.correct}>비밀번호가 일치하지 않습니다.</span>
                 </td>
               </tr>
             </tbody>
@@ -264,7 +284,7 @@ class SignUp extends Component {
               </tr>
               <tr>
                 <th>이메일<span className="termsOfServiceDot">•</span></th>
-                <td><input type="text" className="userInfoInputBox" name="email" onChange={this.handleInput} /></td>
+                <td><input type="text" className="userInfoInputBox" name="email" onChange={this.emailInclude} /></td>
               </tr>
               <tr>
                 <th>연락처<span className="termsOfServiceDot">•</span></th>
@@ -301,8 +321,11 @@ class SignUp extends Component {
                       this.state.genders.map((gender) => {
                         return (
                           <li>
-                            <input type="checkbox" onChange={this.genderCheck} checked={gender.isChecked} value={gender.value} key={gender.id} {...gender} />
-                            {gender.value}
+                            <label class="checkbox-label">
+                              <input type="checkbox" className="checkbox" onChange={this.genderCheck} checked={gender.isChecked} value={gender.value} key={gender.id} {...gender} />
+                              <span className="checkbox-custom"></span>
+                              {gender.value}
+                            </label>
                           </li>)
                       })
                     }

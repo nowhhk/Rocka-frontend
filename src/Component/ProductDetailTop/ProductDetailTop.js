@@ -41,7 +41,7 @@ class ProductDetailTop extends Component {
         const { data, color, hi } = this.state;
         console.log("state", this.state.data)
         return (
-            <div className="ProductDetail">
+            <div className="ProductDetailTop">
                 <main>
                     <div className="mainLeft">
                         <div className="mainLeftTitle">

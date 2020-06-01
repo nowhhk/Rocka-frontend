@@ -7,22 +7,25 @@
     justify-content: center;
     height: 100vh;
     .SignInBox{
+        margin: 80em 0em 10em;
         width: 37%;
-        max-width: 530px;
+        max-width: 600px;
        h1{
-           font-size: $littleBigFontSize;
+           font-size: $middleFontSize;
            font-weight: $blodweight;
        } 
        .SignInText{
-            font-size: $littleSmaller;
-            margin: 2rem 0rem 4rem 0rem;
-            line-height: 1.4rem;
+            font-size: 22px;
+            margin: 2rem 0rem 6.5rem 0rem;
+            line-height: 1.6rem;
+            font-weight: $middleweight;
        }
        table{
         width: 100%;
            tbody{
                tr{
                    th{
+                       font-size: $secondSmallestFontSize;
                        text-align: left;
                        width: 20%;
                    }
@@ -41,6 +44,7 @@
 
        }
        .SignInBtn{
+            margin-top: 1.5em;
             width: 100%;
             background-color: black;
             display: flex;
@@ -50,6 +54,7 @@
             span{
                 color: white;
                 font-weight: $blodweight;
+                font-size: $littleSmaller;
             }
        }
        .SignInEtc{
@@ -57,10 +62,16 @@
            justify-content: space-between;
            margin: 1.3rem 0rem;
            .searchAccount{
+               font-size: $secondSmallestFontSize;
                .searchID{
                    margin-right: 1.3rem;
                }
            }
+       }
+       .LoginSignUp{
+            font-size: $secondSmallestFontSize;
+            font-weight: 600;
+            text-decoration: underline;
        }
     }
 }
