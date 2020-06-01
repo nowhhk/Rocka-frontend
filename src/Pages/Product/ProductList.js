@@ -8,8 +8,8 @@ class ProductList extends Component {
         <Item
           key={item.id}
           name={item.name}
-          price={item.price}
-          desc={item.desc}
+          price_krw={item.price_krw}
+          description={item.description}
           color={item.color}
           img={item.img}
           category={item.category}
