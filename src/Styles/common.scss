@@ -1,5 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 $leastFontSize: 16px;
 $secondSmallestFontSize: 18px;
@@ -15,16 +15,15 @@ $regularweight: 400;
 $middleweight: 500;
 $blodweight: 700;
 
-body { 
-    font-family: 'Montserrat', 'NanumBarunGothic', sans-serif; 
-    font-size: $leastFontSize;
+body {
+  font-family: "Montserrat", "NanumBarunGothic", sans-serif;
+  font-size: $leastFontSize;
 }
 
-input:focus{
-    outline: 0;
+input:focus {
+  outline: 0;
 }
 
-
-select:focus{
-    outline: 0;
+select:focus {
+  outline: 0;
 }

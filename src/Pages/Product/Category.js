@@ -7,7 +7,7 @@ class Category extends Component {
       <div className="nav_container">
         <div className="nav">
           <div className="category">
-            CATEGORY
+            ALL
             <img
               className="icon"
               src="https://laka.co.kr/assets/ko/images/ico/ico_arr.png"

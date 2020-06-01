@@ -5,6 +5,7 @@
   justify-content: space-between;
 
   .nav {
+    z-index: 2;
     .category {
       font-size: 50px;
       font-weight: $blodweight;

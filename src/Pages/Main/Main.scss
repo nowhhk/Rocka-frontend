@@ -1,7 +1,10 @@
+@import "../../Styles/common.scss";
+
 @keyframes rolling {
   0% {
     margin-top: 0;
   }
+
   50% {
     margin-top: -960px;
   }
@@ -9,11 +12,14 @@
     margin-top: -1920px;
   }
 }
-.container {
+.main-container {
   margin-top: 8em;
 
   .swipe-img {
-    display: inline-block;
+    // display: inline-block;
+    position: sticky;
+    top: 0;
+    z-index: -1;
     vertical-align: top;
     height: 960px;
     overflow: hidden;
@@ -22,6 +28,79 @@
       animation-name: rolling;
       animation-duration: 8s;
       animation-iteration-count: infinite;
+    }
+  }
+}
+
+.contents {
+  background-color: white;
+  padding-bottom: 10em;
+  .concept {
+    strong {
+      font-size: 14rem;
+      font-weight: $blodweight;
+    }
+    p {
+      font-size: $middleBigFontSize;
+      line-height: 1.5em;
+      font-weight: $blodweight;
+      margin-bottom: 1em;
+    }
+  }
+  .link-btn {
+    span {
+      margin-right: 0.5em;
+      font-size: $defalutFontSize;
+      font-weight: $blodweight;
+    }
+  }
+
+  .collection {
+    margin-bottom: 30em;
+    strong {
+      font-size: 7rem;
+      font-weight: $blodweight;
+    }
+
+    ul {
+      margin-top: 10em;
+      display: flex;
+      li {
+        margin-right: 3em;
+        .thumb {
+          position: relative;
+        }
+
+        .box {
+          position: absolute;
+          bottom: -18em;
+          left: 25%;
+          z-index: 1;
+
+          .title {
+            font-size: $middleFontSize;
+            font-weight: $middleweight;
+            margin-bottom: 1em;
+          }
+        }
+      }
+    }
+  }
+  .tabs {
+    ul {
+      display: flex;
+      li {
+        margin-right: 1.5em;
+        span {
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          color: white;
+          -webkit-text-stroke: 1px #000;
+        }
+        // span:hover {
+        //   color: #000;
+        // }
+      }
     }
   }
 }

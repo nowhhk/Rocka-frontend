@@ -21,7 +21,7 @@ class Item extends Component {
 
   render() {
     const { mouseOver } = this.state;
-    const { name, desc, color, img, price } = this.props;
+    const { name, description, color, img, price_krw } = this.props;
 
     return (
       <div className="items">
@@ -36,11 +36,11 @@ class Item extends Component {
               <div className="item-info">
                 <div className="item-desc">
                   <p className="title">{name}</p>
-                  <p> {desc}</p>
+                  <p> {description}</p>
                   <p>{color}</p>
                 </div>
                 <div className="price">
-                  <p>KRW {price}</p>
+                  <p>KRW {price_krw}</p>
                 </div>
               </div>
             </div>
