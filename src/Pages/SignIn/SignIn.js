@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import Footer from "../../Component/Footer/Footer";
+import Nav from "../../Component/Nav/Nav";
 import "./SignIn.scss";
 
 class SignIn extends Component {
-
-
     render() {
         return (
             <div className="SignIn">
+                <Nav />
                 <div className="SignInBox">
                     <h1>Login</h1>
                     <div className="SignInText">
@@ -32,10 +33,12 @@ class SignIn extends Component {
                             <sapn className="searchID">아이디찾기</sapn>
                             <sapn>비밀번호찾기</sapn>
                         </div>
-                        <div className="LoginSignUp">회원가입</div>
+                        <div className="LoginSignUp" onClick={() => { this.props.history.push("/signup"); }}>회원가입</div>
                     </div>
                 </div>
+                <Footer />
             </div>
+
         );
     }
 }

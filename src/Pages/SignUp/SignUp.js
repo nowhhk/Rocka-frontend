@@ -24,6 +24,14 @@ class SignUp extends Component {
     }
   }
 
+  emailInclude = (e) => {
+    if (this.state.email.includes('@')) {
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
+  }
+
   pwCorrect = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -106,6 +114,12 @@ class SignUp extends Component {
     this.setState({
       genders: genders
     })
+  }
+
+  correct = () => {
+    if (!this.state.pw.match(/^[A-Za-z]\w{7,14}$/)) {
+
+    }
   }
 
   render() {
@@ -254,7 +268,7 @@ class SignUp extends Component {
                 <th>비밀번호 확인<span className="termsOfServiceDot">•</span></th>
                 <td>
                   <input type="text" name="pwConform" onChange={this.pwCorrect} />
-                  <span className="warningMessage" style={{ display: pwMessage ? 'block' : 'none' }}>비밀번호가 일치하지 않습니다.</span>
+                  <span className="warningMessage" style={{ display: pwMessage ? 'block' : 'none' }} onChange={this.correct}>비밀번호가 일치하지 않습니다.</span>
                 </td>
               </tr>
             </tbody>
@@ -270,7 +284,7 @@ class SignUp extends Component {
               </tr>
               <tr>
                 <th>이메일<span className="termsOfServiceDot">•</span></th>
-                <td><input type="text" className="userInfoInputBox" name="email" onChange={this.handleInput} /></td>
+                <td><input type="text" className="userInfoInputBox" name="email" onChange={this.emailInclude} /></td>
               </tr>
               <tr>
                 <th>연락처<span className="termsOfServiceDot">•</span></th>

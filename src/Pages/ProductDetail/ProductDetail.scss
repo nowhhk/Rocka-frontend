@@ -2,13 +2,21 @@
 
 .ProductDetail{
     width: 100%;
-    padding: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .veryBigTitle{
+        font-size: 260px;
+        font-weight: $blodweight;
+    }
     .ProductDetailBottomContainer{
+        padding: 6em;
         display: flex;
         justify-content: center;
+        overflow: hidden;
+        width: 100%;
         .ProductDetailBottom{
             max-width: 1000px;
-            .veryBigTitle{}
             .mainImg{
                 background-image: url('https://laka.co.kr/web/info/wsls/detail_01.jpg');
                 background-repeat: no-repeat;

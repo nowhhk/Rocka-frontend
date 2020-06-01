@@ -10,6 +10,13 @@ class StoreList extends Component {
   }
 
   render() {
+    // let data = this.props.stores
+    // const filteredComponent = (data) => {
+    //   data = data.filter((c) => {
+    //     return c.address.includes(this.state.searchKeyword) > -1;
+    //   });
+    // }
+
     const list = this.props.stores.map((store) => {
       return (
         <Stores
@@ -39,7 +46,7 @@ class StoreList extends Component {
           </div>
         </div>
         {list}
-      </div>
+      </div >
     );
   }
 }

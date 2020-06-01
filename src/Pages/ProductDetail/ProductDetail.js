@@ -1,15 +1,19 @@
 import React, { Component } from "react";
-import ProductDetailTop from "../../Component/ProductDetailTop/ProductDetailTop"
-import "./ProductDetail.scss"
+import ProductDetailTop from "../../Component/ProductDetailTop/ProductDetailTop";
+import "./ProductDetail.scss";
+import Nav from "../../Component/Nav/Nav";
+import Footer from "../../Component/Footer/Footer";
 
 class ProductDetail extends Component {
+
     render() {
         return (
             <div className="ProductDetail">
+                <Nav />
                 <ProductDetailTop />
+                <div className="veryBigTitle">WATERY SHEER LIPSTICK</div>
                 <div className="ProductDetailBottomContainer">
                     <div className="ProductDetailBottom">
-                        <div className="veryBigTitle">WATERY SHEER LIPSTICK</div>
                         <div className="mainImg">
                             <p className="ColorKindsExplan">LOOK & MOOD</p>
                             <p className="reatureTitle">WATERY SHEER LIPSTICK</p>
@@ -145,7 +149,8 @@ class ProductDetail extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+                <Footer />
+            </div >
         );
     }
 }
