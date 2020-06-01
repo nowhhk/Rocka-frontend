@@ -1,22 +1,25 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Item from "./Item";
 
 class ProductList extends Component {
   render() {
     const map = this.props.products.map((item) => {
       return (
-        <Item
-          key={item.id}
-          name={item.name}
-          price_krw={item.price_krw}
-          description={item.description}
-          color={item.color}
-          img={item.img}
-          category={item.category}
-        />
+        <Link to="/ProductDetail" className="link">
+          <Item
+            key={item.id}
+            name={item.name}
+            price_krw={item.price_krw}
+            description={item.description}
+            color={item.color}
+            img={item.img}
+            category={item.category}
+          />
+        </Link>
       );
     });
-    // console.log(this.props.data);
+
     return (
       <ul
         style={{
