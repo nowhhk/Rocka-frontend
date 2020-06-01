@@ -13,6 +13,7 @@ class Main extends Component {
       data: [],
       scrollTop: {},
       activeTab: "best",
+      class: "activeBest",
     };
   }
 
@@ -24,13 +25,19 @@ class Main extends Component {
 
   handleClicked = (prop) => {
     // console.log(prop);
-    this.setState({ tab: prop });
+    this.setState({ activeTab: prop });
+    // 수정필요 베스트누르면 액티브베스트
+    if (this.state.class === "activeBest") {
+      this.setState({ class: "activeNew" });
+    } else {
+      this.setState({ class: "activeBest" });
+    }
   };
 
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
 
-    fetch("/data/data.json")
+    fetch("./data/data.json")
       .then((res) => res.json())
       // .then((res) => console.log(res));
       .then((res) =>
@@ -42,14 +49,15 @@ class Main extends Component {
 
   render() {
     console.log(this.state);
-    const bestproduct = this.state.data.filter((item) => item.ordered > 30);
+    // filter 기준 수정필요
+    const bestproduct = this.state.data.filter((item) => item.id < 20);
     const newproduct = this.state.data.filter(
-      (item) => item.launchdate > "2020-03-01"
+      (item) => item.launchdate > "2020-05-15"
     );
 
     const tab = {
-      // new: <ProductList products={newproduct} />,
       best: <ProductList products={bestproduct} />,
+      new: <ProductList products={newproduct} />,
     };
 
     let nav;
@@ -164,10 +172,16 @@ class Main extends Component {
 
             <div className="tabs">
               <ul>
-                <li onClick={() => this.handleClicked("best")}>
+                <li
+                  className={this.state.class}
+                  onClick={() => this.handleClicked("best")}
+                >
                   <span>BEST</span>
                 </li>
-                <li onClick={() => this.handleClicked("new")}>
+                <li
+                  className={this.state.class}
+                  onClick={() => this.handleClicked("new")}
+                >
                   <span>NEW</span>
                 </li>
               </ul>
@@ -182,8 +196,6 @@ class Main extends Component {
                 }}
               >
                 {tab[this.state.activeTab]}
-                {/* <ProductList products={bestproduct} /> */}
-                {/* <ProductList products={newproduct} /> */}
               </ul>
             </div>
           </div>

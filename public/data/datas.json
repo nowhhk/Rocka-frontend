@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "워터리 쉬어 립스틱",
+      "category": ["LIP", "FACE"],
+      "price_krw": 10000,
+      "launchdate": "2020-03-01",
+      "outer_front_image_url": "https://laka.co.kr/web/product/medium/20200405/d491bc79f4c7d57baaabe9a17957fe1c.png",
+      "outer_back_image_url": "https://laka.co.kr/web/product/small/20200405/b2912511f6b5e13df3fb045635c1c99d.jpg",
+      "description": "심플하지만 완벽한 하모니",
+      "stock_quantity": 500,
+      "color": [
+        { "name": "빨", "url": "http://sdfsdf", "stock_quantity": 100 },
+        { "name": "주", "url": "http://sdfsdf", "stock_quantity": 200 },
+        { "name": "노", "url": "http://sdfsdf", "stock_quantity": 300 }
+      ]
+    }
+  ]
+}

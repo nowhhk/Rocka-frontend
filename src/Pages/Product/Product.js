@@ -18,14 +18,13 @@ class Product extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/data.json")
+    fetch("./data/data.json")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
           data: res.data,
         })
       );
-    // .then((res) => console.log(res));
   }
 
   handleClicked = (category) => {
@@ -41,7 +40,7 @@ class Product extends Component {
     // const filtering = this.state.data.filter((item) =>
     //   item.category.match(this.state.clickedCategory)
     // );
-    console.log(this.state);
+    // console.log(this.state);
 
     const notSorted = [...this.state.data.sort((a, b) => a.id - b.id)];
 
@@ -50,9 +49,7 @@ class Product extends Component {
         b.launchdate.localeCompare(a.launchdate)
       ),
     ];
-    const bestSorted = [
-      ...this.state.data.sort((a, b) => b.ordered - a.ordered),
-    ];
+    const bestSorted = [...this.state.data.sort((a, b) => a.id - b.id)];
 
     let list;
     if (this.state.sort === "new") {
