@@ -24,11 +24,11 @@ class Main extends Component {
   };
 
   handleClickedBest = () => {
-    this.setState({ activeTab: "best", class: "activeBest" });
+    this.setState({ activeTab: "best", tabClass: "activeBest" });
   };
 
   handleClickedNew = () => {
-    this.setState({ activeTab: "new", class: "activeNew" });
+    this.setState({ activeTab: "new", tabClass: "activeNew" });
   };
 
   componentDidMount() {
@@ -47,7 +47,7 @@ class Main extends Component {
   render() {
     const { data, scrollTop, activeTab, tabClass } = this.state;
 
-    // console.log(this.state);
+    console.log(this.state);
     // filter 기준 수정필요
     const bestproduct = data.filter((item) => item.id < 20);
     const newproduct = data.filter((item) => item.launchdate > "2020-05-15");
