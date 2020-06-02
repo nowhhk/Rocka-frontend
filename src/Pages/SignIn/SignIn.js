@@ -4,7 +4,48 @@ import Nav from "../../Component/Nav/Nav";
 import "./SignIn.scss";
 
 class SignIn extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+            id: "",
+            pw: "",
+        }
+    }
+
+    goMain = () => {
+        fetch('http://10.58.2.156:8080/member/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nickname: this.state.id,
+                password: this.state.pw,
+            })
+        })
+
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                if (response.token) {
+                    localStorage.setItem('token', response.token);
+                    this.props.history.push("/");
+                } else {
+                    alert("로그인 정보를 확인해주세요.")
+                }
+            });
+    };
+
+    handleInput = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        });
+    }
+
     render() {
+        console.log(this.state.id)
+        console.log(this.state.pw)
         return (
             <div className="SignIn">
                 <Nav />
@@ -19,15 +60,15 @@ class SignIn extends Component {
                         <tbody>
                             <tr>
                                 <th>아이디</th>
-                                <td><input type="text" /></td>
+                                <td><input type="text" name="id" onChange={this.handleInput} /></td>
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
-                                <td><input type="text" /></td>
+                                <td><input type="text" name="pw" onChange={this.handleInput} /></td>
                             </tr>
                         </tbody>
                     </table>
-                    <div className="SignInBtn"><span>로그인</span></div>
+                    <div className="SignInBtn" onClick={this.goMain}><span>로그인</span></div>
                     <div className="SignInEtc">
                         <div className="searchAccount">
                             <sapn className="searchID">아이디찾기</sapn>

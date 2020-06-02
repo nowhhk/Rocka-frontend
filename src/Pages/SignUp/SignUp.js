@@ -22,10 +22,11 @@ class SignUp extends Component {
         { id: 2, value: "여성", isChecked: false },
       ],
       gender: "",
+      address: "",
     }
   }
 
-  componentDidMount = () => {
+  goSingIn = () => {
     fetch('http://10.58.2.156:8080/member/join', {
       method: 'POST',
       headers: {
@@ -37,7 +38,8 @@ class SignUp extends Component {
         email: this.state.email,
         fullname: this.state.name,
         phone_number: this.state.optionVal + this.state.contactTwo + this.state.contactThree,
-        gender: this.state.gender
+        gender: this.state.gender,
+        address: this.state.address,
       })
     })
 
@@ -117,7 +119,7 @@ class SignUp extends Component {
       }
     })
     this.setState({
-      gender: e.target.value
+      gender: e.target.id
     })
     console.log(e.target.value)
   }
@@ -129,6 +131,7 @@ class SignUp extends Component {
   }
 
   render() {
+    console.log(this.state.address)
     console.log(this.state.gender)
     const { idMessage, pwMessage } = this.state
     return (
@@ -312,7 +315,7 @@ class SignUp extends Component {
                 <th>주소</th>
                 <td>
                   <ul>
-                    <li className="addressList"><input type="text" className="userInfoInputBox" /><div>우편번호 검색</div></li>
+                    <li className="addressList"><input type="text" className="userInfoInputBox" name="address" onChange={this.handleInput} /><div>우편번호 검색</div></li>
                     <li><input type="text" className="userInfoInputBox" /></li>
                     <li><input type="text" className="userInfoInputBox" /></li>
                   </ul>
@@ -344,7 +347,7 @@ class SignUp extends Component {
           </table>
         </article>
         <div className="SignUpBtnContainer">
-          <div className="SignUpBtn" onClick={this.componentDidMount}>회원가입</div>
+          <div className="SignUpBtn" onClick={this.goSingIn}>회원가입</div>
         </div>
       </div>
     );
