@@ -46,13 +46,11 @@ class ProductDetailWish extends Component {
             <div className="wishListRight">
               <div className="wishListAmount">
                 <button type="button" onClick={this.minusButton}>
-                  {" "}
-                  -{" "}
+                  -
                 </button>
                 <span>{this.state.count}</span>
                 <button type="button" onClick={this.plusButton}>
-                  {" "}
-                  +{" "}
+                  +
                 </button>
               </div>
               <div className="wishListDelete">X</div>

@@ -35,14 +35,11 @@ class Item extends Component {
     for (let i in color) {
       colors.push(color[i].image_url);
     }
-    const url = colors.map((color) => <img src={`${color}`} alt="" />);
+    const url = colors.map((color, idx) => <img src={`${color}`} alt="" />);
 
     // 15000.00 형식으로오는 price_krw값을 15,000 형식으로 변환
     const price_krw_subst = price_krw.slice(0, -3);
-    function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-    const price = numberWithCommas(price_krw_subst);
+    const price = Number(price_krw_subst).toLocaleString();
 
     return (
       <div className="items">

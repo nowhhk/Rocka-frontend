@@ -13,7 +13,7 @@ class Main extends Component {
       data: [],
       scrollTop: {},
       activeTab: "best",
-      class: "activeBest",
+      tabClass: "activeBest",
     };
   }
 
@@ -24,13 +24,11 @@ class Main extends Component {
   };
 
   handleClickedBest = () => {
-    this.setState({ activeTab: "best" });
-    this.setState({ class: "activeBest" });
+    this.setState({ activeTab: "best", class: "activeBest" });
   };
 
   handleClickedNew = () => {
-    this.setState({ activeTab: "new" });
-    this.setState({ class: "activeNew" });
+    this.setState({ activeTab: "new", class: "activeNew" });
   };
 
   componentDidMount() {
@@ -47,12 +45,12 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.state);
+    const { data, scrollTop, activeTab, tabClass } = this.state;
+
+    // console.log(this.state);
     // filter 기준 수정필요
-    const bestproduct = this.state.data.filter((item) => item.id < 20);
-    const newproduct = this.state.data.filter(
-      (item) => item.launchdate > "2020-05-15"
-    );
+    const bestproduct = data.filter((item) => item.id < 20);
+    const newproduct = data.filter((item) => item.launchdate > "2020-05-15");
 
     const tab = {
       best: <ProductList products={bestproduct} />,
@@ -60,14 +58,12 @@ class Main extends Component {
     };
 
     let nav;
-    if (this.state.scrollTop > 1000) {
+    if (scrollTop > 1000) {
       // console.log("hihi");
       nav = <Nav />;
     } else {
       nav = <Nav />;
     }
-
-    // const {} = this.state
 
     return (
       <div className="wrapper">
@@ -172,13 +168,13 @@ class Main extends Component {
             <div className="tabs">
               <ul>
                 <li
-                  className={this.state.class}
+                  className={tabClass}
                   onClick={() => this.handleClickedBest("best")}
                 >
                   <span>BEST</span>
                 </li>
                 <li
-                  className={this.state.class}
+                  className={tabClass}
                   onClick={() => this.handleClickedNew("new")}
                 >
                   <span>NEW</span>
@@ -194,7 +190,7 @@ class Main extends Component {
                   marginTop: "1em",
                 }}
               >
-                {tab[this.state.activeTab]}
+                {tab[activeTab]}
               </ul>
             </div>
           </div>
