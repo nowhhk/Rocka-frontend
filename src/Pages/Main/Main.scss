@@ -124,3 +124,11 @@
     }
   }
 }
+
+.none {
+  opacity: 0;
+}
+.pop {
+  transition: all 0.7s ease-in;
+  transform: translateY(-100px);
+}

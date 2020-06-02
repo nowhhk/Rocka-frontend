@@ -14,6 +14,7 @@ class Main extends Component {
       scrollTop: {},
       activeTab: "best",
       tabClass: "activeBest",
+      pop: "none",
     };
   }
 
@@ -111,7 +112,7 @@ class Main extends Component {
                 EVERYONE
                 <br />
               </strong>
-              <ul>
+              <ul className={scrollTop > 1300 ? "pop" : "none"}>
                 <li>
                   <div className="thumb">
                     <img
