@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ProductDetailTop.scss"
+import "./ProductDetailMyTop.scss";
 
 class ProductDetailTop extends Component {
     constructor(props) {
@@ -7,18 +7,8 @@ class ProductDetailTop extends Component {
 
         this.state = {
             data: [],
-            color: [
-                "카미유",
-                "모리스",
-                "레너드",
-                "이고르",
-                "이건뭐",
-                "저건뭐",
-                "마우스",
-                "키보드"
-            ],
             hi: false,
-            myColorList: "",
+            wishList: [],
             count: 1,
         };
     }
@@ -48,14 +38,19 @@ class ProductDetailTop extends Component {
         }
     };
 
+    imgClick = (colors) => {
+        // console.log("컬러:", colors)
+        const choiceColor = this.state.wishList.concat(colors)
+        this.setState({
+            wishList: choiceColor
+        }, () => console.log(this.state.wishList))
+    }
+
     render() {
         const { data, hi } = this.state;
-        console.log(this.props.productData)
-        console.log("state", this.state.data)
-
-        // const colorArr = this.state.Color.map((m, idx) => {
-        //     return <li className="colorchart" key={idx}>{m}</li>
-        // });
+        console.log(this.props.colorInfo)
+        console.log(this.props.colorInfo.inner_image_url)
+        console.log(this.props.colorInfo.color)
 
         return (
             <div className="ProductDetailTop">
@@ -89,35 +84,49 @@ class ProductDetailTop extends Component {
                                 className="MainLeftChoiceColor"
                                 style={{ display: { hi } ? 'block' : 'none' }}>
                                 <ul>
-                                    {/* {colorArr} */}
+                                    {
+                                        this.props.colorInfo.color && this.props.colorInfo.color.map((color, idx) => {
+                                            return (
+                                                <li className="colorchart" key={idx} onClick={() => this.imgClick(color)}>
+                                                    <img src={color.image_url} alt="" />
+                                                </li>
+                                            );
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>
                         <div className="ProductDetailWish">
                             <div className="productWish">
-                                <div className="wishList">
-                                    <div className="wishListLeft">
-                                        <div className="wishListColor" onClick={this.colorClick}>
-                                            {/* {this.state.Color[0]} */}
-                                        </div>
-                                        {/* 데이터 받게되면 내가 클릭한 색상 props 받아와야함. */}
-                                        <span className="wishListColorText">
-                                            위터리 쉬어 립스틱 - 이고르
-                                    </span>
-                                    </div>
-                                    <div className="wishListRight">
-                                        <div className="wishListAmount">
-                                            <button type="button" onClick={this.minusButton}>
-                                                -
-                                        </button>
-                                            <span>{this.state.count}</span>
-                                            <button type="button" onClick={this.plusButton}>
-                                                +
-                                        </button>
-                                        </div>
-                                        <div className="wishListDelete">X</div>
-                                    </div>
-                                </div>
+                                {
+                                    this.state.wishList && this.state.wishList.map((wishArr, idx) => {
+                                        return (
+                                            <div className="wishList">
+                                                <div className="wishListLeft">
+                                                    <div className="wishListColor" onClick={this.colorClick}>
+                                                        <img src={wishArr.image_url} alt="" />
+                                                    </div>
+                                                    {/* 데이터 받게되면 내가 클릭한 색상 props 받아와야함. */}
+                                                    <span className="wishListColorText">
+                                                        위터리 쉬어 립스틱 - {wishArr.name}
+                                                    </span>
+                                                </div>
+                                                <div className="wishListRight">
+                                                    <div className="wishListAmount">
+                                                        <button type="button" onClick={this.minusButton}>
+                                                            -
+                                                    </button>
+                                                        <span>{this.state.count}</span>
+                                                        <button type="button" onClick={this.plusButton}>
+                                                            +
+                                                    </button>
+                                                    </div>
+                                                    <div className="wishListDelete">X</div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })
+                                }
                             </div>
                         </div>
                         <div className="mainLeftTotal">
@@ -130,7 +139,7 @@ class ProductDetailTop extends Component {
                         </div>
                     </div>
                     <div className="mainCenter">
-                        <img src="//laka.co.kr/web/product/big/20200331/4920009f6507a4d5846ece81e819b5ac.png" alt="" />
+                        <img src={this.props.colorInfo.inner_image_url} alt="" />
                     </div>
                 </main>
             </div >

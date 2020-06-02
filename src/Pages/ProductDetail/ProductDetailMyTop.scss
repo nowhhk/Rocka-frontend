@@ -1,0 +1,128 @@
+@import "../../Styles/common.scss";
+
+.ProductDetailTop{
+    width: 100%;
+    main{
+        margin: 6em 0em 0em 0em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0em 3em;
+        min-width: 1280px;
+        max-width: 1600px;
+        .mainLeft{
+            min-width: 400px;
+            max-width: 400px;
+            .mainLeftTitle{
+                h1{
+                    font-size: 45px;
+                    font-weight: $blodweight;
+                    margin-bottom: .7em;
+                }
+                span{
+                    font-size: $secondSmallestFontSize;
+                    font-weight: $regularweight;
+                    display: block;
+                    margin-bottom: 1.2em;
+                }
+                .price{
+                    font-size: $littleSmaller;
+                    font-weight: 600;
+                }
+            }
+            .delivery{
+                border-top: 1px solid black;
+                padding-top: 1.2em;
+                .deliveryDay{
+                    margin-bottom: .5em;
+                    .deliveryText{
+                        font-size: $leastFontSize;
+                        color: rgb(44, 44, 44);
+                        margin-right: .8em;
+                    }
+                    .deliveryThinText{
+                        font-size: $leastFontSize;
+                        font-weight: $thinweight;
+                    }
+                }
+            }
+            .mainLeftsaveOption{
+                margin-top: 1.5em;
+                border-bottom: 1px solid black;
+                display: flex;
+                padding-bottom: 1.5em;
+                .clickCircle{
+                    background-color: #D8CDC5;
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 1rem;
+                    .clickColor{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .plusColor{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            span{
+                                margin-top: 1rem;
+                                color: white;
+                                display: block;
+                            }
+                            .plus{
+                                font-size: 40px;
+                                color: white;
+                                margin-top: -.3rem;
+                                font-weight: $thinweight;
+                            }
+                        }
+                    }
+                }
+            }
+            .mainLeftTotal{
+                font-size: $littleSmaller;
+                display: flex;
+                justify-content: space-between;
+                span{
+                    font-weight: 600;
+                    font-size: $defalutFontSize;
+                }
+                .price{
+                    font-weight: $blodweight;
+                    font-size: $middleFontSize;
+                }
+            }
+            .mainLeftPurchase{
+                display: flex;
+                margin-top: 2em;
+                .basket{
+                    width: 20%;
+                    color: white;
+                    font-size: 26px;
+                    padding: 1.2rem;
+                    background-color: black;
+                    margin-right: .2rem;
+                    text-align: center;
+                }
+                .purchase{
+                    width: 100%;
+                    color: white;
+                    font-size: 22px;
+                    padding: 1.5rem;
+                    background-color: black;
+                    text-align: center;
+                }
+            }
+        }
+        .mainCenter{
+            img{
+                width: 70%;
+            }
+        }
+    }
+}
