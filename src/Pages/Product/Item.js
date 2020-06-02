@@ -24,19 +24,25 @@ class Item extends Component {
     const {
       name,
       description,
-      // color,
+      color,
       outer_front_image_url,
       outer_back_image_url,
       price_krw,
     } = this.props;
 
-    // const colors = [];
-    // for (let i in color) {
-    //   colors.push(color[i].image_url);
-    // }
-    // const url = colors.map((color) => `<img src="${color}"alt=""/>`);
+    //color배열안의 객체의 image_url값을 이미지로 전환
+    const colors = [];
+    for (let i in color) {
+      colors.push(color[i].image_url);
+    }
+    const url = colors.map((color) => <img src={`${color}`} alt="" />);
 
+    // 15000.00 형식으로오는 price_krw값을 15,000 형식으로 변환
     const price_krw_subst = price_krw.slice(0, -3);
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    const price = numberWithCommas(price_krw_subst);
 
     return (
       <div className="items">
@@ -56,10 +62,10 @@ class Item extends Component {
                 <div className="item-desc">
                   <p className="title">{name}</p>
                   <p> {description}</p>
-                  {/* <p>{color}</p> */}
+                  <p className="color">{url}</p>
                 </div>
                 <div className="price">
-                  <p>KRW {price_krw_subst}</p>
+                  <p>KRW {price}</p>
                 </div>
               </div>
             </div>

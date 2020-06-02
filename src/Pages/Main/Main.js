@@ -23,15 +23,14 @@ class Main extends Component {
     this.setState({ scrollTop }, console.log(this.state));
   };
 
-  handleClicked = (prop) => {
-    // console.log(prop);
-    this.setState({ activeTab: prop });
-    // 수정필요 베스트누르면 액티브베스트
-    if (this.state.class === "activeBest") {
-      this.setState({ class: "activeNew" });
-    } else {
-      this.setState({ class: "activeBest" });
-    }
+  handleClickedBest = () => {
+    this.setState({ activeTab: "best" });
+    this.setState({ class: "activeBest" });
+  };
+
+  handleClickedNew = () => {
+    this.setState({ activeTab: "new" });
+    this.setState({ class: "activeNew" });
   };
 
   componentDidMount() {
@@ -174,13 +173,13 @@ class Main extends Component {
               <ul>
                 <li
                   className={this.state.class}
-                  onClick={() => this.handleClicked("best")}
+                  onClick={() => this.handleClickedBest("best")}
                 >
                   <span>BEST</span>
                 </li>
                 <li
                   className={this.state.class}
-                  onClick={() => this.handleClicked("new")}
+                  onClick={() => this.handleClickedNew("new")}
                 >
                   <span>NEW</span>
                 </li>
