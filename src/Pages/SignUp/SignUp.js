@@ -20,8 +20,34 @@ class SignUp extends Component {
       genders: [
         { id: 1, value: "남성", isChecked: false },
         { id: 2, value: "여성", isChecked: false },
-      ]
+      ],
+      gender: "",
     }
+  }
+
+  componentDidMount = () => {
+    fetch('http://10.58.2.156:8080/member/join', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nickname: this.state.id,
+        password: this.state.pw,
+        email: this.state.email,
+        fullname: this.state.name,
+        phone_number: this.state.optionVal + this.state.contactTwo + this.state.contactThree,
+        gender: this.state.gender
+      })
+    })
+
+      .then(response => {
+        console.log(response);
+        if (response.status === 200) //headers status
+        {
+          this.props.history.push("/signin")
+        }
+      });
   }
 
   emailInclude = (e) => {
@@ -62,27 +88,6 @@ class SignUp extends Component {
     }
   }
 
-  phoenNumber = (e) => {
-    if (
-      this.state.contactTwo.length > 3 &&
-      this.state.contactThree.length > 3
-    ) {
-      console.log(this.state.optionVal)
-      console.log(this.state.contactTwo)
-      console.log(this.state.contactThree)
-      // let Arr = this.state.contactArr;
-      // Arr.push(this.state.optionVal);
-      // Arr.push(this.state.contactTwo);
-      // Arr.push(this.state.contactThree);
-      let Box = this.state.optionVal + this.state.contactTwo + this.state.contactThree
-
-      console.log(Box)
-    }
-    return
-  };
-
-
-
   // genderCheck = (e) => {
   //   console.log("이벤트")
   //   if (this.state.selectedGender === this.state.selectedGenderFe) {
@@ -108,12 +113,13 @@ class SignUp extends Component {
     genders.forEach(gender => {
       if (gender.value === e.target.value) {
         gender.isChecked = e.target.checked
-        // console.log("check 확인", e.target.value)
+        console.log("check 확인", e.target.value)
       }
     })
     this.setState({
-      genders: genders
+      gender: e.target.value
     })
+    console.log(e.target.value)
   }
 
   correct = () => {
@@ -123,6 +129,7 @@ class SignUp extends Component {
   }
 
   render() {
+    console.log(this.state.gender)
     const { idMessage, pwMessage } = this.state
     return (
       <div className="SignUp">
@@ -337,7 +344,7 @@ class SignUp extends Component {
           </table>
         </article>
         <div className="SignUpBtnContainer">
-          <div className="SignUpBtn">회원가입</div>
+          <div className="SignUpBtn" onClick={this.componentDidMount}>회원가입</div>
         </div>
       </div>
     );
