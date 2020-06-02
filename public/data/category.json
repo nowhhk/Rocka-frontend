@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "name": "FACE",
+      "count": 5
+    },
+    {
+      "name": "LIP",
+      "count": 6
+    },
+    {
+      "name": "EYE",
+      "count": 2
+    },
+    {
+      "name": "CHEEK",
+      "count": 1
+    },
+    {
+      "name": "PALETTE",
+      "count": 2
+    },
+    {
+      "name": "SPECIAL EDITION",
+      "count": 2
+    },
+    {
+      "name": "TOOL",
+      "count": 1
+    }
+  ]
+}

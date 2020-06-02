@@ -14,9 +14,11 @@
 }
 .main-container {
   margin-top: 8em;
+  max-width: 1600px;
+  padding: 0 2.3em;
+  width: 100%;
 
   .swipe-img {
-    // display: inline-block;
     position: sticky;
     top: 0;
     z-index: -1;
@@ -35,6 +37,7 @@
 .contents {
   background-color: white;
   padding-bottom: 10em;
+
   .concept {
     strong {
       font-size: 14rem;
@@ -89,17 +92,34 @@
   .tabs {
     ul {
       display: flex;
-      li {
-        margin-right: 1.5em;
-        span {
-          font-size: $biggerFontSize;
-          font-weight: $blodweight;
-          color: white;
-          -webkit-text-stroke: 1px #000;
-        }
-        // span:hover {
-        //   color: #000;
-        // }
+      .activeBest {
+        margin-right: 0.5em;
+        color: black;
+        font-size: $biggerFontSize;
+        font-weight: $blodweight;
+        -webkit-text-stroke: 1px #000;
+      }
+      .activeBest:nth-child(2) {
+        margin-right: 0.5em;
+        color: white;
+        font-size: $biggerFontSize;
+        font-weight: $blodweight;
+        -webkit-text-stroke: 1px #000;
+      }
+
+      .activeNew {
+        margin-right: 0.5em;
+        color: white;
+        font-size: $biggerFontSize;
+        font-weight: $blodweight;
+        -webkit-text-stroke: 1px #000;
+      }
+      .activeNew:nth-child(2) {
+        margin-right: 0.5em;
+        color: black;
+        font-size: $biggerFontSize;
+        font-weight: $blodweight;
+        -webkit-text-stroke: 1px #000;
       }
     }
   }

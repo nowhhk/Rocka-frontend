@@ -13,6 +13,7 @@ class Main extends Component {
       data: [],
       scrollTop: {},
       activeTab: "best",
+      tabClass: "activeBest",
     };
   }
 
@@ -22,15 +23,18 @@ class Main extends Component {
     this.setState({ scrollTop }, console.log(this.state));
   };
 
-  handleClicked = (prop) => {
-    // console.log(prop);
-    this.setState({ tab: prop });
+  handleClickedBest = () => {
+    this.setState({ activeTab: "best", tabClass: "activeBest" });
+  };
+
+  handleClickedNew = () => {
+    this.setState({ activeTab: "new", tabClass: "activeNew" });
   };
 
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
 
-    fetch("/data/data.json")
+    fetch("./data/data.json")
       .then((res) => res.json())
       // .then((res) => console.log(res));
       .then((res) =>
@@ -41,26 +45,25 @@ class Main extends Component {
   }
 
   render() {
+    const { data, scrollTop, activeTab, tabClass } = this.state;
+
     console.log(this.state);
-    const bestproduct = this.state.data.filter((item) => item.ordered > 30);
-    const newproduct = this.state.data.filter(
-      (item) => item.launchdate > "2020-03-01"
-    );
+    // filter 기준 수정필요
+    const bestproduct = data.filter((item) => item.id < 20);
+    const newproduct = data.filter((item) => item.launchdate > "2020-05-15");
 
     const tab = {
-      // new: <ProductList products={newproduct} />,
       best: <ProductList products={bestproduct} />,
+      new: <ProductList products={newproduct} />,
     };
 
     let nav;
-    if (this.state.scrollTop > 1000) {
+    if (scrollTop > 1000) {
       // console.log("hihi");
       nav = <Nav />;
     } else {
       nav = <Nav />;
     }
-
-    // const {} = this.state
 
     return (
       <div className="wrapper">
@@ -164,10 +167,16 @@ class Main extends Component {
 
             <div className="tabs">
               <ul>
-                <li onClick={() => this.handleClicked("best")}>
+                <li
+                  className={tabClass}
+                  onClick={() => this.handleClickedBest("best")}
+                >
                   <span>BEST</span>
                 </li>
-                <li onClick={() => this.handleClicked("new")}>
+                <li
+                  className={tabClass}
+                  onClick={() => this.handleClickedNew("new")}
+                >
                   <span>NEW</span>
                 </li>
               </ul>
@@ -181,9 +190,7 @@ class Main extends Component {
                   marginTop: "1em",
                 }}
               >
-                {tab[this.state.activeTab]}
-                {/* <ProductList products={bestproduct} /> */}
-                {/* <ProductList products={newproduct} /> */}
+                {tab[activeTab]}
               </ul>
             </div>
           </div>
