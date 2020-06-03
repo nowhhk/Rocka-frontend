@@ -83,6 +83,82 @@
                         }
                     }
                 }
+                .MainLeftChoiceColor{
+                    width: 63%;
+                    ul{
+                        display: flex;
+                        flex-wrap: wrap;
+                        li{ 
+                            margin-right: .5rem;
+                            margin-bottom: .5em;
+                            .colorchart{
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .ProductDetailWish{
+                .productWish{
+                    min-width: 400px;
+                    max-width: 400px;
+                    height: 200px;
+                    overflow-y: auto;
+                    //박스를 넘지않으면, 스크롤바가 없고 박스를 넘으면, 스크롤바가 생김.
+                    .wishList{
+                        padding: 1em .3em 0em 0em;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .wishListLeft{
+                            display: flex;
+                            .wishListColor{
+                                img{
+                                    width: 15px;
+                                    height: 15px;
+                                    border-radius: 100%;
+                                }
+                            }
+                            .wishListColorText{
+                                font-size: 14px;
+                                margin-left: 1em;
+                            }
+                        } 
+                        .wishListRight{
+                            display: flex;
+                            .wishListAmount{
+                                    font-size: $leastFontSize;
+                                    font-weight: $blodweight;
+                                button{
+                                    border: none;
+                                    background-color: white;
+                                    font-size: $secondSmallestFontSize;
+                                    font-weight: $blodweight;
+                                }
+                                button:focus{
+                                    outline: 0;
+                                }
+                                span{
+                                    margin: 0em .3em;
+                                }
+                            }
+                            .wishListDelete{
+                                background-color: #DBDBDB;
+                                color: white;
+                                border-radius: 100%;
+                                width: 20px;
+                                height: 20px;
+                                text-align: center;
+                                font-size: .7rem;
+                                font-weight: $blodweight;
+                                line-height: 20px;
+                                margin-left: .5em;
+                            }
+                        }  
+                    }
+                }
             }
             .mainLeftTotal{
                 font-size: $littleSmaller;

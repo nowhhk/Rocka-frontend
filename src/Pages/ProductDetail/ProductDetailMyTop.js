@@ -39,11 +39,36 @@ class ProductDetailTop extends Component {
     };
 
     imgClick = (colors) => {
-        // console.log("컬러:", colors)
-        const choiceColor = this.state.wishList.concat(colors)
-        this.setState({
-            wishList: choiceColor
-        }, () => console.log(this.state.wishList))
+        console.log("컬러:", colors["name"])
+
+        if (this.state.wishList.length === 0) {
+            this.setState({
+                wishList: this.state.wishList.concat(colors)
+            }, () => console.log("위시리스트:", this.state.wishList))
+        }
+
+        this.state.wishList.forEach(element => {
+            if (element["name"] !== colors["name"]) {
+                const choiceColor = this.state.wishList.concat(colors)
+                this.setState({
+                    wishList: choiceColor
+                }, () => console.log("위시리스트:", this.state.wishList))
+            }
+            else if (colors["name"] === element["name"]) {
+                alert("이미 선택되어 있는 옵션입니다.")
+            }
+        }, console.log(this.state.wishList))
+
+        // choiceColor.forEach(element => {
+        //     console.log(element["name"])
+        //     if (colors["name"] !== element["name"]) {
+        //         alert("이미 선택되어 있는 옵션입니다.")
+        //     } else {
+        //         this.setState({
+        //             wishList: choiceColor
+        //         }, () => console.log("위시리스트:", this.state.wishList))
+        //     }
+        // })
     }
 
     render() {
@@ -80,15 +105,14 @@ class ProductDetailTop extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                className="MainLeftChoiceColor"
-                                style={{ display: { hi } ? 'block' : 'none' }}>
+                            <div className="MainLeftChoiceColor"
+                                style={{ display: hi ? 'block' : 'none' }}>
                                 <ul>
                                     {
                                         this.props.colorInfo.color && this.props.colorInfo.color.map((color, idx) => {
                                             return (
                                                 <li className="colorchart" key={idx} onClick={() => this.imgClick(color)}>
-                                                    <img src={color.image_url} alt="" />
+                                                    <img src={color.image_url} alt="" className="colorchart" />
                                                 </li>
                                             );
                                         })
@@ -104,7 +128,7 @@ class ProductDetailTop extends Component {
                                             <div className="wishList">
                                                 <div className="wishListLeft">
                                                     <div className="wishListColor" onClick={this.colorClick}>
-                                                        <img src={wishArr.image_url} alt="" />
+                                                        <img src={wishArr.image_url} alt="" className="" />
                                                     </div>
                                                     {/* 데이터 받게되면 내가 클릭한 색상 props 받아와야함. */}
                                                     <span className="wishListColorText">
