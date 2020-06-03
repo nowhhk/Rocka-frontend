@@ -12,24 +12,30 @@ class Product extends Component {
     super();
     this.state = {
       data: [],
-      // clickedCategory: "",
       sort: "",
     };
   }
 
   componentDidMount() {
-    fetch("./data/data.json")
+    this.getData();
+  }
+  //componentDidUpdate는 state 나 props 바뀔때마다 실행
+  //props에 담긴 location객체의 search값이 바뀔때
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevProps.location.search !== this.props.location.search) {
+      this.getData();
+    }
+  };
+
+  getData = () => {
+    let address = this.props.location.search;
+    fetch(`http://10.58.0.176:8080/product${address}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
           data: res.data,
         })
       );
-  }
-
-  handleClicked = (category) => {
-    console.log("category는 : ", category);
-    this.setState({ clickedCategory: category });
   };
 
   handleSort = (prop) => {
@@ -37,10 +43,7 @@ class Product extends Component {
   };
 
   render() {
-    // const filtering = this.state.data.filter((item) =>
-    //   item.category.match(this.state.clickedCategory)
-    // );
-    // console.log(this.state);
+    console.log(this.props);
 
     const notSorted = [...this.state.data.sort((a, b) => a.id - b.id)];
 
@@ -66,7 +69,7 @@ class Product extends Component {
         <div className="product-page">
           <div className="top">
             <div className="nav_container">
-              <Category handleChange={this.handleClicked} />
+              <Category handleChange={this.handleClicked} />{" "}
             </div>
             <Sort
               handleNewSort={this.handleSort}

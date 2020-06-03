@@ -8,10 +8,11 @@ class Stores extends Component {
   }
 
   render() {
+    // console.log(this.props);
     return (
       <div className="store-list">
         <div className="list">
-          <div className="number">{this.props.number}</div>
+          <div className="number">{}</div>
           <div className="type">{this.props.type}</div>
           <div className="name">{this.props.name}</div>
           <div className="tel">{this.props.tel}</div>
@@ -19,7 +20,7 @@ class Stores extends Component {
           <div className="weekday">{this.props.weekday}</div>
           <a href={`${this.props.map}`}>
             <div className="map">
-              <i class="fas fa-map-marker-alt"></i>
+              <i className="fas fa-map-marker-alt"></i>
             </div>
           </a>
         </div>

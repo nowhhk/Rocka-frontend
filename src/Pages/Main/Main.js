@@ -49,26 +49,23 @@ class Main extends Component {
     const { data, scrollTop, activeTab, tabClass } = this.state;
 
     console.log(this.state);
-    // filter 기준 수정필요
+    // best filter 기준 수정필요
     const bestproduct = data.filter((item) => item.id < 20);
-    const newproduct = data.filter((item) => item.launchdate > "2020-05-15");
+
+    const newSort = [
+      ...data.sort((a, b) => b.launchdate.localeCompare(a.launchdate)),
+    ];
+    const newproduct = [];
+    newproduct.push(newSort[0], newSort[1], newSort[2]);
 
     const tab = {
       best: <ProductList products={bestproduct} />,
       new: <ProductList products={newproduct} />,
     };
 
-    let nav;
-    if (scrollTop > 1000) {
-      // console.log("hihi");
-      nav = <Nav />;
-    } else {
-      nav = <Nav />;
-    }
-
     return (
       <div className="wrapper">
-        {nav}
+        <Nav />
         <div className="main-container">
           <div className="swipe-img">
             <ul>

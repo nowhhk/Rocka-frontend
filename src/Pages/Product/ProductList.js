@@ -6,7 +6,7 @@ class ProductList extends Component {
   render() {
     const map = this.props.products.map((item) => {
       return (
-        <Link to="/ProductDetail" className="link" style={{ color: "#646464" }}>
+        <Link to="/ProductDetail" className="link" style={{ color: "black" }}>
           <Item
             key={item.id}
             name={item.name}
@@ -26,8 +26,9 @@ class ProductList extends Component {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
-          minWidth: "1280px",
+          justifyContent: "flex-start",
+          minWidth: "1620px",
+          maxWidth: "1620px",
           marginTop: "1em",
         }}
       >
