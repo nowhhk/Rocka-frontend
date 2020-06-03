@@ -44,6 +44,7 @@
                 margin-bottom: 5em;
                 .colorIsEveryoneTitle{
                     font-size: 120px;
+                    overflow: hidden;
                 }
                 .semiBigText{
                     font-size: $defalutFontSize;
@@ -169,16 +170,31 @@
                 background-image: url('https://laka.co.kr/web/info/wsls/detail_12.jpg');
                 // background-color: rgb(215, 214, 219);
                 background-repeat: no-repeat;
-                padding: 8em 3em;
+                padding: 5em 3em;
                 background-size: 100% auto;
                 background-position: center;
                 height: 2000px;
-            }
-            .recommendComponent{
-                margin-top: 10em;
-                .ColorKindsTitle{
-                    font-size: 70px;
-                    font-weight: $blodweight;  
+                .infoTitle{
+                    font-size: 65px;
+                    font-weight: $blodweight;
+                }
+                .infoTextBox{
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 2em;
+                    .infoBox{
+                        .infoTextTitle{
+                            font-size: $littleSmaller;
+                            font-weight: $blodweight;
+                            margin-top: 3em;
+                            margin-bottom: 1em;
+                        }
+                        .infoText{
+                            font-size: $secondSmallestFontSize;
+                            font-weight: $thinweight;
+                            line-height: 1.5em;
+                        }
+                    }    
                 }
             }
         }

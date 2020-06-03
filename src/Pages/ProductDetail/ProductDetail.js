@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
 import ProductDetailTop from "./ProductDetailMyTop";
+// import ProductList from "../Product/ProductList";
 import "./ProductDetail.scss";
 
 
@@ -22,9 +23,29 @@ class ProductDetail extends Component {
             .then(response => this.setState({ data: response.data }, () => console.log(this.state.data)))
     }
 
+    //fetch값 두개를 꺼내고 싶어
+    // componentDidMount() {
+    //     Promise.all([
+    //         fetch("/data/productList.json").then(response => response.json()),
+    //         fetch("/data/data.json").then(response => response.json())
+    //     ])
+    //         .then((response) => {
+    //             console.log(response)
+    //             //json response
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // }
+
     render() {
         const { data } = this.state
         console.log(data && this.state.data)
+        // console.log(typeof (data.customer_service))
+        // const n = '\n'
+        // const customer_service = data.customer_service.replace(n, '<br />')
+        // console.log(customer_service)
+
         return (
             <div className="ProductDetail">
                 <Nav />
@@ -68,7 +89,9 @@ class ProductDetail extends Component {
                             <span className="ColorKindsExplan">COLOR INFO</span>
                             <p className="reatureTitle">FIND YOUR MOOD</p>
                             <p className="ColorKindsExplan">전색상을 한 눈에 담아보세요.</p>
-                            <div className="previewAllColor">{/* 영상첨가 */}</div>
+                            <div className="previewAllColor">
+                                <video src="https://i.vimeocdn.com/video/862955551.webp?mw=600&amp;mh=600"></video>
+                            </div>
                         </div>
                         <div className="featureBox">
                             <p className="ColorKindsExplan">FEATURE</p>
@@ -286,27 +309,30 @@ class ProductDetail extends Component {
                                 <div className="infoLeft">
                                     <div className="infoBox">
                                         <div className="infoTextTitle">주의사항</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.caution}</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">용량 및 중량</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.volume_g}</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">제품 주요 사양</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.main_spec}</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">사용 방법</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.how_to_use}</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">식품의약품안정청 심사필</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.mfds}</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">라카 고객상담실</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">
+                                            {/* {data.customer_service} */}
+                                            {/* {data.customer_service.replace('\n', '<br />')} */}
+                                        </div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">전성분 정보 확인</div>
@@ -315,11 +341,11 @@ class ProductDetail extends Component {
                                 <div className="infoRight">
                                     <div className="infoBox">
                                         <div className="infoTextTitle">교환 및 반품 안내</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.return_policy}</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">제조연월 및 사용기한</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.expiration}</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">제조국</div>
@@ -335,9 +361,6 @@ class ProductDetail extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="recommendComponent">
-                            <p className="ColorKindsTitle">YOU MIGHT LIKE</p>
                         </div>
                     </div>
                 </div>

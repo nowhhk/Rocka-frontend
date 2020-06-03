@@ -9,82 +9,133 @@ class ProductDetailTop extends Component {
             data: [],
             hi: false,
             wishList: [],
-            count: 1,
+            minus: [],
         };
     }
 
     clickCircle = () => {
-        console.log("클릭 이벤트 정상작동")
         this.setState({
             hi: true
         })
     }
 
-    minusButton = () => {
-        if (this.state.count === 1) {
+    minusButton = (what) => {
+        const wishList = { ...this.state.wishList };
+        // console.log(wishList);
+
+        const minus = { ...what };
+        // console.log("인덱스", minus)
+
+        if (minus["order_quantity"] === 1) {
             alert("최소 주문수량은 1개 입니다.");
-        } else if (this.state.count > 1) {
+        } else if (minus["order_quantity"] > 1) {
+            minus["order_quantity"]--
+            // console.log(minus["order_quantity"]--)
+
             this.setState({
-                count: this.state.count - 1,
+                wishList: wishList,
             });
+            console.log(wishList)
         }
+        return
+
     };
 
-    plusButton = () => {
-        if (this.state.count >= 1) {
+    plusButton = (what) => {
+        const wishList = { ...this.state.wishList };
+        console.log(wishList);
+
+        const minus = { ...what };
+        console.log("인덱스", minus)
+
+        if (minus["order_quantity"] > 1) {
+            minus["order_quantity"]++
+            console.log(minus["order_quantity"]++)
+
             this.setState({
-                count: this.state.count + 1,
+                minus: wishList
             });
         }
+        return
     };
 
     imgClick = (colors) => {
-        console.log("컬러:", colors["name"])
-
-        if (this.state.wishList.length === 0) {
+        const { wishList } = this.state;
+        console.log("wishList : ", wishList)
+        console.log(colors)
+        if (wishList.includes(colors)) {
+            alert("이미 있음");
+        } else {
             this.setState({
-                wishList: this.state.wishList.concat(colors)
-            }, () => console.log("위시리스트:", this.state.wishList))
+                wishList: wishList.concat(colors)
+            })
         }
 
-        this.state.wishList.forEach(element => {
-            if (element["name"] !== colors["name"]) {
-                const choiceColor = this.state.wishList.concat(colors)
-                this.setState({
-                    wishList: choiceColor
-                }, () => console.log("위시리스트:", this.state.wishList))
-            }
-            else if (colors["name"] === element["name"]) {
-                alert("이미 선택되어 있는 옵션입니다.")
-            }
-        }, console.log(this.state.wishList))
 
-        // choiceColor.forEach(element => {
-        //     console.log(element["name"])
-        //     if (colors["name"] !== element["name"]) {
+        // if (this.state.wishList.length === 0) {
+        //     console.log("첫번째 if")
+        //     this.setState({
+        //         wishList: this.state.wishList.concat(colors),
+        //     }, () => console.log("1. 위시리스트:", this.state.wishList))
+        // }
+
+        // for (let i in this.state.wishList) {
+        //     if (this.state.wishList[i].name === colors["name"]) {
+        //         console.log("같은 상품")
         //         alert("이미 선택되어 있는 옵션입니다.")
+        //         return;
         //     } else {
+        //         console.log("포함되지 않은 상품")
+        //         this.setState({
+        //             wishList: this.state.wishList.concat(colors),
+        //         }, () => console.log("2. 위시리스트:", this.state.wishList))
+        //     }
+        // }
+
+        // if (this.state.wishList.length === 0) {
+        //     const testProducts = { ...colors }; //color부분을 클론 받기
+        //     testProducts["order_quantity"] = 1 //order_quantity state =1로 변경
+        //     // wishList: this.state.wishList.concat(colors),
+
+        //     this.setState({
+        //         wishList: this.state.wishList.concat(testProducts)
+        //     }, () => console.log("위시리스트:", this.state.wishList))
+        //     console.log(testProducts);
+        // }
+
+        // this.state.wishList.forEach(element => {
+        //     if (element["name"] !== colors["name"]) {
+        //         console.log("재재재재재재")
+        //         const testProducts = { ...colors }; //color부분을 클론 받기
+        //         testProducts["order_quantity"] = 1 //order_quantity state =1로 변경
+
+        //         const choiceColor = this.state.wishList.concat(testProducts)
         //         this.setState({
         //             wishList: choiceColor
         //         }, () => console.log("위시리스트:", this.state.wishList))
         //     }
-        // })
+        //     else if (colors["name"] === element["name"]) {
+        //         alert("이미 선택되어 있는 옵션입니다.")
+        //         return;
+        //     }
+        // }, console.log(this.state.wishList))
     }
 
     render() {
-        const { data, hi } = this.state;
-        console.log(this.props.colorInfo)
-        console.log(this.props.colorInfo.inner_image_url)
-        console.log(this.props.colorInfo.color)
+        const { hi } = this.state;
+        // const { productData } = this.props.colorInfo
 
         return (
             <div className="ProductDetailTop">
                 <main>
                     <div className="mainLeft">
-                        <div className="mainLeftTitle">
-                            <h1>{data[0] && data[0].productName}</h1>
+                        <div className="mainLeftTitle" >
+                            {/* <h1>{data[0] && data[0].productName}</h1>
                             <span>{data[0] && data[0].info}</span>
-                            <span className="price">KRW {data[0] && data[0].price}</span>
+                            <span className="price">KRW {data[0] && data[0].price}</span> */}
+                            <h1>{this.props.colorInfo.name}</h1>
+                            <span>{this.props.colorInfo.description}</span>
+                            <span className="price">KRW {this.props.colorInfo.price_krw}</span>
                         </div>
                         <div className="delivery">
                             <div className="deliveryDay">
@@ -137,13 +188,13 @@ class ProductDetailTop extends Component {
                                                 </div>
                                                 <div className="wishListRight">
                                                     <div className="wishListAmount">
-                                                        <button type="button" onClick={this.minusButton}>
+                                                        <button type="button" onClick={() => this.minusButton(wishArr)}>
                                                             -
-                                                    </button>
-                                                        <span>{this.state.count}</span>
-                                                        <button type="button" onClick={this.plusButton}>
+                                                        </button>
+                                                        <span>{wishArr.order_quantity}</span>
+                                                        <button type="button" onClick={() => this.plusButton(wishArr)}>
                                                             +
-                                                    </button>
+                                                        </button>
                                                     </div>
                                                     <div className="wishListDelete">X</div>
                                                 </div>
@@ -155,7 +206,7 @@ class ProductDetailTop extends Component {
                         </div>
                         <div className="mainLeftTotal">
                             <span>TOTAL</span>
-                            <span className="price">KRW 18,000</span>
+                            <span className="price">KRW </span>
                         </div>
                         <div className="mainLeftPurchase">
                             <div className="basket"><i class="fas fa-shopping-bag"></i></div>

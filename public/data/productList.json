@@ -27,35 +27,43 @@
         "color": [
             {
                 "name": "이고르",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/d91df56843b5f052c0733a607c8538d3.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/d91df56843b5f052c0733a607c8538d3.jpg",
+                "order_quantity": 3
             },
             {
                 "name": "카미유",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/396244b15425120006155033c2fdb28e.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/396244b15425120006155033c2fdb28e.jpg",
+                "order_quantity": 1
             },
             {
                 "name": "모리스",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/667741c853a6b12d72d8e7350fbeee96.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/667741c853a6b12d72d8e7350fbeee96.jpg",
+                "order_quantity": 1
             },
             {
                 "name": "클로드",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/8625cd0b7d8ba897d7dba6ef44ca2870.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/8625cd0b7d8ba897d7dba6ef44ca2870.jpg",
+                "order_quantity": 1
             },
             {
                 "name": "로시니",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/a564c347a1ade1ec805de620c7f985d5.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/a564c347a1ade1ec805de620c7f985d5.jpg",
+                "order_quantity": 1
             },
             {
                 "name": "레너드",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/e93fb9808deeed5dd8e63edc4c37816f.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/e93fb9808deeed5dd8e63edc4c37816f.jpg",
+                "order_quantity": 1
             },
             {
                 "name": "베르디",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/5b64e8ad4eccf527e0444ca4ad89df09.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/5b64e8ad4eccf527e0444ca4ad89df09.jpg",
+                "order_quantity": 1
             },
             {
                 "name": "비제트",
-                "image_url": "https://laka.co.kr/web/product/option_button/20200323/58694e8680877f4793c61eb05ef1ba7c.jpg"
+                "image_url": "https://laka.co.kr/web/product/option_button/20200323/58694e8680877f4793c61eb05ef1ba7c.jpg",
+                "order_quantity": 1
             }
         ]
     }
