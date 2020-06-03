@@ -6,7 +6,7 @@ class ProductList extends Component {
   render() {
     const map = this.props.products.map((item) => {
       return (
-        <Link to="/ProductDetail" className="link">
+        <Link to="/ProductDetail" className="link" style={{ color: "#646464" }}>
           <Item
             key={item.id}
             name={item.name}
