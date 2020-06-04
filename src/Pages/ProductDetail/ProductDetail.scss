@@ -5,48 +5,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    .product-page{
+        width: 100%; 
+        padding: 2.3em;
+        margin-top: 3em;
+        max-width: 1600px;
+    }
     .veryBigTitle{
         font-size: 260px;
         font-weight: $blodweight;
     }
     .ProductDetailBottomContainer{
-        padding: 6em;
+        padding: 6em 0em;
         display: flex;
         justify-content: center;
         overflow: hidden;
         width: 100%;
         .ProductDetailBottom{
-            max-width: 1000px;
+            max-width: 1500px;
             .mainImg{
                 background-image: url('https://laka.co.kr/web/info/wsls/detail_01.jpg');
                 background-repeat: no-repeat;
                 background-size: 100%;
-                height: 1400px;
+                height: 2000px;
                 padding: 8em 3em;
                 .reatureTitle{
-                    font-size: 70px;
+                    margin-top: .3em;
+                    margin-bottom: .6em;
+                    font-size: $biggerFontSize;
                     font-weight: $blodweight;
-                    line-height: 1.1em;
+                    line-height: 1.2em;
                 }
                 .ColorKindsExplan{
-                    margin-top: 1.5em;
-                    font-size: 22px;
+                    font-size: $middleFontSize;
                     font-weight: $thinweight;
-                    line-height: 1.5em;
-                    margin-bottom: 2.5em;
-                    line-height: 2.2em;
+                    line-height: 1.7em;
                 }
             }
             .textureTextBox{
                 width: 100%;
                 font-weight: $blodweight;
                 margin-top: -5em;
-                margin-bottom: 5em;
+                margin-bottom: 10em;
                 .colorIsEveryoneTitle{
-                    font-size: 120px;
+                    font-size: 160px;
                 }
                 .semiBigText{
-                    font-size: $defalutFontSize;
+                    font-size: $littleBigFontSize;
                     line-height: 1.7em;
                     text-align: right;
                     margin-top: 1em;
@@ -58,30 +63,29 @@
                     margin-bottom: 1em;
                     img{
                     width: 50%;
-                    margin-right: 1em;
                     }
                 }
                 .previewImgBottom{
                     background-image: url('https://laka.co.kr/web/info/wsls/detail_04.jpg');
                     background-size: 100% auto;
-                    height: 700px;
+                    height: 1000px;
                     background-repeat: no-repeat;
                 }
             }
             .colorInfo{
                 .reatureTitle{
-                    font-size: 70px;
+                    font-size: $biggerFontSize;
                     font-weight: $blodweight;
-                    line-height: 1.1em;
+                    line-height: 1.2em;
                 }
                 .ColorKindsExplan{
-                    margin-top: 1.5em;
-                    font-size: 22px;
-                    font-weight: $thinweight;
+                    margin-top: 2em;
                     line-height: 1.5em;
                     margin-bottom: 2.5em;
                     line-height: 2.2em;
-                }  
+                    font-size: $littleBigFontSize;
+                    font-weight: $thinweight;
+                }
             }
             .featureBox{
                 background-image: url('https://laka.co.kr/web/info/wsls/detail_07.jpg');
@@ -89,18 +93,19 @@
                 padding: 8em 3em;
                 background-size: 100% auto;
                 background-position: center;
+                height: 1200px;
                 .reatureTitle{
-                    font-size: 70px;
+                    font-size: $biggerFontSize;
                     font-weight: $blodweight;
-                    line-height: 1.1em;
+                    line-height: 1.2em;
                 }
                 .ColorKindsExplan{
-                    margin-top: 1.5em;
-                    font-size: 22px;
-                    font-weight: $thinweight;
+                    margin-top: 2em;
                     line-height: 1.5em;
                     margin-bottom: 2.5em;
                     line-height: 2.2em;
+                    font-size: $littleBigFontSize;
+                    font-weight: $thinweight;
                 }
             }
             .colorIsEveryone{
@@ -108,10 +113,10 @@
                 font-weight: $blodweight;
                 margin-top: 5em;
                 .colorIsEveryoneTitle{
-                    font-size: 120px;
+                    font-size: 160px;
                 }
                 .semiBigText{
-                    font-size: $defalutFontSize;
+                    font-size: $littleBigFontSize;
                     line-height: 1.7em;
                     text-align: right;
                     margin-top: 1em;
@@ -123,14 +128,14 @@
                     margin-left: 2em;
                 }
                 .ColorKindsTitle{
-                    font-size: 70px;
+                    font-size: 85px;
                     font-weight: $blodweight;
                 }
                 .ColorKindsExplan{
                     margin-top: 1.5em;
-                    font-size: $littleSmaller;
+                    font-size: 26px;
                     font-weight: $thinweight;
-                    line-height: 1.5em;
+                    line-height: 1.6em;
                     margin-bottom: 2.5em;
                 }
                 .ColorKindsImgBox{
@@ -145,16 +150,18 @@
             .allLineUp{
                 margin-top: 10em;
                 .smallText{
-                    font-size: $littleSmaller;
+                    font-size: $littleBigFontSize;
                     font-weight: $thinweight;
                 }
                 .semiBigText{
-                    font-size: 65px;
-                    font-weight: 700;
-                    margin: .2em 0 .5em;
+                    margin-top: .3em;
+                    margin-bottom: .6em;
+                    font-size: $biggerFontSize;
+                    font-weight: $blodweight;
+                    line-height: 1.2em;
                 }
                 .mediumText{
-                    font-size: $defalutFontSize;
+                    font-size: $middleFontSize;
                     font-weight: $thinweight;
                     line-height: 1.7em;
                 }
@@ -169,16 +176,32 @@
                 background-image: url('https://laka.co.kr/web/info/wsls/detail_12.jpg');
                 // background-color: rgb(215, 214, 219);
                 background-repeat: no-repeat;
-                padding: 8em 3em;
+                padding: 10em 3em;
                 background-size: 100% auto;
                 background-position: center;
-                height: 2000px;
-            }
-            .recommendComponent{
-                margin-top: 10em;
-                .ColorKindsTitle{
-                    font-size: 70px;
-                    font-weight: $blodweight;  
+                height: 3000px;
+                .infoTitle{
+                    font-size: $biggerFontSize;
+                    font-weight: $blodweight;
+                    line-height: 1.2em;
+                }
+                .infoTextBox{
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 2em;
+                    .infoBox{
+                        .infoTextTitle{
+                            font-size: $defalutFontSize;
+                            font-weight: $blodweight;
+                            margin-top: 3em;
+                            margin-bottom: 1em;
+                        }
+                        .infoText{
+                            font-size: $littleSmaller;
+                            font-weight: $thinweight;
+                            line-height: 1.7em;
+                        }
+                    }    
                 }
             }
         }

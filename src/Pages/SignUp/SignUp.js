@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API } from "../../config";
 import "./SignUp.scss";
 
 class SignUp extends Component {
@@ -20,8 +21,36 @@ class SignUp extends Component {
       genders: [
         { id: 1, value: "남성", isChecked: false },
         { id: 2, value: "여성", isChecked: false },
-      ]
+      ],
+      gender: "",
+      address: "",
     }
+  }
+
+  goSingIn = () => {
+    fetch(`${API}/member/join`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nickname: this.state.id,
+        password: this.state.pw,
+        email: this.state.email,
+        fullname: this.state.name,
+        phone_number: this.state.optionVal + this.state.contactTwo + this.state.contactThree,
+        gender: this.state.gender,
+        address: this.state.address,
+      })
+    })
+
+      .then(response => {
+        console.log(response);
+        if (response.status === 200) //headers status
+        {
+          this.props.history.push("/signin")
+        }
+      });
   }
 
   emailInclude = (e) => {
@@ -36,12 +65,7 @@ class SignUp extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    // if (this.state.pwConformLength === this.state.pwLength && this.state.pw !== this.state.pwConform) {
-    //   console.log("해결")
-    //   this.setState({
-    //     pwMessage: true
-    //   })
-    // }
+
     if (this.state.pw !== e.target.value) {
       this.setState({ pwMessage: true })
     } else this.setState({ pwMessage: false })
@@ -62,58 +86,18 @@ class SignUp extends Component {
     }
   }
 
-  phoenNumber = (e) => {
-    if (
-      this.state.contactTwo.length > 3 &&
-      this.state.contactThree.length > 3
-    ) {
-      console.log(this.state.optionVal)
-      console.log(this.state.contactTwo)
-      console.log(this.state.contactThree)
-      // let Arr = this.state.contactArr;
-      // Arr.push(this.state.optionVal);
-      // Arr.push(this.state.contactTwo);
-      // Arr.push(this.state.contactThree);
-      let Box = this.state.optionVal + this.state.contactTwo + this.state.contactThree
-
-      console.log(Box)
-    }
-    return
-  };
-
-
-
-  // genderCheck = (e) => {
-  //   console.log("이벤트")
-  //   if (this.state.selectedGender === this.state.selectedGenderFe) {
-  //     this.setState({
-  //       selectedGender: true
-  //     })
-  //   } else if (this.state.selectedGender === true) {
-  //     this.setState({
-  //       selectedGenderFe: true,
-  //       selectedGender: false
-  //     })
-  //   } else if (this.state.selectedGenderFe === true) {
-  //     this.setState({
-  //       selectedGender: true,
-  //       selectedGenderFe: false,
-  //     })
-  //   }
-  // }
-
   genderCheck = (e) => {
-    // console.log("이벤트")
     let genders = this.state.genders
     genders.forEach(gender => {
       if (gender.value === e.target.value) {
         gender.isChecked = e.target.checked
-        // console.log("check 확인", e.target.value)
+        console.log("check 확인", e.target.value)
       }
     })
     this.setState({
-      genders: genders
+      gender: e.target.id
     })
+    console.log(e.target.value)
   }
 
   correct = () => {
@@ -123,6 +107,8 @@ class SignUp extends Component {
   }
 
   render() {
+    console.log(this.state.address)
+    console.log(this.state.gender)
     const { idMessage, pwMessage } = this.state
     return (
       <div className="SignUp">
@@ -305,7 +291,7 @@ class SignUp extends Component {
                 <th>주소</th>
                 <td>
                   <ul>
-                    <li className="addressList"><input type="text" className="userInfoInputBox" /><div>우편번호 검색</div></li>
+                    <li className="addressList"><input type="text" className="userInfoInputBox" name="address" onChange={this.handleInput} /><div>우편번호 검색</div></li>
                     <li><input type="text" className="userInfoInputBox" /></li>
                     <li><input type="text" className="userInfoInputBox" /></li>
                   </ul>
@@ -315,8 +301,6 @@ class SignUp extends Component {
                 <th>젠더<span className="termsOfServiceDot">•</span></th>
                 <td class="genderBox">
                   <ul>
-                    {/* <li><input type="checkbox" onChange={this.genderCheck} checked={this.state.selectedGender} />남성</li>
-                    <li><input type="checkbox" onChange={this.genderCheck} checked={this.state.selectedGenderFe} />여성</li> */}
                     {
                       this.state.genders.map((gender) => {
                         return (
@@ -337,7 +321,7 @@ class SignUp extends Component {
           </table>
         </article>
         <div className="SignUpBtnContainer">
-          <div className="SignUpBtn">회원가입</div>
+          <div className="SignUpBtn" onClick={this.goSingIn}>회원가입</div>
         </div>
       </div>
     );

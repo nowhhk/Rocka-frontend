@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ShoppingCartList from "./ShoppingCartList";
+// import ShoppingCartList from "./ShoppingCartList";
 import "./ShoppingCart.scss";
 
 class ShoppingCart extends Component {
@@ -17,7 +17,6 @@ class ShoppingCart extends Component {
   }
 
   render() {
-    const { data } = this.state;
     return (
       <div className="ShoppingCart">
         <div className="allSelector">
