@@ -19,6 +19,7 @@
   width: 100%;
 
   .swipe-img {
+    width: 100%;
     position: sticky;
     top: 0;
     z-index: -1;
@@ -39,15 +40,19 @@
   padding-bottom: 10em;
 
   .concept {
+    padding-top: 3em;
     strong {
-      font-size: 14rem;
+      font-size: 13rem;
       font-weight: $blodweight;
+      letter-spacing: -.1em;
     }
     p {
-      font-size: $middleBigFontSize;
-      line-height: 1.5em;
+      margin-top: .5em;
+      font-size: 2rem;
+      line-height: 2em;
       font-weight: $blodweight;
       margin-bottom: 1em;
+      text-align: right;
     }
   }
   .link-btn {
@@ -59,10 +64,13 @@
   }
 
   .collection {
+    margin-top: 12em;
     margin-bottom: 30em;
     strong {
-      font-size: 7rem;
-      font-weight: $blodweight;
+      font-size: 8rem;
+      font-weight: bold;
+      line-height: 1.1em;
+      letter-spacing: -.03em;
     }
 
     ul {
@@ -89,37 +97,70 @@
       }
     }
   }
-  .tabs {
-    ul {
-      display: flex;
-      .activeBest {
-        margin-right: 0.5em;
-        color: black;
-        font-size: $biggerFontSize;
+  // .lakaSubImg{
+  //   background-image: url(https://laka.co.kr/laka_skin/images/pc/img_main_thumb_03_01_0405.jpg);
+  //   width: 100%;
+  //   height: 800px;
+  //   position: sticky;
+  //   background-repeat: no-repeat;
+  //   background-size: 100%;
+  //   overflow: hidden;
+  //   top: 100px;
+  // }
+  .backgroundWhite{
+    z-index: 3;
+    background-color: white;
+    .cushionImg{
+      background-color: white;
+    }
+    .cushionText{
+      font-size: 2em;
+      font-weight: $thinweight;
+      line-height: 1.5em;
+      margin-bottom: 8em;
+      strong{
+        font-size: 2.5em;
+        line-height: 1.3em;
         font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
+        letter-spacing: -.05em;
       }
-      .activeBest:nth-child(2) {
-        margin-right: 0.5em;
-        color: white;
-        font-size: $biggerFontSize;
-        font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
+      p{
+        margin-top: 1em;
+        text-align: right;
       }
-
-      .activeNew {
-        margin-right: 0.5em;
-        color: white;
-        font-size: $biggerFontSize;
-        font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
-      }
-      .activeNew:nth-child(2) {
-        margin-right: 0.5em;
-        color: black;
-        font-size: $biggerFontSize;
-        font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
+    }
+    .tabs {
+      ul {
+        display: flex;
+        .activeBest {
+          margin-right: 0.5em;
+          color: black;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
+        .activeBest:nth-child(2) {
+          margin-right: 0.5em;
+          color: white;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
+  
+        .activeNew {
+          margin-right: 0.5em;
+          color: white;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
+        .activeNew:nth-child(2) {
+          margin-right: 0.5em;
+          color: black;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
       }
     }
   }

@@ -102,9 +102,9 @@ class Main extends Component {
                 우리의 입술색을 한 단어로 정의할 수 없듯이
                 <br /> 라카는 모든 제품에 대해 성별을 구분하지 않고
                 <br /> 여성과 남성 모두의 룩을 제안하며 뷰티에 대한
-                <br /> 오랜 관성을 깨는 즐겁고 실용적인
-                <br /> 브랜드입니다.
+                <br /> 오랜 관성을 깨는 즐겁고 실용적인 브랜드입니다.
               </p>
+              <p>BRAND STORY ></p>
             </div>
 
             <div className="collection">
@@ -167,24 +167,34 @@ class Main extends Component {
                 </li>
               </ul>
             </div>
+            <div className="lakaSubImg"></div>
+            <div className="backgroundWhite">
+              <div className="cushionImg">
+                <img src="https://laka.co.kr/web/product/medium/20200405/bb379c2c01db4b95ef7a768577aa4730.png" alt="" />
+              </div>
+              <div className="cushionText">
+                <strong>상상해보세요.<br />손끝으로 유리 표면을 만질 때의<br />매끈함, 깨끗함, 여린 윤기</strong>
+                <p>세럼처럼 산뜻하고 부드러운 발림, 피부 위에 착 붙은 듯<br /> 매끈한 초밀착 피니시의 라카 NEW 쿠션을 만나보세요. </p>
+                <p>MORE ></p>
+              </div>
+              <div className="tabs">
+                <ul>
+                  <li
+                    className={tabClass}
+                    onClick={() => this.handleClickedBest("best")}
+                  >
+                    <span>BEST</span>
+                  </li>
+                  <li
+                    className={tabClass}
+                    onClick={() => this.handleClickedNew("new")}
+                  >
+                    <span>NEW</span>
+                  </li>
+                </ul>
 
-            <div className="tabs">
-              <ul>
-                <li
-                  className={tabClass}
-                  onClick={() => this.handleClickedBest("best")}
-                >
-                  <span>BEST</span>
-                </li>
-                <li
-                  className={tabClass}
-                  onClick={() => this.handleClickedNew("new")}
-                >
-                  <span>NEW</span>
-                </li>
-              </ul>
-
-              <ul>{tab[activeTab]}</ul>
+                <ul>{tab[activeTab]}</ul>
+              </div>
             </div>
           </div>
         </div>

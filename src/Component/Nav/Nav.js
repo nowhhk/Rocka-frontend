@@ -90,7 +90,7 @@ class Nav extends Component {
             {login}
           </span>
           <span
-            style={{ display: join ? 'block' : 'none' }}
+            style={{ display: join ? 'inlineblock' : 'none' }}
             onClick={(e) => {
               this.props.history.push("/signup");
             }}

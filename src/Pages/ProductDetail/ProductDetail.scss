@@ -12,11 +12,12 @@
         max-width: 1600px;
     }
     .veryBigTitle{
-        font-size: 260px;
+        padding:  .5em 0em;
+        font-size: 110px;
         font-weight: $blodweight;
     }
     .ProductDetailBottomContainer{
-        padding: 6em 0em;
+        padding: 2em 0em;
         display: flex;
         justify-content: center;
         overflow: hidden;
@@ -72,19 +73,18 @@
                     background-repeat: no-repeat;
                 }
             }
-            .colorInfo{
-                .reatureTitle{
-                    font-size: $biggerFontSize;
-                    font-weight: $blodweight;
-                    line-height: 1.2em;
+            .colorIsEveryone{
+                width: 100%;
+                font-weight: $blodweight;
+                margin: 10em 0em;
+                .colorIsEveryoneTitle{
+                    font-size: 160px;
                 }
-                .ColorKindsExplan{
-                    margin-top: 2em;
-                    line-height: 1.5em;
-                    margin-bottom: 2.5em;
-                    line-height: 2.2em;
+                .semiBigText{
                     font-size: $littleBigFontSize;
-                    font-weight: $thinweight;
+                    line-height: 1.7em;
+                    text-align: right;
+                    margin-top: 1em;
                 }
             }
             .featureBox{
@@ -106,20 +106,6 @@
                     line-height: 2.2em;
                     font-size: $littleBigFontSize;
                     font-weight: $thinweight;
-                }
-            }
-            .colorIsEveryone{
-                width: 100%;
-                font-weight: $blodweight;
-                margin-top: 5em;
-                .colorIsEveryoneTitle{
-                    font-size: 160px;
-                }
-                .semiBigText{
-                    font-size: $littleBigFontSize;
-                    line-height: 1.7em;
-                    text-align: right;
-                    margin-top: 1em;
                 }
             }
             .colorKinds{
@@ -173,6 +159,7 @@
             }
             .precautions{
                 margin-top: 5em;
+                margin-bottom: 8em;
                 background-image: url('https://laka.co.kr/web/info/wsls/detail_12.jpg');
                 // background-color: rgb(215, 214, 219);
                 background-repeat: no-repeat;
