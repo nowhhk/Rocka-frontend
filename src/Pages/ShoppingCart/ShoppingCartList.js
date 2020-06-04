@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./ShoppingCartList.scss";
 
 class ShoppingCartList extends Component {
-<<<<<<< HEAD
   state = {};
 
   render() {
