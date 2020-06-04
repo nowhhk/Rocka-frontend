@@ -1,69 +1,68 @@
 @import "../../Styles/common.scss";
 
-.savingProduct{
-    ul{
-        width: 100%;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        padding: 3em 0em 1em 0em;
-        li{
-            width: 100%;
-            display: flex;
-            margin-bottom: 2em;
-           .savingProductImg{
-               background-color: #E4E4E4;
-               width: 200px;
-               height: 270px;
-               margin-right: 1.5em;
-               margin-left: 1.7em;
-               img{
-                   width: 100%;
-               }
-           }
-           .savingProductInfo{
-            width: 100%;
-               .savingProductInfoMain{
-                   display: flex;
-                   justify-content: space-between;
-                   .savingProductInfoTitle{
-                       font-size: $defalutFontSize;
-                       font-weight: $blodweight;
-                   }
-                   .savingProductInfoAllPrice{
-                        font-size: $defalutFontSize;
-                        font-weight: $middleweight;
-                   }
-               }
-               .savingProductInfoLeft{
-                    width: 100%;
-                    height: 90%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                   .savingProductInfoLeftBox{
-                        .savingProductInfoPrice{
-                            margin-top: .7em;
-                            font-size: $secondSmallestFontSize;
-                            font-weight: $middleweight;
-                        }
-                        .savingProductInfoOption{
-                            margin-top: 1.5em;
-                            font-size: $secondSmallestFontSize;
-                            font-weight: $middleweight;
-                        }
-                   }
-                   .savingProductInfoDelete{
-                    padding: .35em;
-                    border: 1px solid black;
-                    font-size: 14px;
-                    font-size: $secondSmallestFontSize;
-                    width: 55px;
-                    height: 35px;
-                    text-align: center;
-                    }
-               }
-           }
-
+.savingProduct {
+  ul {
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 3em 0em 1em 0em;
+    li {
+      width: 100%;
+      display: flex;
+      margin-bottom: 2em;
+      .savingProductImg {
+        background-color: #e4e4e4;
+        width: 200px;
+        height: 210px;
+        margin-right: 1.5em;
+        margin-left: 1.7em;
+        img {
+          width: 100%;
         }
+      }
+      .savingProductInfo {
+        width: 100%;
+        .savingProductInfoMain {
+          display: flex;
+          justify-content: space-between;
+          .savingProductInfoTitle {
+            font-size: $defalutFontSize;
+            font-weight: $blodweight;
+          }
+          .savingProductInfoAllPrice {
+            font-size: $defalutFontSize;
+            font-weight: $middleweight;
+          }
+        }
+        .savingProductInfoLeft {
+          width: 100%;
+          height: 90%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .savingProductInfoLeftBox {
+            .savingProductInfoPrice {
+              margin-top: 0.7em;
+              font-size: $secondSmallestFontSize;
+              font-weight: $middleweight;
+            }
+            .savingProductInfoOption {
+              margin-top: 1.5em;
+              font-size: $secondSmallestFontSize;
+              font-weight: $middleweight;
+            }
+          }
+          .savingProductInfoDelete {
+            padding: 0.35em;
+            border: 1px solid black;
+            font-size: 14px;
+            font-size: $secondSmallestFontSize;
+            width: 55px;
+            height: 35px;
+            text-align: center;
+          }
+        }
+      }
     }
+  }
 }

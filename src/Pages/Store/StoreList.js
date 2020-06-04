@@ -17,17 +17,17 @@ class StoreList extends Component {
     //   });
     // }
 
-    const list = this.props.stores.map((store) => {
+    const list = this.props.stores.map((store, idx) => {
       return (
         <Stores
-          key={store.no}
-          number={store.no}
-          type={store.type}
+          key={store.idx}
+          no={store.idx}
+          type={store.branch}
           name={store.name}
-          tel={store.tel}
+          tel={store.phone_number}
           address={store.address}
-          weekday={store.weekday}
-          map={store.map}
+          weekday={store.store_time}
+          map={store.map_url}
         />
       );
     });
@@ -46,7 +46,7 @@ class StoreList extends Component {
           </div>
         </div>
         {list}
-      </div >
+      </div>
     );
   }
 }

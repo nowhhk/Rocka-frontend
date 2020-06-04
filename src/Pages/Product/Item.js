@@ -42,36 +42,34 @@ class Item extends Component {
     const price = Number(price_krw_subst).toLocaleString();
 
     return (
-      <div className="items">
-        <li
-          className="item"
-          onMouseOver={this.handleOver}
-          onMouseOut={this.handleOut}
-        >
-          {mouseOver ? (
-            <div className="back">
-              <img
-                className="product-img"
-                src={`${outer_back_image_url}`}
-                alt=""
-              />
-              <div className="item-info">
-                <div className="item-desc">
-                  <p className="title">{name}</p>
-                  <p> {description}</p>
-                  <p className="color">{url}</p>
-                </div>
-                <div className="price">
-                  <p>KRW {price}</p>
-                </div>
+      <div
+        className="item"
+        onMouseOver={this.handleOver}
+        onMouseOut={this.handleOut}
+      >
+        {mouseOver ? (
+          <div className="back">
+            <img
+              className="product-img"
+              src={`${outer_back_image_url}`}
+              alt=""
+            />
+            <div className="item-info">
+              <div className="item-desc">
+                <p className="title">{name}</p>
+                <p> {description}</p>
+                <p className="color">{url}</p>
+              </div>
+              <div className="price">
+                <p>KRW {price}</p>
               </div>
             </div>
-          ) : (
-            <div className="front">
-              <img src={`${outer_front_image_url}`} alt="" />
-            </div>
-          )}
-        </li>
+          </div>
+        ) : (
+          <div className="front">
+            <img src={`${outer_front_image_url}`} alt="" />
+          </div>
+        )}
       </div>
     );
   }
