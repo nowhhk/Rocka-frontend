@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
 import ProductDetailTop from "./ProductDetailMyTop";
-// import ProductList from "../Product/ProductList";
+import { API } from "../../config"
 import "./ProductDetail.scss";
 
 
@@ -17,15 +17,15 @@ class ProductDetail extends Component {
     }
 
     componentDidMount() {
-        fetch("/data/productList.json")
+        fetch(`${API}/product/17`)
             .then(response => response.json())
             // .then(response => console.log(response))
-            .then(response => this.setState({ data: response.data }, () => console.log(this.state.data)))
+            .then(response => this.setState({ data: response.data }))
     }
 
     render() {
         const { data } = this.state
-        console.log(data && this.state.data)
+        // console.log(data && this.state.data)
         // console.log(typeof (data.customer_service))
         // const n = '\n'
         // const customer_service = data.customer_service.replace(n, '<br />')

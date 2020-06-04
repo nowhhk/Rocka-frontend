@@ -10,7 +10,30 @@ class ProductDetailTop extends Component {
             hi: false,
             wishList: [],
             minus: [],
+            postData: {},
         };
+    }
+
+    //BE에 보낼 것
+    // componentDidMount() {
+    //     fetch(`${API}`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             name: this.props.colorInfo.name,
+    //             wishList: this.state.wishList,
+    //         })
+    //     })
+    // }
+
+    sumTotal = () => {
+        let sum = 0;
+        for (let i in this.state.wishList) {
+            sum += this.state.wishList[i].order_quantity
+        }
+        return sum;
     }
 
     clickCircle = () => {
@@ -20,44 +43,25 @@ class ProductDetailTop extends Component {
     }
 
     //아직 기능 구현 중 부분
-    minusButton = (what) => {
-        const wishList = { ...this.state.wishList };
-        // console.log(wishList);
+    minusButton = (idx) => {
+        const newWishList = [...this.state.wishList];
+        console.log("새로운 리스트", newWishList);
 
-        const minus = { ...what };
-        // console.log("인덱스", minus)
-
-        if (minus["order_quantity"] === 1) {
-            alert("최소 주문수량은 1개 입니다.");
-        } else if (minus["order_quantity"] > 1) {
-            minus["order_quantity"]--
-            // console.log(minus["order_quantity"]--)
-
-            this.setState({
-                wishList: wishList,
-            });
-            console.log(wishList)
+        if (newWishList[idx].order_quantity === 1) {
+            alert("최소 주문수량은 1개 입니다.")
+        } else {
+            newWishList[idx].order_quantity--;
+            this.setState({ wishList: newWishList });
         }
-        return
-
     };
 
-    plusButton = (what) => {
-        const wishList = { ...this.state.wishList };
-        console.log(wishList);
+    plusButton = (idx) => {
+        const newWishList = [...this.state.wishList];
 
-        const minus = { ...what };
-        console.log("인덱스", minus)
-
-        if (minus["order_quantity"] > 1) {
-            minus["order_quantity"]++
-            console.log(minus["order_quantity"]++)
-
-            this.setState({
-                minus: wishList
-            });
+        if (newWishList[idx].order_quantity > 0) {
+            newWishList[idx].order_quantity++;
+            this.setState({ wishList: newWishList });
         }
-        return
     };
 
     imgClick = (colors) => {
@@ -75,12 +79,8 @@ class ProductDetailTop extends Component {
 
     render() {
         const { hi } = this.state;
-        // const price = this.props.colorInfo
-        console.log("hello: ", this.props.colorInfo)
-        // const price_krw_subst = this.props.colorInfo.price_krw.slice(0, -3);
-        // console.log(this.props.colorInfo.price_krw)
-        // const price = Number(price_krw_subst).toLocaleString();
-        // const krw_subst = price.price_krw.slice(0, -3);
+        console.log(this.state.productName)
+        console.log(this.props.colorInfo.name)
 
         return (
             <div className="ProductDetailTop">
@@ -142,11 +142,11 @@ class ProductDetailTop extends Component {
                                                     </div>
                                                     <div className="wishListRight">
                                                         <div className="wishListAmount">
-                                                            <button type="button" onClick={() => this.minusButton(wishArr)}>
+                                                            <button type="button" onClick={() => this.minusButton(idx)}>
                                                                 -
                                                         </button>
                                                             <span>{wishArr.order_quantity}</span>
-                                                            <button type="button" onClick={() => this.plusButton(wishArr)}>
+                                                            <button type="button" onClick={() => this.plusButton(idx)}>
                                                                 +
                                                         </button>
                                                         </div>
@@ -160,7 +160,7 @@ class ProductDetailTop extends Component {
                             </div>
                             <div className="mainLeftTotal">
                                 <span>TOTAL</span>
-                                <span className="price">KRW </span>
+                                <span className="price">KRW {this.sumTotal() * this.props.colorInfo.price_krw}</span>
                             </div>
                             <div className="mainLeftPurchase">
                                 <div className="basket"><i class="fas fa-shopping-bag"></i></div>

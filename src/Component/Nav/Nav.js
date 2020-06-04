@@ -13,10 +13,7 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    console.log("정상작동")
-    // const getToken = localStorage.getItem('Authorization');
     if ('Authorization' in localStorage) {
-      console.log("있쥐")
       this.setState({
         login: "LOGOUT",
         join: false,
