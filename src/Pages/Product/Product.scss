@@ -17,6 +17,16 @@
     }
   }
 
+  .listwrap {
+    display: flex;
+    flex-wrap: wrap;
+    // align-content: flex-start;
+    // justify-content: space-between;
+    // justify-content: flex-start;
+    max-width: 1600px;
+    margin-top: 1em;
+  }
+
   .nav_container > .nav:hover ul {
     display: none;
     opacity: 1;

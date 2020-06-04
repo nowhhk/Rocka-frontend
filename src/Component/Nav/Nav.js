@@ -13,6 +13,10 @@ class Nav extends Component {
     this.setState({ scrollTop });
   };
 
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
   }
@@ -22,21 +26,21 @@ class Nav extends Component {
       <header className={this.state.scrollTop > 200 ? "scrolled" : "header"}>
         <div className="nav left">
           <span
-            onClick={(e) => {
+            onClick={() => {
               this.props.history.push("/product");
             }}
           >
             PRODUCT
           </span>
           <span
-            onClick={(e) => {
+            onClick={() => {
               this.props.history.push("/store");
             }}
           >
             STORY
           </span>
           <span
-            onClick={(e) => {
+            onClick={() => {
               this.props.history.push("/store");
             }}
           >
@@ -45,7 +49,7 @@ class Nav extends Component {
         </div>
         <h1 className="logo">
           <span
-            onClick={(e) => {
+            onClick={() => {
               this.props.history.push("/");
             }}
           >
@@ -54,14 +58,14 @@ class Nav extends Component {
         </h1>
         <div className="nav right">
           <span
-            onClick={(e) => {
+            onClick={() => {
               this.props.history.push("/signin");
             }}
           >
             LOGIN
           </span>
           <span
-            onClick={(e) => {
+            onClick={() => {
               this.props.history.push("/signup");
             }}
           >

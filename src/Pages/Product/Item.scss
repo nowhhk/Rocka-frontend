@@ -1,11 +1,10 @@
 @import "../../Styles/common.scss";
 
-.items {
-  margin-bottom: 2em;
-  margin-right: 2em;
-}
 .item {
   position: relative;
+  width: 100%;
+  // border: solid 1px red;
+  margin-bottom: 2em;
 
   img {
     width: 100%;

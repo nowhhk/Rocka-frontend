@@ -25,11 +25,9 @@ class ShoppingCart extends Component {
     const { data } = this.state;
     let sum = 0;
     for (let i in data) {
-      sum = sum + data[i].price_krw * data[i].quantity;
+      sum += data[i].price_krw * data[i].quantity;
     }
-
     return sum;
-    console.log("sum : ", sum);
   };
 
   render() {
@@ -60,7 +58,7 @@ class ShoppingCart extends Component {
               <div className="priceBox">
                 <p className="priceText">배송비</p>
                 <p className="priceProduct">
-                  {this.addTotal() >= 2000 ? 0 : 2500} KRW
+                  {this.addTotal() >= 20000 ? 0 : 2500} KRW
                 </p>
               </div>
             </div>

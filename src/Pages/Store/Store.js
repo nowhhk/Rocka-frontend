@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Nav from "../../Component/Nav/Nav";
 import Search from "./Search";
+import { API } from "../../config";
 import Footer from "../../Component/Footer/Footer";
 import StoreList from "./StoreList.js";
 
@@ -15,7 +16,7 @@ class Store extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.0.163:8000/store")
+    fetch(`${API}/store`)
       .then((res) => res.json())
       .then((res) => this.setState({ stores: res.data }));
   }

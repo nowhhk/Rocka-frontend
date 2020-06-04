@@ -4,6 +4,7 @@ import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
 import ProductList from "./ProductList";
 import Sort from "./Sort";
+import { API } from "../../config";
 import "./Product.scss";
 import Category from "./Category";
 
@@ -29,7 +30,7 @@ class Product extends Component {
 
   getData = () => {
     let address = this.props.location.search;
-    fetch(`http://10.58.0.176:8080/product${address}`)
+    fetch(`${API}/product${address}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -52,6 +53,7 @@ class Product extends Component {
         b.launchdate.localeCompare(a.launchdate)
       ),
     ];
+    //best sort기준 수정필요
     const bestSorted = [...this.state.data.sort((a, b) => a.id - b.id)];
 
     let list;
@@ -77,7 +79,7 @@ class Product extends Component {
             />
           </div>
 
-          <div className="product">{list}</div>
+          <div className="listwrap">{list}</div>
         </div>
         <Footer />
       </div>

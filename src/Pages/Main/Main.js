@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import Btn from "./Btn";
 import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
+import { API } from "../../config";
 import "./Main.scss";
 import ProductList from "../Product/ProductList";
 
@@ -32,10 +33,14 @@ class Main extends Component {
     this.setState({ activeTab: "new", tabClass: "activeNew" });
   };
 
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
 
-    fetch("./data/data.json")
+    fetch(`${API}/product`)
       .then((res) => res.json())
       // .then((res) => console.log(res));
       .then((res) =>
@@ -179,17 +184,7 @@ class Main extends Component {
                 </li>
               </ul>
 
-              <ul
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "space-between",
-                  maxWidth: "1580px",
-                  marginTop: "1em",
-                }}
-              >
-                {tab[activeTab]}
-              </ul>
+              <ul>{tab[activeTab]}</ul>
             </div>
           </div>
         </div>

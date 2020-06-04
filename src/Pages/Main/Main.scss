@@ -132,3 +132,10 @@
   transition: all 0.7s ease-in;
   transform: translateY(-100px);
 }
+.listwrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin-top: 1em;
+}
