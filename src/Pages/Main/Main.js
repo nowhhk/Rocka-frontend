@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import Btn from "./Btn";
 import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
+import { API } from "../../config";
 import "./Main.scss";
 import ProductList from "../Product/ProductList";
 
@@ -14,6 +15,7 @@ class Main extends Component {
       scrollTop: {},
       activeTab: "best",
       tabClass: "activeBest",
+      pop: "none",
     };
   }
 
@@ -31,10 +33,14 @@ class Main extends Component {
     this.setState({ activeTab: "new", tabClass: "activeNew" });
   };
 
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
 
-    fetch("./data/data.json")
+    fetch(`${API}/product`)
       .then((res) => res.json())
       // .then((res) => console.log(res));
       .then((res) =>
@@ -48,26 +54,23 @@ class Main extends Component {
     const { data, scrollTop, activeTab, tabClass } = this.state;
 
     console.log(this.state);
-    // filter 기준 수정필요
+    // best filter 기준 수정필요
     const bestproduct = data.filter((item) => item.id < 20);
-    const newproduct = data.filter((item) => item.launchdate > "2020-05-15");
+
+    const newSort = [
+      ...data.sort((a, b) => b.launchdate.localeCompare(a.launchdate)),
+    ];
+    const newproduct = [];
+    newproduct.push(newSort[0], newSort[1], newSort[2]);
 
     const tab = {
       best: <ProductList products={bestproduct} />,
       new: <ProductList products={newproduct} />,
     };
 
-    let nav;
-    if (scrollTop > 1000) {
-      // console.log("hihi");
-      nav = <Nav />;
-    } else {
-      nav = <Nav />;
-    }
-
     return (
       <div className="wrapper">
-        {nav}
+        <Nav />
         <div className="main-container">
           <div className="swipe-img">
             <ul>
@@ -111,7 +114,7 @@ class Main extends Component {
                 EVERYONE
                 <br />
               </strong>
-              <ul>
+              <ul className={scrollTop > 1300 ? "pop" : "none"}>
                 <li>
                   <div className="thumb">
                     <img
@@ -181,17 +184,7 @@ class Main extends Component {
                 </li>
               </ul>
 
-              <ul
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "space-between",
-                  maxWidth: "1580px",
-                  marginTop: "1em",
-                }}
-              >
-                {tab[activeTab]}
-              </ul>
+              <ul>{tab[activeTab]}</ul>
             </div>
           </div>
         </div>

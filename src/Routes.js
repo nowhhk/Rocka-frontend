@@ -7,7 +7,7 @@ import Product from "./Pages/Product/Product";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import Store from "./Pages/Store/Store";
 // import MyPage from "../Pages/MyPage/MyPage"
-import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart"
+import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
 
 class Routes extends Component {
   render() {

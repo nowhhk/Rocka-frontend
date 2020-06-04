@@ -9,10 +9,22 @@ class Nav extends Component {
     this.state = {
       login: "LOGIN",
       join: true,
+      scrollTop: {},
+      navClass: "header",
     }
   }
 
+  onScroll = (e) => {
+    const scrollTop = ("scroll", e.srcElement.scrollingElement.scrollTop);
+    this.setState({ scrollTop });
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
   componentDidMount() {
+    window.addEventListener("scroll", this.onScroll);
     if ('Authorization' in localStorage) {
       this.setState({
         login: "LOGOUT",
@@ -34,69 +46,67 @@ class Nav extends Component {
     }
   }
 
-
   render() {
     const { login, join } = this.state
 
     return (
-      <>
-        <header className="header">
-          <div className="nav left">
-            <span
-              onClick={(e) => {
-                this.props.history.push("/product");
-              }}
-            >
-              PRODUCT
+      <header className={this.state.scrollTop > 200 ? "scrolled" : "header"}>
+        <div className="nav left">
+          <span
+            onClick={() => {
+              this.props.history.push("/product");
+            }}
+          >
+            PRODUCT
             </span>
-            <span
-              onClick={(e) => {
-                this.props.history.push("/store");
-              }}
-            >
-              STORY
+          <span
+            onClick={() => {
+              this.props.history.push("/store");
+            }}
+          >
+            STORY
             </span>
-            <span
-              onClick={(e) => {
-                this.props.history.push("/store");
-              }}
-            >
-              STORE
+          <span
+            onClick={() => {
+              this.props.history.push("/store");
+            }}
+          >
+            STORE
             </span>
-          </div>
-          <h1 className="logo">
-            <span
-              onClick={(e) => {
-                this.props.history.push("/");
-              }}
-            >
-              LAKA
+        </div>
+        <h1 className="logo">
+          <span
+            onClick={() => {
+              this.props.history.push("/");
+            }}
+          >
+            LAKA
             </span>
-          </h1>
-          <div className="nav right">
-            <span
-              onClick={this.loginEvent}
-            >
-              {login}
+        </h1>
+        <div className="nav right">
+          <span
+            onClick={this.loginEvent}
+          >
+            {login}
+          </span>
+          <span
+            style={{ display: join ? 'block' : 'none' }}
+            onClick={(e) => {
+              this.props.history.push("/signup");
+            }}
+          >
+            JOIN
             </span>
-            <span
-              style={{ display: join ? 'block' : 'none' }}
-              onClick={(e) => {
-                this.props.history.push("/signup");
-              }}
-            >
-              JOIN
-            </span>
-            <span>MY</span>
-
-            <span onClick={() => {
+          <span>MY</span>
+          <span
+            onClick={() => {
               this.props.history.push("/cart");
-            }}>CART
-            </span>
-
-          </div>
-        </header>
-      </>
+            }}
+          >
+            CART
+          </span>
+        </div>
+      </header>
     );
   }
 }

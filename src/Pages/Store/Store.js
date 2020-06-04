@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Nav from "../../Component/Nav/Nav";
-import Search from "./Search"
+import Search from "./Search";
+import { API } from "../../config";
 import Footer from "../../Component/Footer/Footer";
 import StoreList from "./StoreList.js";
 
@@ -10,21 +11,21 @@ class Store extends Component {
     super();
     this.state = {
       stores: [],
-      name: ""
+      name: "",
     };
   }
 
   componentDidMount() {
-    fetch("/data/datastore.json")
+    fetch(`${API}/store`)
       .then((res) => res.json())
-      .then((res) => this.setState({ stores: res.stores }));
+      .then((res) => this.setState({ stores: res.data }));
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   render() {
     return (
