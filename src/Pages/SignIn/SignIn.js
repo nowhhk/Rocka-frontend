@@ -25,18 +25,20 @@ class SignIn extends Component {
                 password: this.state.pw,
             })
         })
-
-            .then(response => response.json())
             .then(response => {
-                console.log(response);
+                if (response.status === 200) return response.json() //response.json()을 하고 다음 .then을 돈다
+                else throw Error; //else면 에러를 던지는거야
+            })
+            .then(response => {
+                console.log(response)
                 if (response.token) {
-                    localStorage.setItem('token', response.token);
+                    localStorage.setItem('Authorization', response.token);
                     this.props.history.push("/");
-                } else {
-                    alert("로그인 정보를 확인해주세요.")
                 }
-            });
-    };
+            })
+            .catch(error => alert("ERROR")) //else에서 던진 에러를 받아서 alert처리를 한다.
+    }
+
 
     handleInput = (e) => {
         this.setState({
@@ -65,7 +67,7 @@ class SignIn extends Component {
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
-                                <td><input type="text" name="pw" onChange={this.handleInput} /></td>
+                                <td><input type="password" name="pw" onChange={this.handleInput} /></td>
                             </tr>
                         </tbody>
                     </table>
