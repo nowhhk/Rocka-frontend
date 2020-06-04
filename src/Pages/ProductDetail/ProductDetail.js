@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
 import Footer from "../../Component/Footer/Footer";
 import ProductDetailTop from "./ProductDetailMyTop";
-// import ProductList from "../Product/ProductList";
+import { API } from "../../config"
 import "./ProductDetail.scss";
 
 
@@ -17,19 +17,27 @@ class ProductDetail extends Component {
     }
 
     componentDidMount() {
-        fetch("/data/productList.json")
+        fetch(`${API}/product/17`)
             .then(response => response.json())
             // .then(response => console.log(response))
-            .then(response => this.setState({ data: response.data }, () => console.log(this.state.data)))
+            .then(response => this.setState({ data: response.data }))
     }
 
     render() {
         const { data } = this.state
-        console.log(data && this.state.data)
+        // console.log(data && this.state.data)
         // console.log(typeof (data.customer_service))
         // const n = '\n'
         // const customer_service = data.customer_service.replace(n, '<br />')
         // console.log(customer_service)
+        let newStr;
+        if (data.customer_service) {
+            newStr = data.customer_service.split("\n").map((str) => {
+                return (
+                    <div>{str}</div>
+                )
+            })
+        }
 
         return (
             <div className="ProductDetail">
@@ -297,7 +305,17 @@ class ProductDetail extends Component {
                                 <div className="infoLeft">
                                     <div className="infoBox">
                                         <div className="infoTextTitle">주의사항</div>
-                                        <div className="infoText">{data.caution}</div>
+                                        <div className="infoText">
+                                            1. 화장품 사용 시 또는 사용 후 직사광선에 의하여 사용부위가 붉은 반점,<br />
+                                            부어오름 또는 가려움증 등의 이상 증상이나 부작용 등의 우려가 있는 경우<br />
+                                            전문의 등과 상담할 것
+                                            <br />
+                                            <br />
+                                            2. 상처가 있는 부위 등 이상이 있는 부위에는 사용하지 말 것<br />
+                                            <br />
+                                            3. 보관 및 취급 시의 주의사항 가) 어린이의 손에 닿지 않는 곳에 보관할 것)<br />
+                                            직사광선을 피해서 보관할 것
+                                        </div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">용량 및 중량</div>
@@ -318,7 +336,7 @@ class ProductDetail extends Component {
                                     <div className="infoBox">
                                         <div className="infoTextTitle">라카 고객상담실</div>
                                         <div className="infoText">
-                                            {/* {data.customer_service} */}
+                                            {newStr}
                                             {/* {data.customer_service.replace('\n', '<br />')} */}
                                         </div>
                                     </div>
@@ -337,15 +355,18 @@ class ProductDetail extends Component {
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">제조국</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">대한민국</div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">제조사</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">
+                                            화장품책임판매업자 ㈜라카코스메틱스<br />
+                                            화장품제조자 코스맥스㈜
+                                        </div>
                                     </div>
                                     <div className="infoBox">
                                         <div className="infoTextTitle">품질보증기준</div>
-                                        <div className="infoText"></div>
+                                        <div className="infoText">{data.quality_assurance}</div>
                                     </div>
                                 </div>
                             </div>
