@@ -3,7 +3,44 @@ import { withRouter } from "react-router-dom";
 import "./Nav.scss";
 
 class Nav extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      login: "LOGIN",
+      join: true,
+    }
+  }
+
+  componentDidMount() {
+    console.log("정상작동")
+    // const getToken = localStorage.getItem('Authorization');
+    if ('Authorization' in localStorage) {
+      console.log("있쥐")
+      this.setState({
+        login: "LOGOUT",
+        join: false,
+      });
+    }
+  };
+
+  loginEvent = () => {
+    if (this.state.login === "LOGOUT") {
+      this.props.history.push("/signin");
+      localStorage.clear('Authorization');
+      this.setState({
+        login: "LOGIN",
+        join: true,
+      });
+    } else {
+      this.props.history.push("/signin");
+    }
+  }
+
+
   render() {
+    const { login, join } = this.state
+
     return (
       <>
         <header className="header">
@@ -41,13 +78,12 @@ class Nav extends Component {
           </h1>
           <div className="nav right">
             <span
-              onClick={(e) => {
-                this.props.history.push("/signin");
-              }}
+              onClick={this.loginEvent}
             >
-              LOGIN
+              {login}
             </span>
             <span
+              style={{ display: join ? 'block' : 'none' }}
               onClick={(e) => {
                 this.props.history.push("/signup");
               }}

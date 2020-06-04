@@ -185,11 +185,26 @@
                     font-weight: $blodweight;
                     line-height: 1.2em;
                 }
-                .infoTextBox{
+                .infoTextBox{width: 100%;
                     display: flex;
                     justify-content: space-around;
                     margin-top: 2em;
-                    .infoBox{
+                    .infoLeft{
+                        width: 50%;
+                        .infoTextTitle{
+                            font-size: $defalutFontSize;
+                            font-weight: $blodweight;
+                            margin-top: 3em;
+                            margin-bottom: 1em;
+                        }
+                        .infoText{
+                            font-size: $littleSmaller;
+                            font-weight: $thinweight;
+                            line-height: 1.5em;
+                        }
+                    }
+                    .infoRight{
+                        width: 50%;
                         .infoTextTitle{
                             font-size: $defalutFontSize;
                             font-weight: $blodweight;
@@ -201,7 +216,7 @@
                             font-weight: $thinweight;
                             line-height: 1.7em;
                         }
-                    }    
+                    }
                 }
             }
         }

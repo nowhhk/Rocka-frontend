@@ -101,7 +101,8 @@
                 .productWish{
                     min-width: 400px;
                     max-width: 400px;
-                    height: 200px;
+                    height: 105px;
+                    margin-bottom: 5em;
                     overflow-y: auto;
                     //박스를 넘지않으면, 스크롤바가 없고 박스를 넘으면, 스크롤바가 생김.
                     .wishList{
@@ -194,7 +195,7 @@
         }
         .mainCenter{
             transform: translateY(50px);
-            width: 80%;
+            width: 1500px;
             img{
                 width: 70%;
             }

@@ -242,7 +242,7 @@ class SignUp extends Component {
               <tr>
                 <th>비밀번호<span className="termsOfServiceDot">•</span></th>
                 <td>
-                  <input type="text" name="pw" onChange={this.handleInput} />
+                  <input type="password" name="pw" onChange={this.handleInput} />
                   <div class="pwArticle">
                     • 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자<br></br>
                     • 입력 가능 특수문자 ~ ’ ! @ # $ % ^ ( ) _ - = {`{}`} | ; : {`< > `}, . ? /<br></br>
@@ -253,7 +253,7 @@ class SignUp extends Component {
               <tr>
                 <th>비밀번호 확인<span className="termsOfServiceDot">•</span></th>
                 <td>
-                  <input type="text" name="pwConform" onChange={this.pwCorrect} />
+                  <input type="password" name="pwConform" onChange={this.pwCorrect} />
                   <span className="warningMessage" style={{ display: pwMessage ? 'block' : 'none' }} onChange={this.correct}>비밀번호가 일치하지 않습니다.</span>
                 </td>
               </tr>

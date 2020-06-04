@@ -30,7 +30,7 @@ class SignIn extends Component {
             .then(response => {
                 console.log(response);
                 if (response.token) {
-                    localStorage.setItem('token', response.token);
+                    localStorage.setItem('Authorization', response.token);
                     this.props.history.push("/");
                 } else {
                     alert("로그인 정보를 확인해주세요.")
@@ -65,7 +65,7 @@ class SignIn extends Component {
                             </tr>
                             <tr>
                                 <th>비밀번호</th>
-                                <td><input type="text" name="pw" onChange={this.handleInput} /></td>
+                                <td><input type="password" name="pw" onChange={this.handleInput} /></td>
                             </tr>
                         </tbody>
                     </table>
