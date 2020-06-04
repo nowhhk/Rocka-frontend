@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API } from "../../config";
 import Footer from "../../Component/Footer/Footer";
 import Nav from "../../Component/Nav/Nav";
 import "./SignIn.scss";
@@ -14,7 +15,7 @@ class SignIn extends Component {
     }
 
     goMain = () => {
-        fetch('http://10.58.2.156:8080/member/login', {
+        fetch(`${API}/member/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

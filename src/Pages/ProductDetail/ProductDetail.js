@@ -23,21 +23,6 @@ class ProductDetail extends Component {
             .then(response => this.setState({ data: response.data }, () => console.log(this.state.data)))
     }
 
-    //fetch값 두개를 꺼내고 싶어
-    // componentDidMount() {
-    //     Promise.all([
-    //         fetch("/data/productList.json").then(response => response.json()),
-    //         fetch("/data/data.json").then(response => response.json())
-    //     ])
-    //         .then((response) => {
-    //             console.log(response)
-    //             //json response
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // }
-
     render() {
         const { data } = this.state
         console.log(data && this.state.data)
@@ -49,13 +34,15 @@ class ProductDetail extends Component {
         return (
             <div className="ProductDetail">
                 <Nav />
-                <ProductDetailTop colorInfo={this.state.data} />
+                <div className="product-page">
+                    <ProductDetailTop colorInfo={this.state.data} className="productDetailTop" />
+                </div>
                 <div className="veryBigTitle">WATERY SHEER LIPSTICK</div>
                 <div className="ProductDetailBottomContainer">
                     <div className="ProductDetailBottom">
                         <div className="mainImg">
                             <p className="ColorKindsExplan">LOOK & MOOD</p>
-                            <p className="reatureTitle">WATERY SHEER LIPSTICK</p>
+                            <p className="reatureTitle">WATERY SHEER<br /> LIPSTICK</p>
                             <p className="ColorKindsExplan">
                                 여린 물결의 파동이 고요히 밀려와<br />
                                 입술에 닿은 것처럼<br />
@@ -95,7 +82,7 @@ class ProductDetail extends Component {
                         </div>
                         <div className="featureBox">
                             <p className="ColorKindsExplan">FEATURE</p>
-                            <p className="reatureTitle">WATERY SHEER LIPSTICK</p>
+                            <p className="reatureTitle">WATERY SHEER<br /> LIPSTICK</p>
                             <p className="ColorKindsExplan">
                                 ∨ 놀랍도록 가볍고 산뜻한 발림<br />
                                 ∨ 립밤을 잊게하는, 그러나 오일리하지 않은 적당한 촉촉함<br />
@@ -253,7 +240,8 @@ class ProductDetail extends Component {
                             />
                             <p className="ColorKindsTitle">#물빛다홍 베르디</p>
                             <p className="ColorKindsExplan">
-                                센슈얼한 눈빛에 어울리는 감각적인 다홍색, 경험할 수록 사랑스러운
+                                센슈얼한 눈빛에 어울리는 감각적인 다홍색,<br />
+                                경험할 수록 사랑스러운
                                 컬러
                             </p>
                             <div className="ColorKindsImgBox">

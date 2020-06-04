@@ -19,6 +19,7 @@ class ProductDetailTop extends Component {
         })
     }
 
+    //아직 기능 구현 중 부분
     minusButton = (what) => {
         const wishList = { ...this.state.wishList };
         // console.log(wishList);
@@ -70,69 +71,16 @@ class ProductDetailTop extends Component {
                 wishList: wishList.concat(colors)
             })
         }
-
-
-        // if (this.state.wishList.length === 0) {
-        //     console.log("첫번째 if")
-        //     this.setState({
-        //         wishList: this.state.wishList.concat(colors),
-        //     }, () => console.log("1. 위시리스트:", this.state.wishList))
-        // }
-
-        // for (let i in this.state.wishList) {
-        //     if (this.state.wishList[i].name === colors["name"]) {
-        //         console.log("같은 상품")
-        //         alert("이미 선택되어 있는 옵션입니다.")
-        //         return;
-        //     } else {
-        //         console.log("포함되지 않은 상품")
-        //         this.setState({
-        //             wishList: this.state.wishList.concat(colors),
-        //         }, () => console.log("2. 위시리스트:", this.state.wishList))
-        //     }
-        // }
-
-        // if (this.state.wishList.length === 0) {
-        //     const testProducts = { ...colors }; //color부분을 클론 받기
-        //     testProducts["order_quantity"] = 1 //order_quantity state =1로 변경
-        //     // wishList: this.state.wishList.concat(colors),
-
-        //     this.setState({
-        //         wishList: this.state.wishList.concat(testProducts)
-        //     }, () => console.log("위시리스트:", this.state.wishList))
-        //     console.log(testProducts);
-        // }
-
-        // this.state.wishList.forEach(element => {
-        //     if (element["name"] !== colors["name"]) {
-        //         console.log("재재재재재재")
-        //         const testProducts = { ...colors }; //color부분을 클론 받기
-        //         testProducts["order_quantity"] = 1 //order_quantity state =1로 변경
-
-        //         const choiceColor = this.state.wishList.concat(testProducts)
-        //         this.setState({
-        //             wishList: choiceColor
-        //         }, () => console.log("위시리스트:", this.state.wishList))
-        //     }
-        //     else if (colors["name"] === element["name"]) {
-        //         alert("이미 선택되어 있는 옵션입니다.")
-        //         return;
-        //     }
-        // }, console.log(this.state.wishList))
     }
 
     render() {
         const { hi } = this.state;
-        // const { productData } = this.props.colorInfo
 
         return (
             <div className="ProductDetailTop">
                 <main>
                     <div className="mainLeft">
                         <div className="mainLeftTitle" >
-                            {/* <h1>{data[0] && data[0].productName}</h1>
-                            <span>{data[0] && data[0].info}</span>
-                            <span className="price">KRW {data[0] && data[0].price}</span> */}
                             <h1>{this.props.colorInfo.name}</h1>
                             <span>{this.props.colorInfo.description}</span>
                             <span className="price">KRW {this.props.colorInfo.price_krw}</span>
@@ -181,7 +129,6 @@ class ProductDetailTop extends Component {
                                                     <div className="wishListColor" onClick={this.colorClick}>
                                                         <img src={wishArr.image_url} alt="" className="" />
                                                     </div>
-                                                    {/* 데이터 받게되면 내가 클릭한 색상 props 받아와야함. */}
                                                     <span className="wishListColorText">
                                                         위터리 쉬어 립스틱 - {wishArr.name}
                                                     </span>

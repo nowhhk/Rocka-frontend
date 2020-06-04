@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API } from "../../config";
 import "./SignUp.scss";
 
 class SignUp extends Component {
@@ -27,7 +28,7 @@ class SignUp extends Component {
   }
 
   goSingIn = () => {
-    fetch('http://10.58.2.156:8080/member/join', {
+    fetch(`${API}/member/join`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -64,12 +65,7 @@ class SignUp extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    // if (this.state.pwConformLength === this.state.pwLength && this.state.pw !== this.state.pwConform) {
-    //   console.log("해결")
-    //   this.setState({
-    //     pwMessage: true
-    //   })
-    // }
+
     if (this.state.pw !== e.target.value) {
       this.setState({ pwMessage: true })
     } else this.setState({ pwMessage: false })
@@ -90,27 +86,7 @@ class SignUp extends Component {
     }
   }
 
-  // genderCheck = (e) => {
-  //   console.log("이벤트")
-  //   if (this.state.selectedGender === this.state.selectedGenderFe) {
-  //     this.setState({
-  //       selectedGender: true
-  //     })
-  //   } else if (this.state.selectedGender === true) {
-  //     this.setState({
-  //       selectedGenderFe: true,
-  //       selectedGender: false
-  //     })
-  //   } else if (this.state.selectedGenderFe === true) {
-  //     this.setState({
-  //       selectedGender: true,
-  //       selectedGenderFe: false,
-  //     })
-  //   }
-  // }
-
   genderCheck = (e) => {
-    // console.log("이벤트")
     let genders = this.state.genders
     genders.forEach(gender => {
       if (gender.value === e.target.value) {
@@ -325,8 +301,6 @@ class SignUp extends Component {
                 <th>젠더<span className="termsOfServiceDot">•</span></th>
                 <td class="genderBox">
                   <ul>
-                    {/* <li><input type="checkbox" onChange={this.genderCheck} checked={this.state.selectedGender} />남성</li>
-                    <li><input type="checkbox" onChange={this.genderCheck} checked={this.state.selectedGenderFe} />여성</li> */}
                     {
                       this.state.genders.map((gender) => {
                         return (
