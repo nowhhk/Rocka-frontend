@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./ShoppingCartList.scss";
 
 class ShoppingCartList extends Component {
+<<<<<<< HEAD
   state = {};
 
   render() {
@@ -51,6 +52,16 @@ class ShoppingCartList extends Component {
       </div>
     );
   }
+=======
+    render() {
+        return (
+            <div className="savingProduct">
+                <ul>
+                </ul>
+            </div>
+        );
+    }
+>>>>>>> master
 }
 
 export default ShoppingCartList;
