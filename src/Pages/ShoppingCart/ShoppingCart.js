@@ -16,8 +16,8 @@ class ShoppingCart extends Component {
   // `${API}/order`
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    fetch(`${API}/order`, {
+    const token = localStorage.getItem("Authorization");
+    fetch(`./data/cart.json`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -36,7 +36,7 @@ class ShoppingCart extends Component {
     const { data } = this.state;
     let sum = 0;
     for (let i in data) {
-      sum += data[i].price_krw * data[i].oder_quantity;
+      sum += data[i].price_krw * data[i].order_quantity;
     }
     return sum;
   };
