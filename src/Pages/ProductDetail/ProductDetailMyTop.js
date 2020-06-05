@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API } from "../../config"
 import "./ProductDetailMyTop.scss";
 
 class ProductDetailTop extends Component {
@@ -15,18 +16,30 @@ class ProductDetailTop extends Component {
     }
 
     //BE에 보낼 것
-    // componentDidMount() {
-    //     fetch(`${API}`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             name: this.props.colorInfo.name,
-    //             wishList: this.state.wishList,
-    //         })
-    //     })
-    // }
+    clickShopping = () => {
+        const token = localStorage.getItem("Authorization")
+
+        console.log("보낼 리스트", this.state.wishList)
+        console.log("보낼 이름", this.props.colorInfo.id)
+        console.log("유저 토큰", token)
+
+        fetch(`${API}/order`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: token //헤더에서 토큰을 보내는 것 
+            },
+            body: JSON.stringify({
+                id: this.props.colorInfo.id,
+                wishList: this.state.wishList.order_quantity.name,
+            })
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    alert("장바구니에 담겼습니다.")
+                }
+            })
+    }
 
     sumTotal = () => {
         let sum = 0;
@@ -163,7 +176,7 @@ class ProductDetailTop extends Component {
                                 <span className="price">KRW {this.sumTotal() * this.props.colorInfo.price_krw}</span>
                             </div>
                             <div className="mainLeftPurchase">
-                                <div className="basket"><i class="fas fa-shopping-bag"></i></div>
+                                <div className="basket" onClick={this.clickShopping}><i class="fas fa-shopping-bag"></i></div>
                                 <div className="purchase">구매하기</div>
                             </div>
                         </div>
