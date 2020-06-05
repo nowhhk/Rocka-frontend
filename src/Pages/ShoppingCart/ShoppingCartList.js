@@ -25,11 +25,11 @@ class ShoppingCartList extends Component {
                     </div>
                     <div className="savingProductInfoAmount">
                       <button>-</button>
-                      {cartData.oder_quantity}
+                      {cartData.order_quantity}
                       <button>+</button>
                     </div>
                     <div className="savingProductInfoAllPrice">
-                      KRW {cartData.price_krw * cartData.oder_quantity}
+                      KRW {cartData.price_krw * cartData.order_quantity}
                     </div>
                   </div>
                   <div className="savingProductInfoLeft">
