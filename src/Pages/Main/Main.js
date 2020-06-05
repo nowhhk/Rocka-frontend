@@ -233,7 +233,7 @@ class Main extends Component {
                 </ul>
               </div>
               <div className="tabs">
-                <ul>
+                <ul className="tabsTitle">
                   <li
                     className={tabClass}
                     onClick={() => this.handleClickedBest("best")}

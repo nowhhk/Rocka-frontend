@@ -123,6 +123,7 @@ class SignUp extends Component {
     console.log(e.target.value)
   }
 
+
   handleComplete = () => {
     new window.daum.Postcode({
       oncomplete: function (data) {
@@ -349,7 +350,7 @@ class SignUp extends Component {
                           return (
                             <li>
                               <label class="checkbox-label">
-                                <input type="checkbox" className="checkbox" checked={gender.isChecked} value={gender.value} key={gender.id} {...gender} />
+                                <input type="checkbox" className="checkbox" onChange={this.genderCheck} checked={gender.isChecked} value={gender.value} key={gender.id} {...gender} />
                                 <span className="checkbox-custom"></span>
                                 {gender.value}
                               </label>
