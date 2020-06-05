@@ -84,9 +84,13 @@ class Nav extends Component {
           </span>
         </h1>
         <div className="nav right">
-          <span onClick={this.loginEvent}>{login}</span>
           <span
-            style={{ display: join ? "inlineBlock" : "none" }}
+            onClick={this.loginEvent}
+          >
+            {login}
+          </span>
+          <span
+            style={{ display: join ? 'inlineblock' : 'none' }}
             onClick={(e) => {
               this.props.history.push("/signup");
             }}

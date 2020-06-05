@@ -80,24 +80,6 @@ class ProductDetail extends Component {
                             </div>
                             <div className="previewImgBottom"></div>
                         </div>
-                        <div className="colorInfo">
-                            <span className="ColorKindsExplan">COLOR INFO</span>
-                            <p className="reatureTitle">FIND YOUR MOOD</p>
-                            <p className="ColorKindsExplan">전색상을 한 눈에 담아보세요.</p>
-                            <div className="previewAllColor">
-                                <video src="https://i.vimeocdn.com/video/862955551.webp?mw=600&amp;mh=600"></video>
-                            </div>
-                        </div>
-                        <div className="featureBox">
-                            <p className="ColorKindsExplan">FEATURE</p>
-                            <p className="reatureTitle">WATERY SHEER<br /> LIPSTICK</p>
-                            <p className="ColorKindsExplan">
-                                ∨ 놀랍도록 가볍고 산뜻한 발림<br />
-                                ∨ 립밤을 잊게하는, 그러나 오일리하지 않은 적당한 촉촉함<br />
-                                ∨ 반투명 피그먼트로 선명도를 조절하기 쉬운 컬러감<br />
-                                ∨ 모두의 취향을 존중하는 무향취<br />
-                            </p>
-                        </div>
                         <div className="colorIsEveryone">
                             <p className="colorIsEveryoneTitle">
                                 COLOR IS<br />
@@ -113,6 +95,16 @@ class ProductDetail extends Component {
                                 <br />
                                 그리고 그것을 통해 원하는 모든 이들이 일상 속에서 컬러를<br />
                                 즐길 수 있도록 돕는 것, 이것이 라카의 철학입니다.
+                            </p>
+                        </div>
+                        <div className="featureBox">
+                            <p className="ColorKindsExplan">FEATURE</p>
+                            <p className="reatureTitle">WATERY SHEER<br /> LIPSTICK</p>
+                            <p className="ColorKindsExplan">
+                                ∨ 놀랍도록 가볍고 산뜻한 발림<br />
+                                ∨ 립밤을 잊게하는, 그러나 오일리하지 않은 적당한 촉촉함<br />
+                                ∨ 반투명 피그먼트로 선명도를 조절하기 쉬운 컬러감<br />
+                                ∨ 모두의 취향을 존중하는 무향취<br />
                             </p>
                         </div>
                         <div className="colorKinds">

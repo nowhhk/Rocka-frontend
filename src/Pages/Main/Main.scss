@@ -17,8 +17,8 @@
   max-width: 1600px;
   padding: 0 2.3em;
   width: 100%;
-
   .swipe-img {
+    width: 100%;
     position: sticky;
     top: 0;
     z-index: -1;
@@ -39,87 +39,216 @@
   padding-bottom: 10em;
 
   .concept {
+    padding-top: 3em;
     strong {
-      font-size: 14rem;
+      font-size: 13rem;
       font-weight: $blodweight;
+      letter-spacing: -.1em;
     }
     p {
-      font-size: $middleBigFontSize;
-      line-height: 1.5em;
+      margin-top: .5em;
+      font-size: 2rem;
+      line-height: 2em;
       font-weight: $blodweight;
       margin-bottom: 1em;
+      text-align: right;
     }
-  }
-  .link-btn {
-    span {
-      margin-right: 0.5em;
-      font-size: $defalutFontSize;
-      font-weight: $blodweight;
+    .link-btn{
+      font-size: $littleBigFontSize;
+      font-weight: 600;
+      text-align: right;
+      img{
+        transform: translateY(.1em);
+        margin-left: .5em;
+      }
+    }
+    .link-btn:hover{
+      cursor: pointer;
     }
   }
 
   .collection {
-    margin-bottom: 30em;
+    margin-top: 12em;
+    margin-bottom: 5em;
     strong {
-      font-size: 7rem;
-      font-weight: $blodweight;
+      font-size: 8rem;
+      font-weight: bold;
+      line-height: 1.1em;
+      letter-spacing: -.03em;
     }
 
     ul {
       margin-top: 10em;
       display: flex;
+      justify-content: space-between;
       li {
-        margin-right: 3em;
         .thumb {
-          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          .scrollImg{
+            width: 100%;
+          }
         }
-
         .box {
-          position: absolute;
-          bottom: -18em;
-          left: 25%;
-          z-index: 1;
-
+          margin-top: -25em;
+          text-align: center;
           .title {
-            font-size: $middleFontSize;
-            font-weight: $middleweight;
+            margin-top: .7em;
+            font-size: 35px;
+            font-weight: 600;
             margin-bottom: 1em;
+            line-height: 1.4em;
+          }
+          .desc{
+            font-size: $littleSmaller;
+            font-weight: $thinweight;
+            line-height: 1.4em;
+            margin-bottom: 3em;
+          }
+          .link-btn{
+            font-size: $littleBigFontSize;
+            font-weight: 600;
+            img{
+              transform: translateY(.1em);
+              margin-left: .5em;
+            }
           }
         }
       }
     }
   }
-  .tabs {
-    ul {
-      display: flex;
-      .activeBest {
-        margin-right: 0.5em;
-        color: black;
-        font-size: $biggerFontSize;
-        font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
+  .lakaSubImg{
+    background-image: url(https://laka.co.kr/laka_skin/images/pc/img_main_thumb_03_01_0405.jpg);
+    width: 100%;
+    // height: 800px;
+    position: sticky;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+    top: 0;
+  }
+  .backgroundWhite{
+    background-color: white;
+    z-index: 1000;
+    transform: translateZ(0);
+    .cushionImg{
+      background-color: white;
+      width: 1200px;
+      margin: 0 auto;
+      img{
+        width: 100%;
+        margin-top: -40em;
       }
-      .activeBest:nth-child(2) {
-        margin-right: 0.5em;
-        color: white;
-        font-size: $biggerFontSize;
+    }
+    .cushionText{
+      font-size: 2em;
+      font-weight: $thinweight;
+      line-height: 1.5em;
+      margin-bottom: 8em;
+      margin-top: -15em;
+      strong{
+        font-size: 2.5em;
+        line-height: 1.3em;
         font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
+        letter-spacing: -.05em;
       }
-
-      .activeNew {
-        margin-right: 0.5em;
-        color: white;
-        font-size: $biggerFontSize;
-        font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
+      p{
+        margin-top: 1em;
+        text-align: right;
       }
-      .activeNew:nth-child(2) {
-        margin-right: 0.5em;
-        color: black;
-        font-size: $biggerFontSize;
-        font-weight: $blodweight;
-        -webkit-text-stroke: 1px #000;
+      .link-btn{
+        margin-top: 1em;
+        font-size: $littleBigFontSize;
+        font-weight: 600;
+        text-align: right;
+        img{
+          transform: translateY(.1em);
+          margin-left: .5em;
+        }
+      }
+      .link-btn:hover{
+        cursor: pointer;
+      }
+    }
+    .collection {
+      margin-top: 12em;
+      margin-bottom: 5em;
+      ul {
+        margin-top: 10em;
+        display: flex;
+        justify-content: space-between;
+        li {
+          .thumb {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .scrollImg{
+              width: 100%;
+            }
+          }
+          .box {
+            margin-top: -15em;
+            text-align: center;
+            .title {
+              margin-top: .7em;
+              font-size: 35px;
+              font-weight: 600;
+              margin-bottom: 1em;
+              line-height: 1.4em;
+            }
+            .desc{
+              font-size: $littleSmaller;
+              font-weight: $thinweight;
+              line-height: 1.4em;
+              margin-bottom: 3em;
+            }
+            .link-btn{
+              font-size: $littleBigFontSize;
+              font-weight: 600;
+              img{
+                transform: translateY(.1em);
+                margin-left: .5em;
+              }
+            }
+          }
+        }
+      }
+    }
+    .tabs {
+      ul {
+        display: flex;
+        .activeBest {
+          margin-right: 0.5em;
+          color: black;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
+        .activeBest:nth-child(2) {
+          margin-right: 0.5em;
+          color: white;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
+  
+        .activeNew {
+          margin-right: 0.5em;
+          color: white;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
+        .activeNew:nth-child(2) {
+          margin-right: 0.5em;
+          color: black;
+          font-size: $biggerFontSize;
+          font-weight: $blodweight;
+          -webkit-text-stroke: 1px #000;
+        }
       }
     }
   }
@@ -138,18 +267,4 @@
   justify-content: space-between;
   max-width: 1600px;
   margin-top: 1em;
-}
-
-.yes {
-  font-size: $littleSmaller;
-  font-weight: $blodweight;
-  position: fixed;
-  bottom: 50px;
-  right: 30px;
-  // transition: all 10s ease-in;
-  z-index: 5;
-}
-
-.yet {
-  display: none;
 }
