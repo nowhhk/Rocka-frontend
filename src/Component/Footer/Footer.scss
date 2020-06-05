@@ -1,6 +1,9 @@
 @import "../../Styles/common.scss";
 
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   // height: 100vh;
   background-color: #000000;
@@ -52,7 +55,8 @@
         margin-top: 6em;
         ul {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
+          margin-right: 5em;
           p {
             padding: 0 0 2em;
             font-size: $littleSmaller;

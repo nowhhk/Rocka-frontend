@@ -35,7 +35,7 @@ class StoreList extends Component {
             <div className="tel">전화번호</div>
             <div className="address">주소</div>
             <div className="weekday">운영시간</div>
-            <div className="map">지도보기</div>
+            <div className="map"></div>
           </div>
         </div>
         {list}
