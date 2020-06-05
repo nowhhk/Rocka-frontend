@@ -28,7 +28,11 @@ class Category extends Component {
         <div className="nav">
           <div className="category">
             <div className="categoryAll">
-              {categoryTitle === undefined ? <span>ALL</span> : categoryTitle}
+              {categoryTitle === undefined ? (
+                <span>ALL</span>
+              ) : (
+                <span>{categoryTitle}</span>
+              )}
               <div className="categoryImg">
                 <img
                   className="icon"

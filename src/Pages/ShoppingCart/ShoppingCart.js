@@ -12,7 +12,7 @@ class ShoppingCart extends Component {
       data: [],
     };
   }
-  // "/data/cart.json"
+
   // `${API}/order`
 
   componentDidMount() {
@@ -36,10 +36,12 @@ class ShoppingCart extends Component {
     const { data } = this.state;
     let sum = 0;
     for (let i in data) {
-      sum += data[i].price_krw * data[i].order_quantity;
+      sum += data[i].price_krw * data[i].oder_quantity;
     }
     return sum;
   };
+
+  order = () => {};
 
   handleDelete = () => {
     console.log("ㅎㅎ");
