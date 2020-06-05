@@ -42,7 +42,7 @@ class Item extends Component {
     const price = Number(price_krw_subst).toLocaleString();
 
     return (
-      <div
+      <li
         className="item"
         onMouseOver={this.handleOver}
         onMouseOut={this.handleOut}
@@ -70,7 +70,7 @@ class Item extends Component {
             <img src={`${outer_front_image_url}`} alt="" />
           </div>
         )}
-      </div>
+      </li>
     );
   }
 }

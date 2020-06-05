@@ -12,7 +12,7 @@ class Stores extends Component {
     return (
       <div className="store-list">
         <div className="list">
-          <div className="number">{}</div>
+          <div className="number">{this.props.no}</div>
           <div className="type">{this.props.type}</div>
           <div className="name">{this.props.name}</div>
           <div className="tel">{this.props.tel}</div>

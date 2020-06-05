@@ -7,7 +7,7 @@ class ShoppingCart extends Component {
     super();
     this.state = {
       data: [],
-      totalCost: 0,
+      gg: "",
     };
   }
 
@@ -25,14 +25,20 @@ class ShoppingCart extends Component {
     const { data } = this.state;
     let sum = 0;
     for (let i in data) {
-      sum += data[i].price_krw * data[i].quantity;
+      sum += data[i].price_krw * data[i].oder_quantity;
     }
     return sum;
   };
 
+  order = () => {};
+
+  handleDelete = () => {
+    console.log("ㅎㅎ");
+  };
+
   render() {
     const { data } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <div className="ShoppingCart">
@@ -44,7 +50,7 @@ class ShoppingCart extends Component {
           </label>
           <div className="deleteSelection">선택삭제</div>
         </div>
-        <ShoppingCartList data={data} />
+        <ShoppingCartList handleDelete={this.handleDelete} data={data} />
         <div className="ShoppingCartBottombox">
           <div className="freeDelivery">
             • 2만원 이상 구매 시 무료배송됩니다.
@@ -66,11 +72,16 @@ class ShoppingCart extends Component {
               <p className="priceText">TOTAL</p>
               <p className="priceProductBig">
                 {/* {this.state.totalCost} */}
-                {this.addTotal()} KRW
+                {this.addTotal() >= 20000
+                  ? this.addTotal()
+                  : this.addTotal() + 2500}
+                KRW
               </p>
             </div>
             <div className="orderButton">
-              <div className="allOrderButton">전체상품 주문</div>
+              <div onclick={this.order} className="allOrderButton">
+                전체상품 주문
+              </div>
               <div className="orderSelectedProducts">선택상품 주문</div>
             </div>
           </div>

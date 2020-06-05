@@ -5,14 +5,14 @@
       "image_url": "//laka.co.kr/web/product/medium/20200405/ae6730448aa6702be6503b190988845d.png",
       "price_krw": 18000,
       "color_name": "빨강",
-      "quantity": 5
+      "oder_quantity": 3
     },
     {
       "name": "저스트 아이팔레트",
       "image_url": "//laka.co.kr/web/product/medium/20200405/ae6730448aa6702be6503b190988845d.png",
-      "price_krw": 25000,
+      "price_krw": 19000,
       "color_name": "라이프",
-      "quantity": 1
+      "oder_quantity": 1
     }
   ]
 }

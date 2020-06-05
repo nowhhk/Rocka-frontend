@@ -78,9 +78,9 @@ class Product extends Component {
               handleBestSort={this.handleSort}
             />
           </div>
-
-          <div className="listwrap">{list}</div>
         </div>
+        <div className="listwrap">{list}</div>
+
         <Footer />
       </div>
     );
