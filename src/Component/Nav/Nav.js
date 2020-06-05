@@ -4,14 +4,14 @@ import "./Nav.scss";
 
 class Nav extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       login: "LOGIN",
       join: true,
       scrollTop: {},
       navClass: "header",
-    }
+    };
   }
 
   onScroll = (e) => {
@@ -25,18 +25,18 @@ class Nav extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
-    if ('Authorization' in localStorage) {
+    if ("Authorization" in localStorage) {
       this.setState({
         login: "LOGOUT",
         join: false,
       });
     }
-  };
+  }
 
   loginEvent = () => {
     if (this.state.login === "LOGOUT") {
       this.props.history.push("/signin");
-      localStorage.clear('Authorization');
+      localStorage.clear("Authorization");
       this.setState({
         login: "LOGIN",
         join: true,
@@ -44,10 +44,10 @@ class Nav extends Component {
     } else {
       this.props.history.push("/signin");
     }
-  }
+  };
 
   render() {
-    const { login, join } = this.state
+    const { login, join } = this.state;
 
     return (
       <header className={this.state.scrollTop > 200 ? "scrolled" : "header"}>
@@ -58,21 +58,21 @@ class Nav extends Component {
             }}
           >
             PRODUCT
-            </span>
+          </span>
           <span
             onClick={() => {
               this.props.history.push("/store");
             }}
           >
             STORY
-            </span>
+          </span>
           <span
             onClick={() => {
               this.props.history.push("/store");
             }}
           >
             STORE
-            </span>
+          </span>
         </div>
         <h1 className="logo">
           <span
@@ -81,7 +81,7 @@ class Nav extends Component {
             }}
           >
             LAKA
-            </span>
+          </span>
         </h1>
         <div className="nav right">
           <span
@@ -96,7 +96,7 @@ class Nav extends Component {
             }}
           >
             JOIN
-            </span>
+          </span>
           <span>MY</span>
           <span
             onClick={() => {

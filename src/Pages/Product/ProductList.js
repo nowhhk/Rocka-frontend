@@ -22,7 +22,7 @@ class ProductList extends Component {
       );
     });
 
-    return <ul className="listwrap">{map}</ul>;
+    return <ul>{map}</ul>;
   }
 }
 

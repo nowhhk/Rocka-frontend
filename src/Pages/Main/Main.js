@@ -16,6 +16,7 @@ class Main extends Component {
       activeTab: "best",
       tabClass: "activeBest",
       pop: "none",
+      topTo: "yet",
     };
   }
 
@@ -211,7 +212,6 @@ class Main extends Component {
                         src="https://laka.co.kr/laka_skin/images/pc/img_main_thumb_05_01_0405.jpg"
                         alt=""
                       />
-
                       <div className="box">
                         <img
                           src="https://laka.co.kr/laka_skin/images/pc/img_main_thumb_05_02_0405.png"

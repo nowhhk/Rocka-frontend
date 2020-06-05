@@ -31,7 +31,7 @@ class Search extends Component {
       <div className="Search">
         <Dropdown
           options={area}
-          onChange={this._onSelect}
+          // onChange={this.props.handleDrop}
           value={area.value}
           placeholder="전체"
           className="myClassName"
@@ -40,12 +40,14 @@ class Search extends Component {
           <input
             type="text"
             id="filter"
-            value={this.state.searchKeyword}
+            // value={this.state.searchKeyword}
             onChange={this.props.handleChange}
             placeholder="매장명으로 검색하세요."
             name="searchKeyword"
           />
-          <div className="searchButton">검색</div>
+          {/* <button onClick={this.props.handleFilter} className="searchButton">
+            검색
+          </button> */}
         </div>
       </div>
     );

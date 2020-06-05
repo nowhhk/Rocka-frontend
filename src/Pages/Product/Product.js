@@ -14,10 +14,19 @@ class Product extends Component {
     this.state = {
       data: [],
       sort: "",
+      scrollTop: {},
     };
   }
 
+  onScroll = (e) => {
+    const scrollTop = ("scroll", e.srcElement.scrollingElement.scrollTop);
+    this.setState({ scrollTop }, console.log(this.state));
+  };
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
   componentDidMount() {
+    window.addEventListener("scroll", this.onScroll);
     this.getData();
   }
   //componentDidUpdate는 state 나 props 바뀔때마다 실행
@@ -78,9 +87,14 @@ class Product extends Component {
               handleBestSort={this.handleSort}
             />
           </div>
-
-          <div className="listwrap">{list}</div>
         </div>
+        <div
+          className={this.state.scrollTop > 940 ? "yes" : "yet"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          TOP
+        </div>
+        <div className="listwrap">{list}</div>
         <Footer />
       </div>
     );

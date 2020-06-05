@@ -25,11 +25,11 @@ class ShoppingCartList extends Component {
                     </div>
                     <div className="savingProductInfoAmount">
                       <button>-</button>
-                      {cartData.quantity}
+                      {cartData.oder_quantity}
                       <button>+</button>
                     </div>
                     <div className="savingProductInfoAllPrice">
-                      KRW {cartData.price_krw * cartData.quantity}
+                      KRW {cartData.price_krw * cartData.oder_quantity}
                     </div>
                   </div>
                   <div className="savingProductInfoLeft">
@@ -38,10 +38,15 @@ class ShoppingCartList extends Component {
                         KRW {cartData.price_krw}
                       </div>
                       <div className="savingProductInfoOption">
-                        [옵션:{cartData.color_name}]
+                        [옵션: {cartData.color_name}]
                       </div>
                     </div>
-                    <span className="savingProductInfoDelete">삭제</span>
+                    <span
+                      onClick={this.props.handleDelete}
+                      className="savingProductInfoDelete"
+                    >
+                      삭제
+                    </span>
                   </div>
                 </div>
               </li>
