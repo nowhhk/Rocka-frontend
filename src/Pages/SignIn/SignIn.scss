@@ -7,7 +7,7 @@
     justify-content: center;
     height: 100vh;
     .SignInBox{
-        margin: 80em 0em 10em;
+        margin: 1600px 0em 10em;
         width: 37%;
         max-width: 600px;
        h1{
@@ -71,8 +71,11 @@
        .LoginSignUp{
             font-size: $secondSmallestFontSize;
             font-weight: 600;
-            text-decoration: underline;
+            text-decoration: underline; 
        }
+       .LoginSignUp:hover{
+            cursor: pointer;
+        }
     }
 }
 

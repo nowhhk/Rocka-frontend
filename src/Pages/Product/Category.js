@@ -27,13 +27,16 @@ class Category extends Component {
       <div className="nav_container">
         <div className="nav">
           <div className="category">
-            {categoryTitle === undefined ? <span>ALL</span> : categoryTitle}
-            <img
-              className="icon"
-              src="https://laka.co.kr/assets/ko/images/ico/ico_arr.png"
-              alt=""
-            />
-
+            <div className="categoryAll">
+              {categoryTitle === undefined ? <span>ALL</span> : categoryTitle}
+              <div className="categoryImg">
+                <img
+                  className="icon"
+                  src="https://laka.co.kr/assets/ko/images/ico/ico_arr.png"
+                  alt=""
+                />
+              </div>
+            </div>
             <div className="list">
               <div className="row">
                 <span onClick={() => this.props.history.push("/product")}>
