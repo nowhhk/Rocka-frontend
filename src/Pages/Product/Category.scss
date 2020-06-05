@@ -3,18 +3,29 @@
 .nav_container {
   display: flex;
   justify-content: space-between;
-
   .nav {
     z-index: 2;
-    .category {
-      font-size: 50px;
-      font-weight: $blodweight;
-      cursor: pointer;
-      margin-bottom: 0.3em;
-      .icon {
-        width: 40px;
-        margin-left: 0.5em;
-        transition: all 0.4s ease-in-out;
+    .category{
+      .categoryAll{
+        display: flex;
+        span{
+          font-size: 90px;
+          font-weight: $blodweight;
+          cursor: pointer;
+        }
+        .icon {
+          width: 40px;
+          margin-left: 0.5em;
+          transition: all 0.4s ease-in-out;
+        }
+        .categoryImg{
+          margin-left: 1em;
+          width: 60px;
+          transform: translateY(1.7em);
+          img{
+            width: 100%;
+          }
+        }
       }
     }
     .list {
@@ -24,19 +35,21 @@
       }
 
       .row {
+        margin-top: .7em;
         span {
-          font-size: $middleFontSize;
-          font-weight: $middleweight;
-          margin-right: 1em;
+          font-size: 50px;
+          font-weight: $blodweight;
+          margin-right: .8em;
           position: relative;
           .count {
-            font-size: $leastFontSize;
+            margin-left: .2em;
+            font-size: $littleSmaller;
             position: absolute;
           }
         }
         span:hover {
           color: white;
-          -webkit-text-stroke: 1px #000;
+          -webkit-text-stroke: 1.5px #000;
         }
       }
     }
@@ -48,7 +61,7 @@
     cursor: pointer;
     font-size: $littleSmaller;
     font-weight: $thinweight;
-    margin-left: 1em;
+    margin: 0em 1em 0em;
   }
 }
 
