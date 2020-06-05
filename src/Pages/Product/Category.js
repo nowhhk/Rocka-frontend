@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API } from "../../config";
 import { withRouter } from "react-router-dom";
 import "./Category.scss";
 
@@ -8,7 +9,7 @@ class Category extends Component {
   };
 
   componentDidMount() {
-    fetch("./data/category.json")
+    fetch(`${API}/product/category`)
       .then((res) => res.json())
       // .then((res) => console.log(res));
       .then((res) =>
@@ -27,7 +28,11 @@ class Category extends Component {
         <div className="nav">
           <div className="category">
             <div className="categoryAll">
-              {categoryTitle === undefined ? <span>ALL</span> : categoryTitle}
+              {categoryTitle === undefined ? (
+                <span>ALL</span>
+              ) : (
+                <span>{categoryTitle}</span>
+              )}
               <div className="categoryImg">
                 <img
                   className="icon"

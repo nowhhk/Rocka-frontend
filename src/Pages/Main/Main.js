@@ -121,7 +121,8 @@ class Main extends Component {
                   <div className="thumb">
                     <img
                       src="https://laka.co.kr/laka_skin/images/pc/img_main_thumb_01_01_0405.jpg"
-                      alt="" className="scrollImg"
+                      alt=""
+                      className="scrollImg"
                     />
                     <div className="box">
                       <img
@@ -169,15 +170,30 @@ class Main extends Component {
               </ul>
             </div>
             <div className="lakaSubImg">
-              <img src="https://laka.co.kr/laka_skin/images/pc/img_main_thumb_03_01_0405.jpg" alt="" />
+              <img
+                src="https://laka.co.kr/laka_skin/images/pc/img_main_thumb_03_01_0405.jpg"
+                alt=""
+              />
             </div>
             <div className="backgroundWhite">
               <div className="cushionImg">
-                <img src="https://laka.co.kr/web/product/medium/20200405/bb379c2c01db4b95ef7a768577aa4730.png" alt="" />
+                <img
+                  src="https://laka.co.kr/web/product/medium/20200405/bb379c2c01db4b95ef7a768577aa4730.png"
+                  alt=""
+                />
               </div>
               <div className="cushionText">
-                <strong>상상해보세요.<br />손끝으로 유리 표면을 만질 때의<br />매끈함, 깨끗함, 여린 윤기</strong>
-                <p>세럼처럼 산뜻하고 부드러운 발림, 피부 위에 착 붙은 듯<br /> 매끈한 초밀착 피니시의 라카 NEW 쿠션을 만나보세요. </p>
+                <strong>
+                  상상해보세요.
+                  <br />
+                  손끝으로 유리 표면을 만질 때의
+                  <br />
+                  매끈함, 깨끗함, 여린 윤기
+                </strong>
+                <p>
+                  세럼처럼 산뜻하고 부드러운 발림, 피부 위에 착 붙은 듯<br />{" "}
+                  매끈한 초밀착 피니시의 라카 NEW 쿠션을 만나보세요.{" "}
+                </p>
                 <Btn title="MORE" />
               </div>
               <div className="collection">
@@ -186,7 +202,8 @@ class Main extends Component {
                     <div className="thumb">
                       <img
                         src="https://laka.co.kr/laka_skin/images/pc/img_main_thumb_04_01_0405.jpg"
-                        alt="" className="scrollImg"
+                        alt=""
+                        className="scrollImg"
                       />
                       <div className="box">
                         <img
@@ -195,13 +212,13 @@ class Main extends Component {
                         />
                         <p className="title">
                           생기의 계절 봄,
-                        <br />
-                        이런 블러셔 어때요?
-                      </p>
+                          <br />
+                          이런 블러셔 어때요?
+                        </p>
                         <p className="desc">
                           빛이 투가된 듯 맑고 투명하게 스미는 블러셔, 두 뺨을
-                        <br /> 물들이는 뉴트럴 컬러의 생동감
-                      </p>
+                          <br /> 물들이는 뉴트럴 컬러의 생동감
+                        </p>
                         <Btn title="MORE" />
                       </div>
                     </div>
@@ -219,13 +236,13 @@ class Main extends Component {
                         />
                         <p className="title">
                           매트 립이 좋은데
-                        <br />
-                        답답한 느낌 싫다면
-                      </p>
+                          <br />
+                          답답한 느낌 싫다면
+                        </p>
                         <p className="desc">
                           놀랍도록 스무스한 텍스쳐, 편안하게 밀착되는 피니시,
-                        <br /> 풍천처럼 가벼운 매트 립스틱 여기 있어요.
-                      </p>
+                          <br /> 풍천처럼 가벼운 매트 립스틱 여기 있어요.
+                        </p>
                         <Btn title="MORE" />
                       </div>
                     </div>
@@ -247,10 +264,17 @@ class Main extends Component {
                     <span>NEW</span>
                   </li>
                 </ul>
+
                 <ul>{tab[activeTab]}</ul>
               </div>
             </div>
           </div>
+        </div>
+        <div
+          className={scrollTop > 940 ? "yes" : "yet"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          TOP
         </div>
         <Footer />
       </div>

@@ -2,17 +2,17 @@
   "data": [
     {
       "name": "워터리 쉬어 립스틱",
-      "image_url": "//laka.co.kr/web/product/medium/20200405/ae6730448aa6702be6503b190988845d.png",
+      "outer_front_image_url": "//laka.co.kr/web/product/medium/20200405/ae6730448aa6702be6503b190988845d.png",
       "price_krw": 18000,
       "color_name": "빨강",
-      "oder_quantity": 3
+      "order_quantity": 3
     },
     {
       "name": "저스트 아이팔레트",
-      "image_url": "//laka.co.kr/web/product/medium/20200405/ae6730448aa6702be6503b190988845d.png",
+      "outer_front_image_url": "//laka.co.kr/web/product/medium/20200405/87a0afc37c41b1237278a1428cd66cd2.png",
       "price_krw": 19000,
       "color_name": "라이프",
-      "oder_quantity": 1
+      "order_quantity": 1
     }
   ]
 }

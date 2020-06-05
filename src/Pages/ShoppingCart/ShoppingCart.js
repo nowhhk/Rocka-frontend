@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Nav from "../../Component/Nav/Nav";
+import { API } from "../../config";
 import Footer from "../../Component/Footer/Footer";
 import ShoppingCartList from "./ShoppingCartList";
 import "./ShoppingCart.scss";
@@ -12,9 +13,11 @@ class ShoppingCart extends Component {
     };
   }
 
+  // `${API}/order`
+
   componentDidMount() {
     const token = localStorage.getItem("token");
-    fetch("/data/cart.json", {
+    fetch(`${API}/order`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
