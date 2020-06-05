@@ -11,8 +11,6 @@ class Store extends Component {
     super();
     this.state = {
       stores: [],
-      userSelected: "",
-      userInput: "",
       name: "",
     };
   }
@@ -23,28 +21,13 @@ class Store extends Component {
       .then((res) => this.setState({ stores: res.data }));
   }
 
-  // handleChange = (e) => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  handleUserInput = (e) => {
-    this.setState({ userInput: e.target.value }, () =>
-      console.log(this.state.userInput)
-    );
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
-  handleDrop = (e) => {
-    this.setState({ userInput: e.target.value }, () =>
-      console.log(this.state.userInput)
-    );
-  };
   render() {
-    const filtering = this.state.stores.filter((store) =>
-      store.branch.includes(this.state.userInput)
-    );
-
     return (
       <div className="wrapper">
         <Nav />
@@ -54,11 +37,8 @@ class Store extends Component {
             alt=""
           />
           <div className="storeBox">
-            <Search
-              handleChange={this.handleUserInput}
-              handleDrop={this.handleDrop}
-            />
-            <StoreList stores={filtering} />
+            <Search stores={this.state.stores} onChange={this.handleChange} />
+            <StoreList stores={this.state.stores} name={this.state.name} />
           </div>
         </div>
         <Footer />
