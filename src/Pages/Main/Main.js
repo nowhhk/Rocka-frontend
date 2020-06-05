@@ -16,6 +16,7 @@ class Main extends Component {
       activeTab: "best",
       tabClass: "activeBest",
       pop: "none",
+      topTo: "yet",
     };
   }
 
@@ -183,6 +184,12 @@ class Main extends Component {
                   <span>NEW</span>
                 </li>
               </ul>
+              <div
+                className={scrollTop > 940 ? "yes" : "yet"}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                TOP
+              </div>
 
               <ul>{tab[activeTab]}</ul>
             </div>

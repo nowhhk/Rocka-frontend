@@ -1,3 +1,5 @@
+@import "../../Styles/common.scss";
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -49,4 +51,18 @@
     display: flex;
     flex-wrap: wrap;
   }
+}
+
+.yes {
+  font-size: $littleSmaller;
+  font-weight: $blodweight;
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  // transition: all 10s ease-in;
+  z-index: 5;
+}
+
+.yet {
+  display: none;
 }

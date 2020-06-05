@@ -35,6 +35,11 @@ class Store extends Component {
     );
   };
 
+  handleDrop = (e) => {
+    this.setState({ userInput: e.target.value }, () =>
+      console.log(this.state.userInput)
+    );
+  };
   render() {
     const filtering = this.state.stores.filter((store) =>
       store.branch.includes(this.state.userInput)
@@ -49,7 +54,10 @@ class Store extends Component {
             alt=""
           />
           <div className="storeBox">
-            <Search handleChange={this.handleUserInput} />
+            <Search
+              handleChange={this.handleUserInput}
+              handleDrop={this.handleDrop}
+            />
             <StoreList stores={filtering} />
           </div>
         </div>
