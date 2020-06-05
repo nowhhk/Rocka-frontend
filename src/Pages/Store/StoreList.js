@@ -10,13 +10,6 @@ class StoreList extends Component {
   }
 
   render() {
-    // let data = this.props.stores
-    // const filteredComponent = (data) => {
-    //   data = data.filter((c) => {
-    //     return c.address.includes(this.state.searchKeyword) > -1;
-    //   });
-    // }
-
     const list = this.props.stores.map((store, idx) => {
       return (
         <Stores
@@ -36,9 +29,9 @@ class StoreList extends Component {
       <div className="list-wrap">
         <div className="store-list-title">
           <div className="list">
-            <div className="number">No.</div>
-            <div className="type">구분</div>
-            <div className="name">스토어명</div>
+            {/* <div className="number">No.</div> */}
+            <div className="type">스토어명</div>
+            <div className="name">구분</div>
             <div className="tel">전화번호</div>
             <div className="address">주소</div>
             <div className="weekday">운영시간</div>

@@ -5,9 +5,6 @@ class ShoppingCartList extends Component {
   state = {};
 
   render() {
-    // const { price_krw } = this.props;
-    // const price = Number(price_krw).toLocaleString();
-
     return (
       <div className="savingProduct">
         <ul>
@@ -41,11 +38,11 @@ class ShoppingCartList extends Component {
                         KRW {cartData.price_krw}
                       </div>
                       <div className="savingProductInfoOption">
-                        [옵션:{cartData.color_name}]
+                        [옵션: {cartData.color_name}]
                       </div>
                     </div>
                     <span
-                      onCLick={this.props.handleDelete}
+                      onClick={this.props.handleDelete}
                       className="savingProductInfoDelete"
                     >
                       삭제

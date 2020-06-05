@@ -21,59 +21,61 @@
         margin-bottom: 1.5em;
         .list {
           display: flex;
+          width: 100%;
           div {
             margin-bottom: 2em;
             // border: solid 1px black;
           }
+          // div:nth-child(1) {
+          //   width: 90px;
+          // }
           div:nth-child(1) {
-            width: 90px;
+            width: 150px;
           }
           div:nth-child(2) {
-            width: 110px;
-          }
-          div:nth-child(3) {
             width: 160px;
           }
+          div:nth-child(3) {
+            width: 170px;
+          }
           div:nth-child(4) {
-            width: 180px;
+            width: calc(100% - 800px);
           }
           div:nth-child(5) {
-            width: calc(100% - 820px);
+            width: 200px;
           }
           div:nth-child(6) {
-            width: 180px;
-          }
-          div:nth-child(7) {
             width: 100px;
           }
         }
       }
-    
+
       .store-list {
         .list {
+          width: 100%;
           display: flex;
           div {
             margin-bottom: 3em;
           }
+          // div:nth-child(1) {
+          //   width: 90px;
+          // }
           div:nth-child(1) {
-            width: 90px;
-          }
-          div:nth-child(2) {
-            width: 110px;
-          }
-          div:nth-child(3) {
             width: 160px;
           }
-          div:nth-child(4) {
+          div:nth-child(2) {
+            width: 160px;
+          }
+          div:nth-child(3) {
             width: 180px;
+          }
+          div:nth-child(4) {
+            width: calc(100% - 780px);
           }
           div:nth-child(5) {
-            width: calc(100% - 820px);
-          }
-          div:nth-child(6) {
             width: 180px;
           }
-          div:nth-child(7) {
+          div:nth-child(6) {
             width: 100px;
           }
           .map {
@@ -82,6 +84,6 @@
           }
         }
       }
-    }    
+    }
   }
 }
