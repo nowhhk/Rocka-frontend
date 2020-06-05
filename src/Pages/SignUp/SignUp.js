@@ -21,6 +21,7 @@ class SignUp extends Component {
       contactArr: [],
       idMessage: false,
       pwMessage: false,
+      pwGex: false,
       genders: [
         { id: 1, value: "남성", isChecked: false },
         { id: 2, value: "여성", isChecked: false },
@@ -65,12 +66,11 @@ class SignUp extends Component {
   }
 
   pwCorrect = (e) => {
-    const strongRegex = (/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,16})/);
     this.setState({
       [e.target.name]: e.target.value
     });
 
-    if (this.state.pw !== e.target.value && !e.target.value.match(strongRegex)) {
+    if (this.state.pw !== e.target.value) {
       this.setState({ pwMessage: true })
     } else {
       this.setState({ pwMessage: false })
@@ -92,6 +92,23 @@ class SignUp extends Component {
     }
   }
 
+  pwInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    const reg = new RegExp("^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*?<>|~()])(?=.{8,16})");
+    const isOk = reg.test(e.target.value);
+
+    console.log(isOk)
+    if (isOk === false) {
+      this.setState({
+        pwGex: true,
+      })
+    } else {
+      this.setState({
+        pwGex: false,
+      })
+    }
+  }
+
   genderCheck = (e) => {
     let genders = this.state.genders
     genders.forEach(gender => {
@@ -106,28 +123,33 @@ class SignUp extends Component {
     console.log(e.target.value)
   }
 
-  handleComplete = (data) => {
-    let fullAddress = data.address;
-    let extraAddress = '';
+  handleComplete = () => {
+    new window.daum.Postcode({
+      oncomplete: function (data) {
+        let fullAddress = data.address;
+        let extraAddress = '';
 
-    if (data.addressType === 'R') {
-      if (data.bname !== '') {
-        extraAddress += data.bname;
-      }
-      if (data.buildingName !== '') {
-        extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
-      }
-      fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
-    }
+        if (data.addressType === 'R') {
+          if (data.bname !== '') {
+            extraAddress += data.bname;
+          }
+          if (data.buildingName !== '') {
+            extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
+          }
+          fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
+        }
 
-    console.log(fullAddress);
+        console.log(fullAddress);
+      }
+    }).open();
   }
+
 
 
   render() {
     console.log(this.state.address)
     console.log(this.state.gender)
-    const { idMessage, pwMessage } = this.state
+    const { idMessage, pwMessage, pwGex } = this.state
     return (
       <div className="SignUp">
         <Nav />
@@ -262,7 +284,8 @@ class SignUp extends Component {
                 <tr>
                   <th>비밀번호<span className="termsOfServiceDot">•</span></th>
                   <td>
-                    <input type="password" name="pw" onChange={this.handleInput} />
+                    <input type="password" name="pw" onChange={this.pwInput} />
+                    <span className="warningMessage" style={{ display: pwGex ? 'block' : 'none' }}>비밀번호의 조건이 일치하지 않습니다.</span>
                     <div class="pwArticle">
                       • 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자<br></br>
                     • 입력 가능 특수문자 ~ ’ ! @ # $ % ^ ( ) _ - = {`{}`} | ; : {`< > `}, . ? /<br></br>
@@ -311,7 +334,7 @@ class SignUp extends Component {
                   <th>주소</th>
                   <td>
                     <ul>
-                      <li className="addressList"><input type="text" className="userInfoInputBox" name="address" onChange={this.handleInput} /><div onClick={this.Postcode}>우편번호 검색</div></li>
+                      <li className="addressList"><input type="text" className="userInfoInputBox" name="address" onChange={this.handleInput} /><div onClick={this.handleComplete}>우편번호 검색</div></li>
                       <li><input type="text" className="userInfoInputBox" /></li>
                       <li><input type="text" className="userInfoInputBox" /></li>
                     </ul>
