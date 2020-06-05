@@ -16,7 +16,7 @@ class ShoppingCartList extends Component {
                   <span className="checkbox-custom"></span>
                 </label>
                 <div className="savingProductImg">
-                  <img src={cartData.image_url} alt="" />
+                  <img src={cartData.outer_front_image_url} alt="" />
                 </div>
                 <div className="savingProductInfo">
                   <div className="savingProductInfoMain">
