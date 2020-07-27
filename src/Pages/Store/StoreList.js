@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import Stores from "./Stores";
 import "./Store.scss";
 
-class StoreList extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+import React, { Component } from "react";
 
+import Stores from "./Stores";
+import { withRouter } from "react-router-dom";
+
+class StoreList extends Component {
   render() {
     const list = this.props.stores.map((store, idx) => {
       return (
@@ -35,7 +32,7 @@ class StoreList extends Component {
             <div className="tel">전화번호</div>
             <div className="address">주소</div>
             <div className="weekday">운영시간</div>
-            <div className="map"></div>
+            <div className="map">지도</div>
           </div>
         </div>
         {list}
