@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { API } from "../../config"
 import "./ProductDetailMyTop.scss";
 
@@ -19,9 +20,14 @@ class ProductDetailTop extends Component {
     clickShopping = () => {
         const token = localStorage.getItem("Authorization")
 
-        console.log("보낼 리스트", this.state.wishList)
-        console.log("보낼 이름", this.props.colorInfo.id)
-        console.log("유저 토큰", token)
+        // console.log("보낼 리스트", this.state.wishList)
+        // console.log("보낼 이름", this.props.colorInfo.id)
+        // console.log("유저 토큰", token)
+
+        for (let i in this.state.wishList) {
+            this.state.wishList[i].id = this.props.colorInfo.id
+            console.log(this.state.wishList)
+        }
 
         fetch(`${API}/order`, {
             method: 'POST',
@@ -30,14 +36,15 @@ class ProductDetailTop extends Component {
                 Authorization: token //헤더에서 토큰을 보내는 것 
             },
             body: JSON.stringify({
-                id: this.props.colorInfo.id,
-                wishList: this.state.wishList.order_quantity.name,
+                wishList: this.state.wishList
             })
         })
             .then(response => {
-                if (response.status === 200) {
-                    alert("장바구니에 담겼습니다.")
-                }
+                this.props.history.push("/cart")
+                // if (response.status === 200) {
+                //     // alert("장바구니에 담겼습니다.")
+
+                // }
             })
     }
 
@@ -79,8 +86,8 @@ class ProductDetailTop extends Component {
 
     imgClick = (colors) => {
         const { wishList } = this.state;
-        console.log("wishList : ", wishList)
-        console.log(colors)
+        // console.log("wishList : ", wishList)
+        // console.log(colors)
         if (wishList.includes(colors)) {
             alert("이미 선택되어 있는 옵션입니다.");
         } else {
@@ -90,10 +97,25 @@ class ProductDetailTop extends Component {
         }
     }
 
+    btnDelete = (name) => {
+        console.log(this.state.wishList)
+        // for (let j in this.state.wishList)
+        //     if (name === this.state.wishList[j].name) {
+        //         // this.state.wishList.slice(this.state.wishList[j].name, 1);
+        //         this.state({ wishList: this.state.wishList[j].indexOf(name) })
+        //     }
+        const idx = this.state.wishList.findIndex(function (item) {
+            return item.name === name
+        })
+
+        console.log(idx)
+        this.state.wishList.splice(idx, 1)
+    }
+
     render() {
         const { hi } = this.state;
-        console.log(this.state.productName)
-        console.log(this.props.colorInfo.name)
+        // console.log(this.state.productName)
+        // console.log(this.props.colorInfo.name)
 
         return (
             <div className="ProductDetailTop">
@@ -120,7 +142,7 @@ class ProductDetailTop extends Component {
                                     <div className="clickColor">
                                         <div className="plusColor">
                                             <span>COLOR</span>
-                                            <sapn className="plus">+</sapn>
+                                            <span className="plus">+</span>
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +185,7 @@ class ProductDetailTop extends Component {
                                                                 +
                                                         </button>
                                                         </div>
-                                                        <div className="wishListDelete">X</div>
+                                                        <div className="wishListDelete" onClick={() => this.btnDelete(wishArr.name)}>X</div>
                                                     </div>
                                                 </div>
                                             );
@@ -189,4 +211,4 @@ class ProductDetailTop extends Component {
     }
 }
 
-export default ProductDetailTop;
+export default withRouter(ProductDetailTop);
