@@ -1,33 +1,37 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import Nav from "../../Component/Nav/Nav";
-import Search from "./Search";
+
 import { API } from "../../config";
 import Footer from "../../Component/Footer/Footer";
+import Nav from "../../Component/Nav/Nav";
+import Search from "./Search";
 import StoreList from "./StoreList.js";
+import { withRouter } from "react-router-dom";
 
 class Store extends Component {
   constructor() {
     super();
     this.state = {
       stores: [],
-      name: "",
+      userInput: "",
     };
   }
 
   componentDidMount() {
-    fetch(`${API}/store`)
+    // fetch(`${API}/store`)
+    fetch("/data/datastore.json")
       .then((res) => res.json())
       .then((res) => this.setState({ stores: res.data }));
   }
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+  onSearchSubmit = (value) => {
+    this.setState({ userInput: value });
   };
 
   render() {
+    const filtered = this.state.stores.filter((store) =>
+      store.address.includes(this.state.userInput)
+    );
+
     return (
       <div className="wrapper">
         <Nav />
@@ -37,8 +41,8 @@ class Store extends Component {
             alt=""
           />
           <div className="storeBox">
-            <Search stores={this.state.stores} onChange={this.handleChange} />
-            <StoreList stores={this.state.stores} name={this.state.name} />
+            <Search onSubmit={this.onSearchSubmit} />
+            <StoreList stores={filtered} />
           </div>
         </div>
         <Footer />

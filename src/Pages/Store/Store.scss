@@ -28,6 +28,7 @@
           }
           div:nth-child(1) {
             width: 190px;
+            padding-left: 50px;
           }
           div:nth-child(2) {
             width: 150px;
@@ -43,10 +44,11 @@
           }
           div:nth-child(6) {
             width: 200px;
+            padding-left: 105px;
           }
         }
       }
-    
+
       .store-list {
         .list {
           font-size: $secondSmallestFontSize;
@@ -56,6 +58,7 @@
           }
           div:nth-child(1) {
             width: 190px;
+            padding-left: 50px;
           }
           div:nth-child(2) {
             width: 150px;
@@ -78,6 +81,6 @@
           }
         }
       }
-    }    
+    }
   }
 }
