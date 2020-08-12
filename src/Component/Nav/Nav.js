@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import "./Nav.scss";
+
+import React, { Component } from "react";
+
+import { withRouter } from "react-router-dom";
 
 class Nav extends Component {
   constructor() {
@@ -50,30 +52,38 @@ class Nav extends Component {
     const { login, join } = this.state;
 
     return (
-      <header className={this.state.scrollTop > 200 ? "scrolled" : "header"}>
-        <div className="nav left">
-          <span
-            onClick={() => {
-              this.props.history.push("/product");
-            }}
-          >
-            PRODUCT
-          </span>
-          <span
-            onClick={() => {
-              this.props.history.push("/store");
-            }}
-          >
-            STORY
-          </span>
-          <span
-            onClick={() => {
-              this.props.history.push("/store");
-            }}
-          >
-            STORE
-          </span>
-        </div>
+      <header
+        className={this.state.scrollTop > 200 ? "header scrolled" : "header"}
+      >
+        <ul className="nav left">
+          <li>
+            <span
+              onClick={() => {
+                this.props.history.push("/product");
+              }}
+            >
+              PRODUCT
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                this.props.history.push("/store");
+              }}
+            >
+              STORY
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                this.props.history.push("/store");
+              }}
+            >
+              STORE
+            </span>
+          </li>
+        </ul>
         <h1 className="logo">
           <span
             onClick={() => {
@@ -83,29 +93,33 @@ class Nav extends Component {
             LAKA
           </span>
         </h1>
-        <div className="nav right">
-          <span
-            onClick={this.loginEvent}
-          >
-            {login}
-          </span>
-          <span
-            style={{ display: join ? 'inlineblock' : 'none' }}
-            onClick={(e) => {
-              this.props.history.push("/signup");
-            }}
-          >
-            JOIN
-          </span>
-          <span>MY</span>
-          <span
-            onClick={() => {
-              this.props.history.push("/cart");
-            }}
-          >
-            CART
-          </span>
-        </div>
+        <ul className="nav right">
+          <li>
+            <span onClick={this.loginEvent}>{login}</span>
+          </li>
+          <li>
+            <span
+              style={{ display: join ? "inlineblock" : "none" }}
+              onClick={(e) => {
+                this.props.history.push("/signup");
+              }}
+            >
+              JOIN
+            </span>
+          </li>
+          <li>
+            <span>MY</span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                this.props.history.push("/cart");
+              }}
+            >
+              CART
+            </span>
+          </li>
+        </ul>
       </header>
     );
   }

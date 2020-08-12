@@ -1,11 +1,13 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import Btn from "./Btn";
-import Nav from "../../Component/Nav/Nav";
-import Footer from "../../Component/Footer/Footer";
-import { API } from "../../config";
 import "./Main.scss";
+
+import React, { Component } from "react";
+
+import { API } from "../../config";
+import Btn from "./Btn";
+import Footer from "../../Component/Footer/Footer";
+import Nav from "../../Component/Nav/Nav";
 import ProductList from "../Product/ProductList";
+import { withRouter } from "react-router-dom";
 
 class Main extends Component {
   constructor() {
@@ -41,7 +43,8 @@ class Main extends Component {
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
 
-    fetch(`${API}/product`)
+    // fetch(`${API}/product`)
+    fetch("./data/data.json")
       .then((res) => res.json())
       // .then((res) => console.log(res));
       .then((res) =>

@@ -1,22 +1,30 @@
 @import "../../Styles/common.scss";
 
 .item {
-  position: relative;
   width: 100%;
-  // border: solid 1px red;
   margin-bottom: 2em;
   margin-right: 2em;
 
   img {
     width: 100%;
   }
+  .front:hover > .back {
+    z-index: 1;
+    opacity: 1;
+  }
+
   .front {
+    position: relative;
     img {
       background-color: #e4e4e4;
     }
   }
 
   .back {
+    position: absolute;
+    top: 0px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
     .item-info {
       background-color: white;
       position: absolute;

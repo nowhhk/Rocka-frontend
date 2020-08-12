@@ -1,26 +1,11 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import "./Item.scss";
 
+import React, { Component } from "react";
+
+import { withRouter } from "react-router-dom";
+
 class Item extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      mouseOver: false,
-    };
-  }
-
-  handleOver = () => {
-    this.setState({ mouseOver: true });
-  };
-
-  handleOut = () => {
-    this.setState({ mouseOver: false });
-  };
-
   render() {
-    const { mouseOver } = this.state;
     const {
       name,
       description,
@@ -42,12 +27,10 @@ class Item extends Component {
     const price = Number(price_krw_subst).toLocaleString();
 
     return (
-      <li
-        className="item"
-        onMouseOver={this.handleOver}
-        onMouseOut={this.handleOut}
-      >
-        {mouseOver ? (
+      <li className="item">
+        <div className="front">
+          <img src={`${outer_front_image_url}`} alt="" />
+
           <div className="back">
             <img
               className="product-img"
@@ -65,11 +48,7 @@ class Item extends Component {
               </div>
             </div>
           </div>
-        ) : (
-          <div className="front">
-            <img src={`${outer_front_image_url}`} alt="" />
-          </div>
-        )}
+        </div>
       </li>
     );
   }

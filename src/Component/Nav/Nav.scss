@@ -15,10 +15,37 @@
   background-color: white;
 
   .nav {
+    display: flex;
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
+    li > span {
+      position: relative;
+    }
+    li > span::after {
+      content: "";
+      width: 0%;
+      left: 0%;
+      height: 1px;
+      display: block;
+      position: absolute;
+      margin-top: 10px;
+      border-bottom: 1px solid black;
+      transition: all 0.3s ease;
+    }
+    li:hover > span::after {
+      content: "";
+      width: 100%;
+      left: 0px;
+      height: 1px;
+      display: block;
+      position: absolute;
+      margin-top: 10px;
+      border-bottom: 1px solid black;
+      transition: all 0.3s ease;
+    }
   }
+
   .left {
     span {
       margin-right: 1.5em;
@@ -50,25 +77,4 @@
   top: 0;
   z-index: 3;
   background-color: rgba(255, 255, 255, 0.6);
-
-  .nav {
-    font-size: 1.5rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .left {
-    span {
-      margin-right: 1.5em;
-    }
-  }
-  .right {
-    span {
-      margin-left: 1.5em;
-    }
-  }
-  .logo {
-    font-size: 3.3rem;
-    font-weight: 600;
-    cursor: pointer;
-  }
 }
