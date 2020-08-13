@@ -3,7 +3,7 @@
 # 라카 클론 프로젝트
 
 
-- Clone Site : [laka](https://laka.co.kr/index.html) ([https://laka.co.kr/index.html](https://laka.co.kr/index.html))
+- Clone Site : [laka](https://laka.co.kr/index.html)
 - 코딩 1개월 차 Wecode 8기 4명의 수강생들이 만든 2주 클론 프로젝트 입니다.
 - Front-end 2명과 Back-end 2명이 팀을 이뤄 개발 했습니다.
 
