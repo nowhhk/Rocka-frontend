@@ -16,7 +16,7 @@ class Main extends Component {
       data: [],
       scrollTop: {},
       activeTab: "best",
-      tabClass: "activeBest",
+      tabClass: "activebest",
       pop: "none",
       topTo: "yet",
     };
@@ -28,12 +28,8 @@ class Main extends Component {
     this.setState({ scrollTop }, console.log(this.state));
   };
 
-  handleClickedBest = () => {
-    this.setState({ activeTab: "best", tabClass: "activeBest" });
-  };
-
-  handleClickedNew = () => {
-    this.setState({ activeTab: "new", tabClass: "activeNew" });
+  handleClicked = (prop) => {
+    this.setState({ activeTab: prop, tabClass: `active${prop}` });
   };
 
   componentWillUnmount() {
@@ -43,10 +39,9 @@ class Main extends Component {
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
 
-    // fetch(`${API}/product`)
-    fetch("./data/data.json")
+    fetch(`${API}/product`)
+      // fetch("./data/data.json")
       .then((res) => res.json())
-      // .then((res) => console.log(res));
       .then((res) =>
         this.setState({
           data: res.data,
@@ -56,9 +51,6 @@ class Main extends Component {
 
   render() {
     const { data, scrollTop, activeTab, tabClass } = this.state;
-
-    console.log(this.state);
-    // best filter 기준 수정필요
     const bestproduct = data.filter((item) => item.id < 20);
 
     const newSort = [
@@ -256,13 +248,13 @@ class Main extends Component {
                 <ul className="tabsTitle">
                   <li
                     className={tabClass}
-                    onClick={() => this.handleClickedBest("best")}
+                    onClick={() => this.handleClicked("best")}
                   >
                     <span>BEST</span>
                   </li>
                   <li
                     className={tabClass}
-                    onClick={() => this.handleClickedNew("new")}
+                    onClick={() => this.handleClicked("new")}
                   >
                     <span>NEW</span>
                   </li>

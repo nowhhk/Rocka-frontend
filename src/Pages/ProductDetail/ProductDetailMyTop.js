@@ -1,119 +1,109 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { API } from "../../config"
 import "./ProductDetailMyTop.scss";
+
+import React, { Component } from "react";
+
+import { API } from "../../config"
+import { withRouter } from "react-router-dom";
 
 class ProductDetailTop extends Component {
     constructor(props) {
-        super(props);
-
-        this.state = {
-            data: [],
-            hi: false,
-            wishList: [],
-            minus: [],
-            postData: {},
-        };
+      super(props);
+  
+      this.state = {
+        data: [],
+        colorList: false,
+        wishList: [],
+      };
     }
-
+  
     //BE에 보낼 것
     clickShopping = () => {
-        const token = localStorage.getItem("Authorization")
-
-        // console.log("보낼 리스트", this.state.wishList)
-        // console.log("보낼 이름", this.props.colorInfo.id)
-        // console.log("유저 토큰", token)
-
-        for (let i in this.state.wishList) {
-            this.state.wishList[i].id = this.props.colorInfo.id
-            console.log(this.state.wishList)
+      const token = localStorage.getItem("Authorization");
+  
+      for (let i in this.state.wishList) {
+        this.state.wishList[i].id = this.props.colorInfo.id;
+        delete this.state.wishList[i].image_url;
+      }
+  
+      fetch(`${API}/order`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          wishlist: this.state.wishList,
+        }),
+      }).then((response) => {
+        if (response.status === 200) {
+          alert("장바구니에 담겼습니다.");
+          this.props.history.push("/cart");
         }
-
-        fetch(`${API}/order`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: token //헤더에서 토큰을 보내는 것 
-            },
-            body: JSON.stringify({
-                wishList: this.state.wishList
-            })
-        })
-            .then(response => {
-                this.props.history.push("/cart")
-                // if (response.status === 200) {
-                //     // alert("장바구니에 담겼습니다.")
-
-                // }
-            })
-    }
-
+      });
+    };
+  
     sumTotal = () => {
-        let sum = 0;
-        for (let i in this.state.wishList) {
-            sum += this.state.wishList[i].order_quantity
-        }
-        return sum;
-    }
-
+      let sum = 0;
+      for (let i in this.state.wishList) {
+        sum += this.state.wishList[i].order_quantity;
+      }
+      return sum;
+    };
+  
     clickCircle = () => {
-        this.setState({
-            hi: true
-        })
-    }
-
-    //아직 기능 구현 중 부분
+      this.setState({
+        colorList: true,
+      });
+    };
+  
     minusButton = (idx) => {
-        const newWishList = [...this.state.wishList];
-        console.log("새로운 리스트", newWishList);
-
-        if (newWishList[idx].order_quantity === 1) {
-            alert("최소 주문수량은 1개 입니다.")
-        } else {
-            newWishList[idx].order_quantity--;
-            this.setState({ wishList: newWishList });
-        }
+      const newWishList = [...this.state.wishList];
+      console.log("새로운 리스트", newWishList);
+  
+      if (newWishList[idx].order_quantity === 1) {
+        alert("최소 주문수량은 1개 입니다.");
+      } else {
+        newWishList[idx].order_quantity--;
+        this.setState({ wishList: newWishList });
+      }
     };
-
+  
     plusButton = (idx) => {
-        const newWishList = [...this.state.wishList];
-
-        if (newWishList[idx].order_quantity > 0) {
-            newWishList[idx].order_quantity++;
-            this.setState({ wishList: newWishList });
-        }
+      const newWishList = [...this.state.wishList];
+  
+      if (newWishList[idx].order_quantity > 0) {
+        newWishList[idx].order_quantity++;
+        this.setState({ wishList: newWishList });
+      }
     };
-
+  
     imgClick = (colors) => {
-        const { wishList } = this.state;
-        // console.log("wishList : ", wishList)
-        // console.log(colors)
-        if (wishList.includes(colors)) {
-            alert("이미 선택되어 있는 옵션입니다.");
-        } else {
-            this.setState({
-                wishList: wishList.concat(colors)
-            })
-        }
-    }
-
+      const { wishList } = this.state;
+      // console.log("wishList : ", wishList)
+      // console.log(colors)
+      if (wishList.includes(colors)) {
+        alert("이미 선택되어 있는 옵션입니다.");
+      } else {
+        this.setState({
+          wishList: wishList.concat(colors),
+        });
+      }
+    };
+  
     btnDelete = (name) => {
-        console.log(this.state.wishList)
-        // for (let j in this.state.wishList)
-        //     if (name === this.state.wishList[j].name) {
-        //         // this.state.wishList.slice(this.state.wishList[j].name, 1);
-        //         this.state({ wishList: this.state.wishList[j].indexOf(name) })
-        //     }
-        const idx = this.state.wishList.findIndex(function (item) {
-            return item.name === name
-        })
-
-        console.log(idx)
-        this.state.wishList.splice(idx, 1)
-    }
+      const { wishList } = this.state;
+      for (let i in wishList) {
+        if (wishList[i].name === name) {
+          wishList[i].order_quantity = 1;
+        }
+      }
+      this.setState({
+        wishList: wishList.filter((list) => list.name !== name),
+      });
+    };
 
     render() {
-        const { hi } = this.state;
+        const { colorList } = this.state;
         // console.log(this.state.productName)
         // console.log(this.props.colorInfo.name)
 
@@ -147,7 +137,7 @@ class ProductDetailTop extends Component {
                                     </div>
                                 </div>
                                 <div className="MainLeftChoiceColor"
-                                    style={{ display: hi ? 'block' : 'none' }}>
+                                    style={{ display: colorList ? 'block' : 'none' }}>
                                     <ul>
                                         {
                                             this.props.colorInfo.color && this.props.colorInfo.color.map((color, idx) => {
