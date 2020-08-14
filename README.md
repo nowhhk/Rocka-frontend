@@ -1,22 +1,23 @@
-# Laka Readme
+https://velog.io/@nowhhk/LOCKA-%EC%BD%94%EB%93%9C#code-review
 
-# 라카 클론 프로젝트
-
-
-- Clone Site : [laka](https://laka.co.kr/index.html)
+## Rocka
 - 코딩 1개월 차 Wecode 8기 4명의 수강생들이 만든 2주 클론 프로젝트 입니다.
 - Front-end 2명과 Back-end 2명이 팀을 이뤄 개발 했습니다.
 
-## **Introduction**
+### 설명
+- 프로젝트 기간 : 2020.5.25 ~ 2020.6.05 | 2 weeks
+- Front-End: React, SCSS
+- Back-End: Django, MySQL [https://github.com/wecode-bootcamp-korea/Rocka-backend](https://github.com/wecode-bootcamp-korea/Rocka-backend)
+
+### 데모 (클릭) 
+[![Video Label](https://i9.ytimg.com/vi/T-Cq8Tb18IM/mq2.jpg?sqp=CJDw2fkF&rs=AOn4CLA8VuPmjdhuTmlsAn2vhurg5HrSlw)](https://youtu.be/T-Cq8Tb18IM)
 
 
-- Project Period : 2020.5.25 ~ 2020.6.05 | 2 weeks
-- Members : [{Front-end : '권미란', '홍현경'}, {Back-end : '하영빈', '정광묵'}]
-- Back-end Rope: [https://github.com/wecode-bootcamp-korea/Rocka-backend](https://github.com/wecode-bootcamp-korea/Rocka-backend)
+### 프론트엔드 기술 스택
+- React
+- SASS
 
-## 페이지
-
-
+### 구현 페이지
 - 회원가입
 - 로그인
 - 메인 페이지
@@ -25,41 +26,21 @@
 - 장바구니
 - 스토어
 
-## **목표**
+### 기여한 부분 
+메인페이지
+- 스크롤이벤트를 활용하여 스크롤값에 따라 변화하는 CSS 스타일링 적용
+- keyframes animation으로 이미지슬라이드쇼 구현
+
+제품 리스트 페이지
+- 클론 프로젝트이지만 사용자 입장에서 기존 사이트의 불편함을 인식하고 더 나은 UI/UX에 대해 고민해보고 적용
+- sort 메소드를 사용하여 조건별로 상품정렬 기능 구현
+- API에서 불러온 카테고리 분류와 제품리스트 데이터를 map 메소드 이용하여 목록구현
+- 카테고리별로 이동하는 동적라우팅 구현
+
+스토어 페이지
+- 유저가 선택한 옵션 및 입력한 input값에 따른 검색기능
+
+제품 상세 페이지
+- 옵션 삭제 기능 추가
 
 
-- Scrum 기반 에자일 활용한 협업, 하루에 한 번 Stand up meeting과 팀원들간 TRELLO를 활용하여 1주 간격 스프린트 기준 프로젝트 진행
-- Front-end와 Back-end 간의 협업을 통해 커뮤니케이션의 중요성 이해
-- Back-end API 요청을 통해 원하는 데이터 GET / POST 송수신
-- 애니메이션과 UI과 React의 라이브러리를 사용하지 않고 구현해보기
-
-## 세부 구현 **기능**
-
-
-- 회원가입 및 로그인 기능 구현
-- 회원가입 유효성 검사 기능 구현
-- 메인 페이지 구현 시 스크롤 이벤트 라이브러리 없이 SCSS와 React로 구현
-- 카테고리 별 동적 Routing 구현
-- 제품 디테일 페이지에서의 1차 list 담기 구현
-- 제품 정렬 기능 구현
-
-## 기술 스택
-
-
-1. React.js
-2. React-router
-3. SCSS
-4. AWS EC2
-5. RESTful API
-6. GIT
-
-## 유튜브 영상 첨부
-
-
-[https://youtu.be/T-Cq8Tb18IM](https://youtu.be/T-Cq8Tb18IM)
-
-## 회고록
-
-
-- [권미란의 회고록](https://gwonran.github.io/blog/laka-end/20%2006%2006%20eb60fa4708b44eb6ab582d9f080ecbd9/)
-- [홍현경의 회고록](https://velog.io/@nowhhk/LOCKA-%EC%BD%94%EB%93%9C)
