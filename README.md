@@ -1,4 +1,4 @@
-https://velog.io/@nowhhk/LOCKA-%EC%BD%94%EB%93%9C#code-review
+[Review Blog](https://velog.io/@nowhhk/LOCKA-%EC%BD%94%EB%93%9C#code-review)
 
 # Rocka : 라카 클론 프로젝트
 - 코딩 1개월 차 Wecode 8기 4명의 수강생들이 만든 2주 클론 프로젝트 입니다.
